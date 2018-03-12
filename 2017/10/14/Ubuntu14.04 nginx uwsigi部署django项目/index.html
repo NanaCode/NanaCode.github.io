@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="部署," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="自从我这Windows党在配置Ubuntu14.04开发环境的时候，把Ubuntu系统折腾奔溃了以后（千万不要手贱重装Ubuntu14.04的python, 升级或者多python共存都可以，就是不要把默认的卸载了重装，活生生的教训摆在眼前）。我就暗下决心要在家用虚拟机装个Ubuntu14.04好好折腾。趁着周末，抽出了几个小时，折腾了下如何用Ubuntu14.04,nginx,uwsgi部署dj">
+<meta name="keywords" content="部署">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu14.04,nginx,uwsgi部署django项目">
+<meta property="og:url" content="http://yoursite.com/2017/10/14/Ubuntu14.04 nginx uwsigi部署django项目/index.html">
+<meta property="og:site_name" content="Nana&#39;s Blog">
+<meta property="og:description" content="自从我这Windows党在配置Ubuntu14.04开发环境的时候，把Ubuntu系统折腾奔溃了以后（千万不要手贱重装Ubuntu14.04的python, 升级或者多python共存都可以，就是不要把默认的卸载了重装，活生生的教训摆在眼前）。我就暗下决心要在家用虚拟机装个Ubuntu14.04好好折腾。趁着周末，抽出了几个小时，折腾了下如何用Ubuntu14.04,nginx,uwsgi部署dj">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-16T14:33:24.993Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu14.04,nginx,uwsgi部署django项目">
+<meta name="twitter:description" content="自从我这Windows党在配置Ubuntu14.04开发环境的时候，把Ubuntu系统折腾奔溃了以后（千万不要手贱重装Ubuntu14.04的python, 升级或者多python共存都可以，就是不要把默认的卸载了重装，活生生的教训摆在眼前）。我就暗下决心要在家用虚拟机装个Ubuntu14.04好好折腾。趁着周末，抽出了几个小时，折腾了下如何用Ubuntu14.04,nginx,uwsgi部署dj">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"top","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/14/Ubuntu14.04 nginx uwsigi部署django项目/"/>
+
+
+
+
+
+  <title>Ubuntu14.04,nginx,uwsgi部署django项目 | Nana's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-top page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nana's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Today is the first day of the rest of your life.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/14/Ubuntu14.04 nginx uwsigi部署django项目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nana Xie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nana's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ubuntu14.04,nginx,uwsgi部署django项目</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-14T17:52:06+08:00">
+                2017-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/部署/" itemprop="url" rel="index">
+                    <span itemprop="name">部署</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/14/Ubuntu14.04 nginx uwsigi部署django项目/" class="leancloud_visitors" data-flag-title="Ubuntu14.04,nginx,uwsgi部署django项目">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>自从我这Windows党在配置Ubuntu14.04开发环境的时候，把Ubuntu系统折腾奔溃了以后（千万不要手贱重装Ubuntu14.04的python, 升级或者多python共存都可以，就是不要把默认的卸载了重装，活生生的教训摆在眼前）。我就暗下决心要在家用虚拟机装个Ubuntu14.04好好折腾。<br>趁着周末，抽出了几个小时，折腾了下如何用Ubuntu14.04,nginx,uwsgi部署django项目。中间遇到了几个坑。幸好这几个坑都没有很深，看来平时要多折腾多部署。<br>今晚有点晚了，博客内容有点乱，下次复习部署的过程再把博客细节完善好。</p>
+<h2 id="1-下载虚拟机和Ubuntu"><a href="#1-下载虚拟机和Ubuntu" class="headerlink" title="1.下载虚拟机和Ubuntu"></a>1.下载虚拟机和Ubuntu</h2><h3 id="1-1-下载Ubuntu14-04"><a href="#1-1-下载Ubuntu14-04" class="headerlink" title="1.1 下载Ubuntu14.04"></a>1.1 下载Ubuntu14.04</h3><p><a href="http://releases.ubuntu.com/14.04/" target="_blank" rel="external">Ubuntu14.04官网下载</a><br>ubuntu-14.04.5-desktop-amd64.iso </p>
+<h3 id="1-2-下载虚拟机"><a href="#1-2-下载虚拟机" class="headerlink" title="1.2 下载虚拟机"></a>1.2 下载虚拟机</h3><p>下载虚拟机VM Workstation 14<br><!-- (密匙:FF31KAHZD1H8ETZ8WWEZWUUVAs) --><br><!-- ubuntu14
+nana
+8.......n. --></p>
+<p>虚拟机名称：ubuntu14</p>
+<p>虚拟磁盘存储单个文件</p>
+<h2 id="2-安装nginx"><a href="#2-安装nginx" class="headerlink" title="2.安装nginx"></a>2.安装nginx</h2><!-- 安装mysql
+mysql密码
+
+进入mysql的命令
+
+mysql的连接配置
+
+
+
+记住sudo的命令
+
+i 键 编辑模式
+
+Ubuntu14.04 terminal添加右键
+sudo apt-get install nautilus-open-terminal
+http://blog.csdn.net/jk38687587/article/details/52103005
+亲测有效 记得要重启系统才能生效 -->
+<p>sudo apt-get install nginx  安装nginx<br>ps aux|grep nginx 查看进程是否启动</p>
+<!-- ip 192.168.77.128 -->
+<p>ifconfig查看IP地址，浏览器打开<br>Welcome to nginx!欢迎界面<br>安装成功！</p>
+<h2 id="3-安装mysql"><a href="#3-安装mysql" class="headerlink" title="3.安装mysql"></a>3.安装mysql</h2><p>sudo apt-get install mysql-server<br>提示输入mysql密码<br>安装完成会自动启动mysql-server<br>ps aux|grep mysql 查看进程是否启动   有个进程叫/usr/sbin/mysqld，就是mysql的server<br>进入mysql   mysql -u root -p<br>show databases;  记得分号</p>
+<p>vim - gnome 安装<br>sudo vim /etc/mysql/my.cnf   注意这里是my.cnf文件了<br>mysql的ip绑定  bind-address<br>i 进入编辑模式<br>bind-address            = 127.0.0.1<br>更改为：bind-address            = 0.0.0.0  就可以通过IP地址来连接我们的mysql<br>这里更改只是为了windows连接进来，真正部署尽量用127.0.0.1，这样就不会让我们的端口暴露出来。<br>esc退出编辑模式，按shift加冒号，wq退出并保存<br>配置文件修改完后，重启mysql<br>sudo service mysql restart<br>mysql重启成功</p>
+<p>ifconfig查看ip地址<br>192.168.77.128<br>navicat 主机名或ip地址填写ip地址<br>连接测试  1130 - Host ‘192.168.77.128’ is not allowed to connect to this MySQL server<br>默认mysql是只允许本地连接</p>
+<p>mysql -h 192.168.77.128 -u root -p<br>ERROR 1130 (HY000): Host ‘192.168.77.128’ is not allowed to connect to this MySQL server<br>用host连接也是不允许的</p>
+<p>修改配置让所有ip地址都可以连接进来呢？<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@’192.168.77.128’ IDENTIFIED BY ‘8xxxxxxxxn’ WITH GRANT OPTION;<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@’%’ IDENTIFIED BY ‘8xxxxxxxxn’ WITH GRANT OPTION;<br><em>.</em>-指的是所有表 这里也可以指明某张表<br>% 所有IP都可以访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">nana@ubuntu:~/Music$ mysql -u root -p</div><div class="line">Enter password: </div><div class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</div><div class="line">Your MySQL connection id is 39</div><div class="line">Server version: 5.5.57-0ubuntu0.14.04.1 (Ubuntu)</div><div class="line"></div><div class="line">Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.</div><div class="line"></div><div class="line">Oracle is a registered trademark of Oracle Corporation and/or its</div><div class="line">affiliates. Other names may be trademarks of their respective</div><div class="line">owners.</div><div class="line"></div><div class="line">Type &apos;help;&apos; or &apos;\h&apos; for help. Type &apos;\c&apos; to clear the current input statement.</div><div class="line"></div><div class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;8xxxxxxxxn&apos; WITH GRANT OPTION;</div><div class="line">Query OK, 0 rows affected (0.00 sec)</div><div class="line"></div><div class="line">mysql&gt;</div></pre></td></tr></table></figure></p>
+<p>生效了</p>
+<p>还需要刷新权限<br>mysql&gt; FLUSH PRIVILEGES;<br>Query OK, 0 rows affected (0.00 sec)</p>
+<p>连接测试-连接成功<br>这样就能通过主机的navicat去连接虚拟机上的数据库了</p>
+<p>新建数据库</p>
+<p>完成数据库的连接配置</p>
+<p>Mysql配置完成</p>
+<h2 id="4-安装虚拟环境"><a href="#4-安装虚拟环境" class="headerlink" title="4.安装虚拟环境"></a>4.安装虚拟环境</h2><p>不管开发还是生产环境都尽量用虚拟环境来做<br>nana@ubuntu:~/Music$ pip install virtualenv<br>程序“pip”尚未安装。 您可以使用以下命令安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-pip</div><div class="line">nana@ubuntu:~/Music$ sudo apt-get install python-pip</div><div class="line">nana@ubuntu:~/Music$ pip install virtualenv</div><div class="line">Downloading/unpacking virtualenv</div><div class="line">  Downloading virtualenv-15.1.0-py2.py3-none-any.whl (1.8MB): 1.8MB downloaded</div><div class="line">Installing collected packages: virtualenv</div><div class="line">Cleaning up...</div><div class="line">Exception:</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/usr/lib/python2.7/dist-packages/pip/basecommand.py&quot;, line 122, in main</div><div class="line">    status = self.run(options, args)</div><div class="line">  File &quot;/usr/lib/python2.7/dist-packages/pip/commands/install.py&quot;, line 283, in run</div><div class="line">    requirement_set.install(install_options, global_options, root=options.root_path)</div><div class="line">  File &quot;/usr/lib/python2.7/dist-packages/pip/req.py&quot;, line 1436, in install</div><div class="line">    requirement.install(install_options, global_options, *args, **kwargs)</div><div class="line">  File &quot;/usr/lib/python2.7/dist-packages/pip/req.py&quot;, line 672, in install</div><div class="line">    self.move_wheel_files(self.source_dir, root=root)</div><div class="line">  File &quot;/usr/lib/python2.7/dist-packages/pip/req.py&quot;, line 902, in move_wheel_files</div><div class="line">    pycompile=self.pycompile,</div><div class="line">  File &quot;/usr/lib/python2.7/dist-packages/pip/wheel.py&quot;, line 206, in move_wheel_files</div><div class="line">    clobber(source, lib_dir, True)</div><div class="line">  File &quot;/usr/lib/python2.7/dist-packages/pip/wheel.py&quot;, line 193, in clobber</div><div class="line">    os.makedirs(destsubdir)</div><div class="line">  File &quot;/usr/lib/python2.7/os.py&quot;, line 157, in makedirs</div><div class="line">    mkdir(name, mode)</div><div class="line">OSError: [Errno 13] Permission denied: &apos;/usr/local/lib/python2.7/dist-packages/virtualenv-15.1.0.dist-info&apos;</div><div class="line"></div><div class="line">Storing debug log for failure in /home/nana/.pip/pip.log</div></pre></td></tr></table></figure></p>
+<p>安装虚拟环境报错<br>命令前面加sudo，问题解决了<br>sudo pip install virtualenv</p>
+<p>sudo pip install virtualenvwrapper<br>安装完virtualenvwrapper之后，实际上workon命令是不能用的<br>需要编辑一个文件<br>主目录下面有个bashrc文件，编辑这个文件：<br>vim ~/.bashrc<br>export WORKON_HOME=$HOME/.virtualenvs<br>source /home/nana/.local/bin/virtualenvwrapper.sh<br>（WORKON_HOME virtualenvwrapper集中保存虚拟环境的路径  凡是通过mkvirtualenv命令创建的虚拟环境都会放到这里来）</p>
+<p>nana@ubuntu:~/Music$ source ~/.bashrc<br>bash: /home/nana/.local/bin/virtualenvwrapper.sh: 没有那个文件或目录<br>nana@ubuntu:~/Music$ vim ~/.bashrc<br>nana@ubuntu:~/Music$ source ~/.bashrc<br>bash: /home/nana/.local/usr/bin/virtualenvwrapper.sh: 没有那个文件或目录</p>
+<p>export WORKON_HOME=$HOME/.virtualenvs<br>source /usr/local/bin/virtualenvwrapper.sh<br>改成这样，注意Ubuntu14.04这里要这样写<br><a href="http://blog.csdn.net/yilovexing/article/details/72961594" target="_blank" rel="external">http://blog.csdn.net/yilovexing/article/details/72961594</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">nana@ubuntu:~/Music$ vim ~/.bashrc</div><div class="line">nana@ubuntu:~/Music$ source ~/.bashrc</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/premkproject</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/postmkproject</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/initialize</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/premkvirtualenv</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/postmkvirtualenv</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/prermvirtualenv</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/postrmvirtualenv</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/predeactivate</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/postdeactivate</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/preactivate</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/postactivate</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/get_env_details</div><div class="line">nana@ubuntu:~/Music$ workon</div><div class="line">nana@ubuntu:~/Music$ </div><div class="line"></div><div class="line">nana@ubuntu:~/Music$ mkvirtualenv mol</div><div class="line">New python executable in /home/nana/.virtualenvs/mol/bin/python</div><div class="line">Installing setuptools, pip, wheel...done.</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/mol/bin/predeactivate</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/mol/bin/postdeactivate</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/mol/bin/preactivate</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/mol/bin/postactivate</div><div class="line">virtualenvwrapper.user_scripts creating /home/nana/.virtualenvs/mol/bin/get_env_details</div><div class="line">(mol) nana@ubuntu:~/Music$ pip list</div><div class="line">DEPRECATION: The default format will switch to columns in the future. You can use --format=(legacy|columns) (or define a format=(legacy|columns) in your pip.conf under the [list] section) to disable this warning.</div><div class="line">pip (9.0.1)</div><div class="line">setuptools (36.6.0)</div><div class="line">wheel (0.30.0)</div></pre></td></tr></table></figure></p>
+<p>虚拟环境创建完成了</p>
+<h2 id="5-安装开发包"><a href="#5-安装开发包" class="headerlink" title="5.安装开发包"></a>5.安装开发包</h2><p>本地开发包导出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">C:\Windows\system32&gt;workon</div><div class="line"></div><div class="line">Pass a name to activate one of the following virtualenvs:</div><div class="line">==============================================================================</div><div class="line">article_spider</div><div class="line">FreshShop</div><div class="line">mol</div><div class="line">nanablog</div><div class="line">portus</div><div class="line">py22scrapy</div><div class="line">py2scrapy</div><div class="line">py3scrapy</div><div class="line">python_learning</div><div class="line">testvir2</div><div class="line">tp_supplier_platform</div><div class="line"></div><div class="line">C:\Windows\system32&gt;workon mol</div><div class="line">(mol) C:\Windows\System32&gt;pip list</div><div class="line">Package                Version</div><div class="line">---------------------- ---------</div><div class="line">certifi                2017.4.17</div><div class="line">chardet                3.0.4</div><div class="line">Django                 1.9.8</div><div class="line">django-crispy-forms    1.6.1</div><div class="line">django-formtools       2.0</div><div class="line">django-pure-pagination 0.3.0</div><div class="line">django-simple-captcha  0.4.6</div><div class="line">DjangoUeditor          1.8.143</div><div class="line">future                 0.16.0</div><div class="line">httplib2               0.9.2</div><div class="line">idna                   2.5</div><div class="line">MySQL-python           1.2.5</div><div class="line">olefile                0.44</div><div class="line">Pillow                 4.2.0</div><div class="line">pip                    9.0.1</div><div class="line">requests               2.18.1</div><div class="line">setuptools             36.0.1</div><div class="line">six                    1.10.0</div><div class="line">urllib3                1.21.1</div><div class="line">wheel                  0.29.0</div><div class="line">xlrd                   1.0.0</div><div class="line">XlsxWriter             0.9.8</div><div class="line">xlwt                   1.2.0</div><div class="line"></div><div class="line">(mol) C:\Windows\System32&gt;pip freeze &gt; requirements.txt</div><div class="line"></div><div class="line">(mol) C:\Windows\System32&gt;</div></pre></td></tr></table></figure></p>
+<p>拷贝这个文件的内容到虚拟机的新建文件里</p>
+<p>虚拟机里通过requriemtns来安装它<br>从这个文件读取，然后一个一个的开发包安装到虚拟环境里面</p>
+<p>报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">sh: 1: mysql_config: not found</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</div><div class="line">  File &quot;/tmp/pip-build-O8vP9C/MySQL-python/setup.py&quot;, line 17, in &lt;module&gt;</div><div class="line">    metadata, options = get_config()</div><div class="line">  File &quot;setup_posix.py&quot;, line 43, in get_config</div><div class="line">    libs = mysql_config(&quot;libs_r&quot;)</div><div class="line">  File &quot;setup_posix.py&quot;, line 25, in mysql_config</div><div class="line">    raise EnvironmentError(&quot;%s not found&quot; % (mysql_config.path,))</div><div class="line">EnvironmentError: mysql_config not found</div></pre></td></tr></table></figure></p>
+<p><a href="https://stackoverflow.com/questions/5178292/pip-install-mysql-python-fails-with-environmenterror-mysql-config-not-found" target="_blank" rel="external">https://stackoverflow.com/questions/5178292/pip-install-mysql-python-fails-with-environmenterror-mysql-config-not-found</a><br>sudo apt-get install libmysqlclient-dev</p>
+<p>发现某个开发包安装比较慢，Ctrl C停掉整个过程，单独安装这个开发包，使用豆瓣源加速安装。<br><a href="http://pypi.douban.com/simple/" target="_blank" rel="external">http://pypi.douban.com/simple/</a><br><a href="https://www.douban.com/note/302711300/" target="_blank" rel="external">https://www.douban.com/note/302711300/</a><br>注意不要用https</p>
+<p>用豆瓣源下载pillow失败 清华源也是同样的问题</p>
+<p>正常安装先</p>
+<p>Failed building wheel for MySQL-python<br>sudo apt-get install libmysqlclient-dev  发现我之前安装了这个，是不是可以暂时不安装呢<br>Failed building wheel for mysqlclient  又报错了，然后发现两个报错都提到这个fatal error: Python.h: 没有那个文件或目录<br>解决方法：sudo apt-get install python-dev</p>
+<h2 id="6-启动项目"><a href="#6-启动项目" class="headerlink" title="6.启动项目"></a>6.启动项目</h2><p>查看项目是否可以启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">nana@ubuntu:~/Music/MOl$ python manage.py runserver</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;manage.py&quot;, line 8, in &lt;module&gt;</div><div class="line">    from django.core.management import execute_from_command_line</div><div class="line">ImportError: No module named django.core.management</div><div class="line">nana@ubuntu:~/Music/MOl$ workon</div><div class="line">mol</div><div class="line">nana@ubuntu:~/Music/MOl$ workon mol</div><div class="line">(mol) nana@ubuntu:~/Music/MOl$ python manage.py runserver</div><div class="line">Performing system checks...</div><div class="line"></div><div class="line">/home/nana/.virtualenvs/mol/local/lib/python2.7/site-packages/DjangoUeditor/urls.py:11: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.</div><div class="line">  url(r&apos;^controller/$&apos;,get_ueditor_controller)</div><div class="line"></div><div class="line">System check identified no issues (0 silenced).</div><div class="line"></div><div class="line">You have unapplied migrations; your app may not work properly until they are applied.</div><div class="line">Run &apos;python manage.py migrate&apos; to apply them.</div><div class="line"></div><div class="line">October 15, 2017 - 11:21:49</div><div class="line">Django version 1.9.8, using settings &apos;MOl.settings&apos;</div><div class="line">Starting development server at http://127.0.0.1:8000/</div><div class="line">Quit the server with CONTROL-C.</div><div class="line">^CUnhandled exception in thread started by &lt;function wrapper at 0x7fc6d4f4e320&gt;</div><div class="line">Traceback (most recent call last):</div><div class="line">  File &quot;/home/nana/.virtualenvs/mol/local/lib/python2.7/site-packages/django/utils/autoreload.py&quot;, line 234, in wrapper</div><div class="line">    filename = traceback.extract_tb(tb)[-1][0]</div><div class="line">TypeError: &apos;NoneType&apos; object is not callable</div><div class="line">(mol) nana@ubuntu:~/Music/MOl$ python manage.py makemigrations</div><div class="line">/home/nana/.virtualenvs/mol/local/lib/python2.7/site-packages/DjangoUeditor/urls.py:11: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.</div><div class="line">  url(r&apos;^controller/$&apos;,get_ueditor_controller)</div><div class="line"></div><div class="line">No changes detected</div><div class="line">(mol) nana@ubuntu:~/Music/MOl$ python manage.py migrate</div><div class="line">/home/nana/.virtualenvs/mol/local/lib/python2.7/site-packages/DjangoUeditor/urls.py:11: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.</div><div class="line">  url(r&apos;^controller/$&apos;,get_ueditor_controller)</div><div class="line"></div><div class="line">Operations to perform:</div><div class="line">  Apply all migrations: xadmin, users, courses, admin, sessions, auth, captcha, contenttypes, organization, operation</div><div class="line">Running migrations:</div><div class="line">  Rendering model states... DONE</div><div class="line">  Applying contenttypes.0001_initial... OK</div><div class="line">  Applying contenttypes.0002_remove_content_type_name... OK</div><div class="line">  Applying auth.0001_initial... OK</div><div class="line">  Applying auth.0002_alter_permission_name_max_length... OK</div><div class="line">  Applying auth.0003_alter_user_email_max_length... OK</div><div class="line">  Applying auth.0004_alter_user_username_opts... OK</div><div class="line">  Applying auth.0005_alter_user_last_login_null... OK</div><div class="line">  Applying auth.0006_require_contenttypes_0002... OK</div><div class="line">  Applying auth.0007_alter_validators_add_error_messages... OK</div><div class="line">  Applying users.0001_initial... OK</div><div class="line">  Applying admin.0001_initial... OK</div><div class="line">  Applying admin.0002_logentry_remove_auto_add... OK</div><div class="line">  Applying captcha.0001_initial... OK</div><div class="line">  Applying organization.0001_initial... OK</div><div class="line">  Applying organization.0002_auto_20170712_2240... OK</div><div class="line">  Applying organization.0003_auto_20170723_2037... OK</div><div class="line">  Applying organization.0004_auto_20170725_1731... OK</div><div class="line">  Applying organization.0005_teacher_image... OK</div><div class="line">  Applying courses.0001_initial... OK</div><div class="line">  Applying courses.0002_auto_20170712_2240... OK</div><div class="line">  Applying courses.0003_course_course_org... OK</div><div class="line">  Applying courses.0004_course_category... OK</div><div class="line">  Applying courses.0005_course_tag... OK</div><div class="line">  Applying courses.0006_video_url... OK</div><div class="line">  Applying courses.0007_video_learn_times... OK</div><div class="line">  Applying courses.0008_course_teacher... OK</div><div class="line">  Applying courses.0009_auto_20170728_2318... OK</div><div class="line">  Applying courses.0010_course_is_banner... OK</div><div class="line">  Applying courses.0011_auto_20170826_1149... OK</div><div class="line">  Applying operation.0001_initial... OK</div><div class="line">  Applying organization.0006_teacher_age... OK</div><div class="line">  Applying organization.0007_courseorg_tag... OK</div><div class="line">  Applying sessions.0001_initial... OK</div><div class="line">  Applying users.0002_banner_emailverifyrecord... OK</div><div class="line">  Applying users.0003_auto_20170708_1210... OK</div><div class="line">  Applying users.0004_auto_20170708_1523... OK</div><div class="line">  Applying users.0005_auto_20170708_2220... OK</div><div class="line">  Applying users.0006_auto_20170802_0829... OK</div><div class="line">  Applying xadmin.0001_initial... OK</div><div class="line">  Applying xadmin.0002_log... OK</div><div class="line">  Applying xadmin.0003_auto_20160715_0100... OK</div><div class="line">(mol) nana@ubuntu:~/Music/MOl$ python manage.py runserver</div><div class="line">Performing system checks...</div><div class="line"></div><div class="line">/home/nana/.virtualenvs/mol/local/lib/python2.7/site-packages/DjangoUeditor/urls.py:11: RemovedInDjango110Warning: django.conf.urls.patterns() is deprecated and will be removed in Django 1.10. Update your urlpatterns to be a list of django.conf.urls.url() instances instead.</div><div class="line">  url(r&apos;^controller/$&apos;,get_ueditor_controller)</div><div class="line"></div><div class="line">System check identified no issues (0 silenced).</div><div class="line">October 15, 2017 - 11:22:58</div><div class="line">Django version 1.9.8, using settings &apos;MOl.settings&apos;</div><div class="line">Starting development server at http://127.0.0.1:8000/</div><div class="line">Quit the server with CONTROL-C.</div></pre></td></tr></table></figure></p>
+<p>记得要在虚拟环境里这样弄<br>记得migrate</p>
+<p>192.168.77.128:8000 但是这里显示的是nginx<br>192.168.77.128:8080  网站访问成功，但是静态文件没有显示成功</p>
+<p>navicat数据传输 从主机传输到虚拟机</p>
+<h2 id="7-uwsgi方式启动项目"><a href="#7-uwsgi方式启动项目" class="headerlink" title="7.uwsgi方式启动项目"></a>7.uwsgi方式启动项目</h2><p>uwsgi方式启动起来</p>
+<p>安装uwsgi  pip install uwsgi<br>Successfully installed uwsgi-2.0.15</p>
+<p>测试uwsgi  用http的方式测试<br>uwsgi –http :8080 –module MOl.wsgi<br>注意命令要写对<br><a href="http://192.168.77.128:8080/" target="_blank" rel="external">http://192.168.77.128:8080/</a> 浏览器访问 没问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"># the upstream component nginx needs to connect to</div><div class="line">upstream django &#123;</div><div class="line"># server unix:///path/to/your/mysite/mysite.sock; # for a file socket</div><div class="line">server 127.0.0.1:8000; # for a web port socket (we&apos;ll use this first)</div><div class="line">&#125;</div><div class="line"># configuration of the server</div><div class="line"></div><div class="line">server &#123;</div><div class="line"># the port your site will be served on</div><div class="line">listen      80;</div><div class="line"># the domain name it will serve for</div><div class="line">server_name 你的ip地址 ; # substitute your machine&apos;s IP address or FQDN</div><div class="line">charset     utf-8;</div><div class="line"></div><div class="line"># max upload size</div><div class="line">client_max_body_size 75M;   # adjust to taste</div><div class="line"></div><div class="line"># Django media</div><div class="line">location /media  &#123;</div><div class="line">    alias 你的目录/Mol/media;  # 指向django的media目录</div><div class="line">&#125;</div><div class="line"></div><div class="line">location /static &#123;</div><div class="line">    alias 你的目录/Mol/static; # 指向django的static目录</div><div class="line">&#125;</div><div class="line"></div><div class="line"># Finally, send all non-media requests to the Django server.</div><div class="line">location / &#123;</div><div class="line">    uwsgi_pass  django;</div><div class="line">    include     uwsgi_params; # the uwsgi_params file you installed</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你的ip地址  ip地址或者域名都可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"># the upstream component nginx needs to connect to</div><div class="line">upstream django &#123;</div><div class="line"># server unix:///path/to/your/mysite/mysite.sock; # for a file socket</div><div class="line">server 127.0.0.1:8000; # for a web port socket (we&apos;ll use this first)</div><div class="line">&#125;</div><div class="line"># configuration of the server</div><div class="line"></div><div class="line">server &#123;</div><div class="line"># the port your site will be served on</div><div class="line">listen      80;</div><div class="line"># the domain name it will serve for</div><div class="line">server_name 192.168.77.128 ; # substitute your machine&apos;s IP address or FQDN</div><div class="line">charset     utf-8;</div><div class="line"></div><div class="line"># max upload size</div><div class="line">client_max_body_size 75M;   # adjust to taste</div><div class="line"></div><div class="line"># Django media</div><div class="line">location /media  &#123;</div><div class="line">    alias /home/nana/Music/MOl/media;  # 指向django的media目录</div><div class="line">&#125;</div><div class="line"></div><div class="line">location /static &#123;</div><div class="line">    alias /home/nana/Music/MOl/static; # 指向django的static目录</div><div class="line">&#125;</div><div class="line"></div><div class="line"># Finally, send all non-media requests to the Django server.</div><div class="line">location / &#123;</div><div class="line">    uwsgi_pass  django;</div><div class="line">    include     uwsgi_params; # the uwsgi_params file you installed</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>建立软链接<br>sudo cp uc_nginx.conf /etc/nginx/conf.d/</p>
+<p>重启nginx<br>sudo service nginx restart</p>
+<p>ps aux|grep nginx 查看nginx是否已经启动</p>
+<p>所有static文件全部放到一个目录下面来</p>
+<p>collectstatic会将所有static文件放到一个目录上面来</p>
+<p>STATICFILES_DIRS注释掉，这两个不能同时存在</p>
+<p>甚至Xadmin的静态文件也会拷贝到这里来</p>
+<h2 id="8-uwsgi的socket方式启动项目"><a href="#8-uwsgi的socket方式启动项目" class="headerlink" title="8.uwsgi的socket方式启动项目"></a>8.uwsgi的socket方式启动项目</h2><p>新建uwsgi的配置文件  uwsgi不对外暴露http方式 通过读配置文件来启动我们的uwsgi<br>socket方式启动，而不是http方式来启动  socket比http方式传输效率更快</p>
+<p>nginx指明转发到8000端口，所有uwsgi也要指明8000端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"># mysite_uwsgi.ini file</div><div class="line">[uwsgi]</div><div class="line"></div><div class="line"># Django-related settings</div><div class="line"># the base directory (full path)</div><div class="line">chdir           = /home/nana/Music/MOl</div><div class="line"># Django&apos;s wsgi file</div><div class="line">module          = MOl.wsgi</div><div class="line"># the virtualenv (full path)</div><div class="line"></div><div class="line"># process-related settings</div><div class="line"># master</div><div class="line">master          = true</div><div class="line"># maximum number of worker processes</div><div class="line">processes       = 10</div><div class="line"># the socket (use the full path to be safe</div><div class="line">socket          = 127.0.0.1:8000</div><div class="line"># ... with appropriate permissions - may be needed</div><div class="line"># chmod-socket    = 664</div><div class="line"># clear environment on exit</div><div class="line">vacuum          = true</div><div class="line">virtualenv = /home/nana/.virtualenvs/mol</div><div class="line"></div><div class="line"># logto = /tmp/mylog.log  注意这里要注释掉</div></pre></td></tr></table></figure></p>
+<pre><code>保存后，通过uwsgi来启动
+</code></pre><p><a href="http://192.168.77.128/" target="_blank" rel="external">http://192.168.77.128/</a>  访问网站 没有问题  注意这里不要加上8000端口<br>完成uwsgi的配置<br>完成ip地址访问</p>
+<p>测试域名访问<br>修改hosts文件</p>
+<p>uwsgi的重启</p>
+<p> <a href="http://www.jianshu.com/p/3379892948da" target="_blank" rel="external">参考教程</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/部署/" rel="tag"># 部署</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/14/404和500页面配置/" rel="next" title="404和500页面配置">
+                <i class="fa fa-chevron-left"></i> 404和500页面配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/20/SS in Ubuntu14.04/" rel="prev" title="SS in Ubuntu14.04">
+                SS in Ubuntu14.04 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Nana Xie" />
+          <p class="site-author-name" itemprop="name">Nana Xie</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay Hungry Stay Foolish</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/NanaCode" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载虚拟机和Ubuntu"><span class="nav-text">1.下载虚拟机和Ubuntu</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-下载Ubuntu14-04"><span class="nav-text">1.1 下载Ubuntu14.04</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-下载虚拟机"><span class="nav-text">1.2 下载虚拟机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装nginx"><span class="nav-text">2.安装nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装mysql"><span class="nav-text">3.安装mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-安装虚拟环境"><span class="nav-text">4.安装虚拟环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-安装开发包"><span class="nav-text">5.安装开发包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-启动项目"><span class="nav-text">6.启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-uwsgi方式启动项目"><span class="nav-text">7.uwsgi方式启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-uwsgi的socket方式启动项目"><span class="nav-text">8.uwsgi的socket方式启动项目</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nana Xie</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NKj4cIziN7Jv2VdApl3RrMIF-gzGzoHsz", "3me0jhp47YDrT8nzgYGhztxo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

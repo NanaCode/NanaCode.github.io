@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML,CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="一、解开HTML和CSS的神秘面纱HTML和CSS是用来创建网页的语言。Web服务器存储并提供由HTML和CSS创建的网页。浏览器接收网页并基于HTML和CSS显示其中的内容。HTML是关于结构的，它使内容结构化。CSS是关于样式的，主要用在设计和布局上。 1.1 HTMLHTML是超文本标记语言(HyperText Markup Lanuage)的缩写，用来结构化网页。 1.1.1 HTML结构">
+<meta name="keywords" content="HTML,CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML和CSS入门到应用(不定期更新)">
+<meta property="og:url" content="http://yoursite.com/2017/08/23/HTML和CSS基础/index.html">
+<meta property="og:site_name" content="Nana&#39;s Blog">
+<meta property="og:description" content="一、解开HTML和CSS的神秘面纱HTML和CSS是用来创建网页的语言。Web服务器存储并提供由HTML和CSS创建的网页。浏览器接收网页并基于HTML和CSS显示其中的内容。HTML是关于结构的，它使内容结构化。CSS是关于样式的，主要用在设计和布局上。 1.1 HTMLHTML是超文本标记语言(HyperText Markup Lanuage)的缩写，用来结构化网页。 1.1.1 HTML结构">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2017/09/03/59ac12fe75086.png">
+<meta property="og:updated_time" content="2017-09-23T07:18:18.301Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML和CSS入门到应用(不定期更新)">
+<meta name="twitter:description" content="一、解开HTML和CSS的神秘面纱HTML和CSS是用来创建网页的语言。Web服务器存储并提供由HTML和CSS创建的网页。浏览器接收网页并基于HTML和CSS显示其中的内容。HTML是关于结构的，它使内容结构化。CSS是关于样式的，主要用在设计和布局上。 1.1 HTMLHTML是超文本标记语言(HyperText Markup Lanuage)的缩写，用来结构化网页。 1.1.1 HTML结构">
+<meta name="twitter:image" content="https://i.loli.net/2017/09/03/59ac12fe75086.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"top","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/23/HTML和CSS基础/"/>
+
+
+
+
+
+  <title>HTML和CSS入门到应用(不定期更新) | Nana's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-top page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nana's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Today is the first day of the rest of your life.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/23/HTML和CSS基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nana Xie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nana's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML和CSS入门到应用(不定期更新)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-23T23:19:41+08:00">
+                2017-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/08/23/HTML和CSS基础/" class="leancloud_visitors" data-flag-title="HTML和CSS入门到应用(不定期更新)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、解开HTML和CSS的神秘面纱"><a href="#一、解开HTML和CSS的神秘面纱" class="headerlink" title="一、解开HTML和CSS的神秘面纱"></a>一、解开HTML和CSS的神秘面纱</h2><p>HTML和CSS是用来创建网页的语言。Web服务器存储并提供由HTML和CSS创建的网页。浏览器接收网页并基于HTML和CSS显示其中的内容。HTML是关于结构的，它使内容结构化。CSS是关于样式的，主要用在设计和布局上。</p>
+<h3 id="1-1-HTML"><a href="#1-1-HTML" class="headerlink" title="1.1 HTML"></a>1.1 HTML</h3><p>HTML是超文本标记语言(HyperText Markup Lanuage)的缩写，用来结构化网页。</p>
+<h4 id="1-1-1-HTML结构"><a href="#1-1-1-HTML结构" class="headerlink" title="1.1.1 HTML结构"></a>1.1.1 HTML结构</h4><p>超文本标记语言的结构通常应该有一个<code>&lt;html&gt;</code>元素，并伴随有一个<code>&lt;head&gt;</code>元素、一个<code>&lt;title&gt;</code>元素和一个<code>&lt;body&gt;</code>元素。<br>网页的信息来源于<code>&lt;head&gt;</code>元素。<code>&lt;head&gt;````&lt;/head&gt;</code> 通过头部告诉浏览器有关网页的信息。<code>&lt;title&gt;&lt;/title&gt;</code>标题嵌入头部，通常会出现在浏览器窗口的顶部。<br>写进<code>&lt;body&gt;</code>元素中的内容就是在浏览器中所能看见的东西。</p>
+<h4 id="1-1-2-标记"><a href="#1-1-2-标记" class="headerlink" title="1.1.2 标记"></a>1.1.2 标记</h4><p><code>标记</code>是用尖括号括起来的字母或单词，例如<code>&lt;head&gt;&lt;p&gt;&lt;h1&gt;</code>等，它是由尖括号和标记名组成的。我们用包围文本的成对标记告诉浏览器网页的结构，它告诉浏览器文本的结构和意义。</p>
+<p>标记分为<code>开始标记、结束标记</code>。<br>开始标记可以拥有属性，如type和align。元素的属性用来为一个元素提供附加信息。<br>结束标记的左尖括号之后，标记名之前有一个”/“, 用来区别于开始标记。</p>
+<p>一对开始标记、结束标记为<code>匹配标记</code>，如<code>&lt;h1&gt;Hello&lt;/h1&gt;</code>。</p>
+<p>注意：浏览器显示HTML文件时会忽略制表符、回车、还有大多数的空格。它们根据我们的标记来确定哪里分行或者分段。随着文件越来越复杂，空格、回车还有制表符对提高HTML文件的可读性是非常有帮助的。<!-- 浏览器忽略大多数的空白(制表符、回车、空格), 但是可以用它们让你的HTML更具有可读性。 --></p>
+<h4 id="1-1-3-元素"><a href="#1-1-3-元素" class="headerlink" title="1.1.3 元素"></a>1.1.3 元素</h4><p>我们使用HTML来标记内容，用标记提供结构。我们称匹配标记和他们之间的内容为<code>元素</code>。<br>一个元素由以下三个部分组成：一个开始标记、内容和一个结束标记。有些元素如<code>&lt;img&gt;</code>是例外。<br><code>元素 = 开始标记 + 内容 + 结束标记</code><br>整个语句成为一个元素，一个元素由闭合标记及它们之间的内容组成。<br>有一些只用一个标记作为速记符号的元素,如<code>&lt;img src=&quot;drink.gif&quot;&gt;</code>，这种元素我们称为<code>空元素</code>。<br>许多HTML元素会在它们的标记之间嵌入另外一个元素。</p>
+<h3 id="1-2-CSS"><a href="#1-2-CSS" class="headerlink" title="1.2 CSS"></a>1.2 CSS</h3><p>CSS是级联样式表(Cascading Style Sheet)的缩写，用来控制HTML的外观。<br>当浏览器显示HTML时，它使用了自带的默认样式来表现结构。在HTML中用CSS指定每个元素的样式特性。CSS用来描述如何表现内容。<br><!-- 样式元素：``<style>``。  HTML的头部    开始标记，结束标记，还需要一个名为type的属性，用来告诉浏览器你使用样式的种类。如即将使用CSS,因此指定为"text/css"类型。 --><br>通过在<code>&lt;style&gt;</code>元素中输入CSS规则，给HTML网页添加CSS。 <code>&lt;style&gt;</code>元素通常嵌在<code>&lt;head&gt;</code>元素中。<code>&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;</code></p>
+<p>CSS使用一种和HTML截然不同的语法。<br>如下所示：<br><img src="https://i.loli.net/2017/09/03/59ac12fe75086.png" alt="CSS语法" title="CSS语法"><br><!-- body {
+    background-color: #d2b48c;  指定背景颜色
+    margin-left: 20%    左边界设置为每边占页面的20%
+    margin-right: 20%    右边界设置为每边占页面的20%
+    border: 1px dotted gray;    指定主题周围的边框线为点式且颜色为灰色
+    padding: 10px 10px 10px 10px;    在页面主体周围创造某种填充
+    font-family: sans-serif;    指定文本使用的字体
+} --><br>CSS有很多种方法来指定颜色。 最普遍的做法叫做”十六进制编码”，#d2b48c就是这种格式。<br>CSS规则前边都有个”body”, 意味着{和}之间的所有CSS将应用于HTML<body>元素中的内容。</body></p>
+<p>Tips:<br>1.取消隐藏常见文件类型的文件扩展名：资源管理器-文件夹选项-查看-高级设置-取消“隐藏已知文件类型的扩展名”的勾选。<br>2.注释：<code>&lt;!--和--&gt;</code>可以写成多行，任何写在<code>&lt;!--和--&gt;</code>之间的内容都会被浏览器忽略。<br>3.创建html文件的时候，windows用户还需要选择“所有文件”作为文件类型，否则记事本会在文件名后添加“.txt”</p>
+<h2 id="二、深入理解超文本"><a href="#二、深入理解超文本" class="headerlink" title="二、深入理解超文本"></a>二、深入理解超文本</h2><h3 id="2-1-lt-a-gt-元素"><a href="#2-1-lt-a-gt-元素" class="headerlink" title="2.1 &lt;a&gt;元素"></a>2.1 <code>&lt;a&gt;元素</code></h3><p>当你需要从一个网页链接到另一个网页时，使用<code>&lt;a&gt;</code>元素。<code>&lt;a&gt;</code>元素中的href属性说明了链接的目的地。<code>&lt;a&gt;</code>元素中的内容是链接的标签。标签显示在网页上。默认情况下，它会加下划线来说明是可以单击的。链接的标签可以是文字或图像。当你点击链接时，浏览器装载href中指定的网页。</p>
+<h3 id="2-2-上溯下探"><a href="#2-2-上溯下探" class="headerlink" title="2.2 上溯下探"></a>2.2 上溯下探</h3><p>网站顶层文件夹保存所有站点文件，通常称为网站“根”目录的是包含整个网站的顶层文件夹。<br>有时我们希望某些图像能在几个网页中重复使用，所以把图像全部放到根目录（最顶层）下的一个文件夹里。如果网站需要在不同的部分使用大量的图像，就可以在每个枝叶目录下设置各自的图像文件夹。<br>枝叶：描述文件夹的方式就像一颗倒栽的树，顶部为根，到下边文件或目录的每条路径就是枝叶。<br>有时我们把文件位置改动后，发现图像不显示，统称称其为损坏的图像。点击链接，出现错误，说找不到该网页。注意，某些浏览器会用网页而不是对话框来报错。问题出在浏览器认为文件还在之前的文件夹里，要更改链接，使他们指向现在所在的新文件夹里。这时我们需要把路径从页面指向目的文件，可以上溯或者下探一个或两个文件夹，都必须把相对路径放到href中去。<br><!-- 链接的相对路径，从有链接的页面开始，在文件夹里经过一段路径，直至找到所需文件。 --></p>
+<h4 id="2-2-1-下探"><a href="#2-2-1-下探" class="headerlink" title="2.2.1 下探"></a>2.2.1 下探</h4><p>yyy文件夹/xxx文件名<br>这里/分隔路径的各个部分，点击链接，浏览器在yyy文件夹中寻找xxx文件。<br>下探的深度由创建的文件夹的层数来决定。如果创建的目录有10层深，路径可以写10层目录。但是太多级目录文件夹时，可能代表你的网站组织过于复杂了。另外路径还有字数的限制，最后255个。<!-- 下探的限度？ --></p>
+<h4 id="2-2-2-上溯："><a href="#2-2-2-上溯：" class="headerlink" title="2.2.2 上溯："></a>2.2.2 上溯：</h4><p>../xxx文件名<br>这里上溯一个文件夹用“.. ”，点击链接，浏览器在上一级文件目录中寻找xxx文件。<br>上溯文件夹不只一个： 每上溯一层使用一次..，每用一次..就上溯了一层文件父目录。 如果要上溯两层目录，格式：“../../xxx文件夹”。<br>../..可以称为“祖父”目录， 但通常，称其为“父目录”的父亲<br><!-- 上溯有没有最大上限？ -->上溯可以直至你网站的根目录<br><!-- 66 67页多看多思考 --></p>
+<h3 id="2-3-组织网站"><a href="#2-3-组织网站" class="headerlink" title="2.3 组织网站"></a>2.3 组织网站</h3><p>最好在构建的早起组织好你的网站，这样当网站升级使就不用更改一堆路径了。<br>组织网站的方式有许多，怎么做取决于你。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/23/编程设计资源/" rel="next" title="编程设计资源">
+                <i class="fa fa-chevron-left"></i> 编程设计资源
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/23/The Zen Of Python/" rel="prev" title="The Zen Of Python">
+                The Zen Of Python <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Nana Xie" />
+          <p class="site-author-name" itemprop="name">Nana Xie</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay Hungry Stay Foolish</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/NanaCode" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、解开HTML和CSS的神秘面纱"><span class="nav-text">一、解开HTML和CSS的神秘面纱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-HTML"><span class="nav-text">1.1 HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-HTML结构"><span class="nav-text">1.1.1 HTML结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-标记"><span class="nav-text">1.1.2 标记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3-元素"><span class="nav-text">1.1.3 元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-CSS"><span class="nav-text">1.2 CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、深入理解超文本"><span class="nav-text">二、深入理解超文本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-lt-a-gt-元素"><span class="nav-text">2.1 <a>元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-上溯下探"><span class="nav-text">2.2 上溯下探</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-下探"><span class="nav-text">2.2.1 下探</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-上溯："><span class="nav-text">2.2.2 上溯：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-组织网站"><span class="nav-text">2.3 组织网站</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nana Xie</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NKj4cIziN7Jv2VdApl3RrMIF-gzGzoHsz", "3me0jhp47YDrT8nzgYGhztxo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

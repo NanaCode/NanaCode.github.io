@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="一、数据结构1.1 列表字典集合中根据条件筛选数据1.1.1 列表filter函数：filter(lambda x: x &amp;gt;=0, data)列表解析： [x for x in data if x &amp;gt;=0] 1.1.2 字典字典解析{k:v for k,v in d.iteritems() if v &amp;gt; 90} 1.1.3 集合集合解析{x for x in s if x % 3">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python进阶">
+<meta property="og:url" content="http://yoursite.com/2017/09/12/Python进阶/index.html">
+<meta property="og:site_name" content="Nana&#39;s Blog">
+<meta property="og:description" content="一、数据结构1.1 列表字典集合中根据条件筛选数据1.1.1 列表filter函数：filter(lambda x: x &amp;gt;=0, data)列表解析： [x for x in data if x &amp;gt;=0] 1.1.2 字典字典解析{k:v for k,v in d.iteritems() if v &amp;gt; 90} 1.1.3 集合集合解析{x for x in s if x % 3">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-24T15:06:20.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python进阶">
+<meta name="twitter:description" content="一、数据结构1.1 列表字典集合中根据条件筛选数据1.1.1 列表filter函数：filter(lambda x: x &amp;gt;=0, data)列表解析： [x for x in data if x &amp;gt;=0] 1.1.2 字典字典解析{k:v for k,v in d.iteritems() if v &amp;gt; 90} 1.1.3 集合集合解析{x for x in s if x % 3">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"top","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/12/Python进阶/"/>
+
+
+
+
+
+  <title>Python进阶 | Nana's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-top page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nana's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Today is the first day of the rest of your life.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/Python进阶/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nana Xie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nana's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python进阶</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T11:47:22+08:00">
+                2017-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/12/Python进阶/" class="leancloud_visitors" data-flag-title="Python进阶">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、数据结构"><a href="#一、数据结构" class="headerlink" title="一、数据结构"></a>一、数据结构</h2><h3 id="1-1-列表字典集合中根据条件筛选数据"><a href="#1-1-列表字典集合中根据条件筛选数据" class="headerlink" title="1.1 列表字典集合中根据条件筛选数据"></a>1.1 列表字典集合中根据条件筛选数据</h3><h4 id="1-1-1-列表"><a href="#1-1-1-列表" class="headerlink" title="1.1.1 列表"></a>1.1.1 列表</h4><p>filter函数：filter(lambda x: x &gt;=0, data)<br>列表解析： [x for x in data if x &gt;=0]</p>
+<h4 id="1-1-2-字典"><a href="#1-1-2-字典" class="headerlink" title="1.1.2 字典"></a>1.1.2 字典</h4><p>字典解析{k:v for k,v in d.iteritems() if v &gt; 90}</p>
+<h4 id="1-1-3-集合"><a href="#1-1-3-集合" class="headerlink" title="1.1.3 集合"></a>1.1.3 集合</h4><p>集合解析{x for x in s if x % 3 == 0}</p>
+<h3 id="1-2-元组元素命名"><a href="#1-2-元组元素命名" class="headerlink" title="1.2 元组元素命名"></a>1.2 元组元素命名</h3><p>为元组中的每个元素命名，提高程序可读性。</p>
+<h4 id="1-2-1-定义数值变量"><a href="#1-2-1-定义数值变量" class="headerlink" title="1.2.1 定义数值变量"></a>1.2.1 定义数值变量</h4><p>python没有真正的枚举类型，但是我们可以定义类似于其他语言的枚举类型，也就是定义一系列数值变量。</p>
+<h4 id="1-2-2-namedtuple替代内置tuple"><a href="#1-2-2-namedtuple替代内置tuple" class="headerlink" title="1.2.2 namedtuple替代内置tuple"></a>1.2.2 namedtuple替代内置tuple</h4><p>使用标准库中collections.namedtuple替代内置tuple。</p>
+<h3 id="1-3-统计序列元素出现频度"><a href="#1-3-统计序列元素出现频度" class="headerlink" title="1.3 统计序列元素出现频度"></a>1.3 统计序列元素出现频度</h3><p>使用collections.Counter对象：</p>
+<ol>
+<li>将序列传入Counter的构造器，得到Counter对象是元素频度的字典。<br>2.Counter.most_commmon(n)方法得到频度最高的n个元素的列表。</li>
+</ol>
+<h4 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h4><p><code></code></p>
+<h1 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h1><p>from random import randint</p>
+<h1 id="列表解析生成随机序列"><a href="#列表解析生成随机序列" class="headerlink" title="列表解析生成随机序列"></a>列表解析生成随机序列</h1><p>data = [randint(0, 20) for _ in xrange(30)]<br>print data</p>
+<h1 id="6-11-15-6-20-6-7-7-10-5-4-15-10-16-15-16-12-3-13-13-15-2-19-7-17-10-16-1-17-6"><a href="#6-11-15-6-20-6-7-7-10-5-4-15-10-16-15-16-12-3-13-13-15-2-19-7-17-10-16-1-17-6" class="headerlink" title="[6, 11, 15, 6, 20, 6, 7, 7, 10, 5, 4, 15, 10, 16, 15, 16, 12, 3, 13, 13, 15, 2, 19, 7, 17, 10, 16, 1, 17, 6]"></a>[6, 11, 15, 6, 20, 6, 7, 7, 10, 5, 4, 15, 10, 16, 15, 16, 12, 3, 13, 13, 15, 2, 19, 7, 17, 10, 16, 1, 17, 6]</h1><h1 id="date作为字典的键，0作为字典的值，创建一个字典来"><a href="#date作为字典的键，0作为字典的值，创建一个字典来" class="headerlink" title="date作为字典的键，0作为字典的值，创建一个字典来"></a>date作为字典的键，0作为字典的值，创建一个字典来</h1><p>c = dict.fromkeys(data, 0)<br>print c</p>
+<h1 id="1-0-2-0-3-0-4-0-5-0-6-0-7-0-10-0-11-0-12-0-13-0-15-0-16-0-17-0-19-0-20-0"><a href="#1-0-2-0-3-0-4-0-5-0-6-0-7-0-10-0-11-0-12-0-13-0-15-0-16-0-17-0-19-0-20-0" class="headerlink" title="{1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 10: 0, 11: 0, 12: 0, 13: 0, 15: 0, 16: 0, 17: 0, 19: 0, 20: 0}"></a>{1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 10: 0, 11: 0, 12: 0, 13: 0, 15: 0, 16: 0, 17: 0, 19: 0, 20: 0}</h1><h1 id="进行对data的迭代"><a href="#进行对data的迭代" class="headerlink" title="进行对data的迭代"></a>进行对data的迭代</h1><p>for x in data:<br>    c[x] += 1<br>print c</p>
+<h1 id="1-1-2-1-3-1-4-1-5-1-6-4-7-3-10-3-11-1-12-1-13-2-15-4-16-3-17-2-19-1-20-1"><a href="#1-1-2-1-3-1-4-1-5-1-6-4-7-3-10-3-11-1-12-1-13-2-15-4-16-3-17-2-19-1-20-1" class="headerlink" title="{1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 4, 7: 3, 10: 3, 11: 1, 12: 1, 13: 2, 15: 4, 16: 3, 17: 2, 19: 1, 20: 1}"></a>{1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 4, 7: 3, 10: 3, 11: 1, 12: 1, 13: 2, 15: 4, 16: 3, 17: 2, 19: 1, 20: 1}</h1><h1 id="根据字典的值对字典中的项进行排序"><a href="#根据字典的值对字典中的项进行排序" class="headerlink" title="根据字典的值对字典中的项进行排序"></a>根据字典的值对字典中的项进行排序</h1><h1 id="方法2，更简洁的方法"><a href="#方法2，更简洁的方法" class="headerlink" title="方法2，更简洁的方法"></a>方法2，更简洁的方法</h1><p>from collections import Counter</p>
+<h1 id="直接把data传给Counter的构造器"><a href="#直接把data传给Counter的构造器" class="headerlink" title="直接把data传给Counter的构造器"></a>直接把data传给Counter的构造器</h1><p>c2 = Counter(data)<br>print c</p>
+<h1 id="1-1-2-1-3-1-4-1-5-1-6-4-7-3-10-3-11-1-12-1-13-2-15-4-16-3-17-2-19-1-20-1-1"><a href="#1-1-2-1-3-1-4-1-5-1-6-4-7-3-10-3-11-1-12-1-13-2-15-4-16-3-17-2-19-1-20-1-1" class="headerlink" title="{1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 4, 7: 3, 10: 3, 11: 1, 12: 1, 13: 2, 15: 4, 16: 3, 17: 2, 19: 1, 20: 1}"></a>{1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 4, 7: 3, 10: 3, 11: 1, 12: 1, 13: 2, 15: 4, 16: 3, 17: 2, 19: 1, 20: 1}</h1><p>print “<strong><em>**</em></strong>“<br>print c2</p>
+<h1 id="Counter-6-4-15-4-7-3-10-3-16-3-13-2-17-2-1-1-2-1-3-1-4-1-5-1-11-1-12-1-19-1-20-1"><a href="#Counter-6-4-15-4-7-3-10-3-16-3-13-2-17-2-1-1-2-1-3-1-4-1-5-1-11-1-12-1-19-1-20-1" class="headerlink" title="Counter({6: 4, 15: 4, 7: 3, 10: 3, 16: 3, 13: 2, 17: 2, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 11: 1, 12: 1, 19: 1, 20: 1})"></a>Counter({6: 4, 15: 4, 7: 3, 10: 3, 16: 3, 13: 2, 17: 2, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 11: 1, 12: 1, 19: 1, 20: 1})</h1><p>print “<strong><em>**</em></strong>“</p>
+<h1 id="c2这个Counter对象，可以更直接的统计出哪些频度出现更高"><a href="#c2这个Counter对象，可以更直接的统计出哪些频度出现更高" class="headerlink" title="c2这个Counter对象，可以更直接的统计出哪些频度出现更高"></a>c2这个Counter对象，可以更直接的统计出哪些频度出现更高</h1><p>c2_most_3_common = c2.most_common(3)<br>print c2_most_3_common</p>
+<h1 id="6-4-15-4-7-3"><a href="#6-4-15-4-7-3" class="headerlink" title="[(6, 4), (15, 4), (7, 3)]"></a>[(6, 4), (15, 4), (7, 3)]</h1><h1 id="英文文章词频统计"><a href="#英文文章词频统计" class="headerlink" title="英文文章词频统计"></a>英文文章词频统计</h1><p>import re<br>txt = open(‘CodingStyle’).read()<br>print txt</p>
+<h1 id="首先分隔词，把每个词取出来放到一个序列中"><a href="#首先分隔词，把每个词取出来放到一个序列中" class="headerlink" title="首先分隔词，把每个词取出来放到一个序列中"></a>首先分隔词，把每个词取出来放到一个序列中</h1><h1 id="使用正则表达式的分隔模块"><a href="#使用正则表达式的分隔模块" class="headerlink" title="使用正则表达式的分隔模块"></a>使用正则表达式的分隔模块</h1><p>words = re.split(‘\W+’, txt)  # 用非字母作为分隔</p>
+<h1 id="对每个词出现的频度进行统计"><a href="#对每个词出现的频度进行统计" class="headerlink" title="对每个词出现的频度进行统计"></a>对每个词出现的频度进行统计</h1><p>words2 = Counter(words)<br>words2_most_10_common = words2.most_common(10)<br>print words2_most_10_common<br></p>
+<h3 id="1-4-字典中的项排序"><a href="#1-4-字典中的项排序" class="headerlink" title="1.4 字典中的项排序"></a>1.4 字典中的项排序</h3><p>根据字典中值的大小，对字典中的项排序。<br>使用内置函数sorted:</p>
+<ol>
+<li>利用zip将字典数据转化元组；</li>
+<li>传递sorted函数的key参数。</li>
+</ol>
+<h4 id="Details-1"><a href="#Details-1" class="headerlink" title="Details"></a>Details</h4><p><code></code></p>
+<h1 id="内置函数在内部是以C的速度运行，速度更快"><a href="#内置函数在内部是以C的速度运行，速度更快" class="headerlink" title="内置函数在内部是以C的速度运行，速度更快"></a>内置函数在内部是以C的速度运行，速度更快</h1><p>sorted_list = sorted([2, 5, 9, 1, 0])<br>print sorted_list</p>
+<h1 id="0-1-2-5-9"><a href="#0-1-2-5-9" class="headerlink" title="[0, 1, 2, 5, 9]"></a>[0, 1, 2, 5, 9]</h1><h1 id="创建随机成绩表"><a href="#创建随机成绩表" class="headerlink" title="创建随机成绩表"></a>创建随机成绩表</h1><p>from random import randint</p>
+<h1 id="字典解析"><a href="#字典解析" class="headerlink" title="字典解析"></a>字典解析</h1><p>student_grades = {x: randint(60, 100) for x in ‘xyzabc’ }<br>print student_grades</p>
+<h1 id="‘a’-67-‘c’-90-‘b’-66-‘y’-100-‘x’-62-‘z’-100"><a href="#‘a’-67-‘c’-90-‘b’-66-‘y’-100-‘x’-62-‘z’-100" class="headerlink" title="{‘a’: 67, ‘c’: 90, ‘b’: 66, ‘y’: 100, ‘x’: 62, ‘z’: 100}"></a>{‘a’: 67, ‘c’: 90, ‘b’: 66, ‘y’: 100, ‘x’: 62, ‘z’: 100}</h1><p>sorted_student_grades = sorted(student_grades)<br>print sorted_student_grades</p>
+<h1 id="‘a’-‘b’-‘c’-‘x’-‘y’-‘z’"><a href="#‘a’-‘b’-‘c’-‘x’-‘y’-‘z’" class="headerlink" title="[‘a’, ‘b’, ‘c’, ‘x’, ‘y’, ‘z’]"></a>[‘a’, ‘b’, ‘c’, ‘x’, ‘y’, ‘z’]</h1><h1 id="并不是按照值进行排序的，而是按照键进行排序的"><a href="#并不是按照值进行排序的，而是按照键进行排序的" class="headerlink" title="并不是按照值进行排序的，而是按照键进行排序的"></a>并不是按照值进行排序的，而是按照键进行排序的</h1><h1 id="sorted传入的是一个可迭代对象，对于字典的可迭代对象，也就是iter-sorted-student-grades-为了看见它可以转换为list"><a href="#sorted传入的是一个可迭代对象，对于字典的可迭代对象，也就是iter-sorted-student-grades-为了看见它可以转换为list" class="headerlink" title="sorted传入的是一个可迭代对象，对于字典的可迭代对象，也就是iter(sorted_student_grades),为了看见它可以转换为list"></a>sorted传入的是一个可迭代对象，对于字典的可迭代对象，也就是iter(sorted_student_grades),为了看见它可以转换为list</h1><p>print iter(sorted_student_grades)</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a><listiterator object="" at="" 0x0000000003239390=""></listiterator></h1><p>print list(iter(sorted_student_grades))</p>
+<h1 id="‘a’-‘b’-‘c’-‘x’-‘y’-‘z’-1"><a href="#‘a’-‘b’-‘c’-‘x’-‘y’-‘z’-1" class="headerlink" title="[‘a’, ‘b’, ‘c’, ‘x’, ‘y’, ‘z’]"></a>[‘a’, ‘b’, ‘c’, ‘x’, ‘y’, ‘z’]</h1><h1 id="实际上是对键进行了排序，并且值已经不存在了"><a href="#实际上是对键进行了排序，并且值已经不存在了" class="headerlink" title="实际上是对键进行了排序，并且值已经不存在了"></a>实际上是对键进行了排序，并且值已经不存在了</h1><h1 id="对字典进行转换，让它变成sorted（）可以排序的结构"><a href="#对字典进行转换，让它变成sorted（）可以排序的结构" class="headerlink" title="对字典进行转换，让它变成sorted（）可以排序的结构"></a>对字典进行转换，让它变成sorted（）可以排序的结构</h1><h1 id="元组的比较，先比较第0个元素，如果第0个元素想等的情况下，再比较第1个元素"><a href="#元组的比较，先比较第0个元素，如果第0个元素想等的情况下，再比较第1个元素" class="headerlink" title="元组的比较，先比较第0个元素，如果第0个元素想等的情况下，再比较第1个元素"></a>元组的比较，先比较第0个元素，如果第0个元素想等的情况下，再比较第1个元素</h1><p>print (97, ‘a’) &gt; (69, ‘b’)</p>
+<h1 id="True"><a href="#True" class="headerlink" title="True"></a>True</h1><p>print (97, ‘a’) &gt; (97, ‘b’)</p>
+<h1 id="False"><a href="#False" class="headerlink" title="False"></a>False</h1><p>print (97, ‘a’) &lt; (97, ‘b’)</p>
+<h1 id="True-1"><a href="#True-1" class="headerlink" title="True"></a>True</h1><h1 id="将字典转换成元组的列表"><a href="#将字典转换成元组的列表" class="headerlink" title="将字典转换成元组的列表"></a>将字典转换成元组的列表</h1><h1 id="keys-得到所有的键"><a href="#keys-得到所有的键" class="headerlink" title="keys()得到所有的键"></a>keys()得到所有的键</h1><p>print student_grades.keys()</p>
+<h1 id="‘a’-‘c’-‘b’-‘y’-‘x’-‘z’"><a href="#‘a’-‘c’-‘b’-‘y’-‘x’-‘z’" class="headerlink" title="[‘a’, ‘c’, ‘b’, ‘y’, ‘x’, ‘z’]"></a>[‘a’, ‘c’, ‘b’, ‘y’, ‘x’, ‘z’]</h1><h1 id="values-得到所有的值"><a href="#values-得到所有的值" class="headerlink" title="values()得到所有的值"></a>values()得到所有的值</h1><p>print student_grades.values()</p>
+<h1 id="67-90-66-100-62-100"><a href="#67-90-66-100-62-100" class="headerlink" title="[67, 90, 66, 100, 62, 100]"></a>[67, 90, 66, 100, 62, 100]</h1><h1 id="使用zio-函数把两个列表拼起来，变成一个"><a href="#使用zio-函数把两个列表拼起来，变成一个" class="headerlink" title="使用zio()函数把两个列表拼起来，变成一个"></a>使用zio()函数把两个列表拼起来，变成一个</h1><p>print zip(student_grades.values(), student_grades.keys())</p>
+<h1 id="67-‘a’-90-‘c’-66-‘b’-100-‘y’-62-‘x’-100-‘z’"><a href="#67-‘a’-90-‘c’-66-‘b’-100-‘y’-62-‘x’-100-‘z’" class="headerlink" title="[(67, ‘a’), (90, ‘c’), (66, ‘b’), (100, ‘y’), (62, ‘x’), (100, ‘z’)]"></a>[(67, ‘a’), (90, ‘c’), (66, ‘b’), (100, ‘y’), (62, ‘x’), (100, ‘z’)]</h1><h1 id="依次类推，构成元组的列表"><a href="#依次类推，构成元组的列表" class="headerlink" title="依次类推，构成元组的列表"></a>依次类推，构成元组的列表</h1><h1 id="在内存使用上，更优化一些"><a href="#在内存使用上，更优化一些" class="headerlink" title="在内存使用上，更优化一些"></a>在内存使用上，更优化一些</h1><h1 id="python2的版本上，keys-和values-得到的都是列表。如果列表很大，很浪费空间，可以使用它的迭代版本"><a href="#python2的版本上，keys-和values-得到的都是列表。如果列表很大，很浪费空间，可以使用它的迭代版本" class="headerlink" title="python2的版本上，keys()和values()得到的都是列表。如果列表很大，很浪费空间，可以使用它的迭代版本"></a>python2的版本上，keys()和values()得到的都是列表。如果列表很大，很浪费空间，可以使用它的迭代版本</h1><h1 id="同样也能得到这样的结果，-但是存储空间上少一些浪费"><a href="#同样也能得到这样的结果，-但是存储空间上少一些浪费" class="headerlink" title="同样也能得到这样的结果， 但是存储空间上少一些浪费"></a>同样也能得到这样的结果， 但是存储空间上少一些浪费</h1><p>print zip(student_grades.itervalues(), student_grades.iterkeys())</p>
+<h1 id="67-‘a’-90-‘c’-66-‘b’-100-‘y’-62-‘x’-100-‘z’-1"><a href="#67-‘a’-90-‘c’-66-‘b’-100-‘y’-62-‘x’-100-‘z’-1" class="headerlink" title="[(67, ‘a’), (90, ‘c’), (66, ‘b’), (100, ‘y’), (62, ‘x’), (100, ‘z’)]"></a>[(67, ‘a’), (90, ‘c’), (66, ‘b’), (100, ‘y’), (62, ‘x’), (100, ‘z’)]</h1><h1 id="成绩由小到大进行排序"><a href="#成绩由小到大进行排序" class="headerlink" title="成绩由小到大进行排序"></a>成绩由小到大进行排序</h1><p>print sorted(zip(student_grades.itervalues(), student_grades.iterkeys()))</p>
+<h1 id="62-‘x’-66-‘b’-67-‘a’-90-‘c’-100-‘y’-100-‘z’"><a href="#62-‘x’-66-‘b’-67-‘a’-90-‘c’-100-‘y’-100-‘z’" class="headerlink" title="[(62, ‘x’), (66, ‘b’), (67, ‘a’), (90, ‘c’), (100, ‘y’), (100, ‘z’)]"></a>[(62, ‘x’), (66, ‘b’), (67, ‘a’), (90, ‘c’), (100, ‘y’), (100, ‘z’)]</h1><h1 id="方法二-利用sorted-的key参数"><a href="#方法二-利用sorted-的key参数" class="headerlink" title="方法二 利用sorted()的key参数"></a>方法二 利用sorted()的key参数</h1><h1 id="字典的items-直接就是每个键，值"><a href="#字典的items-直接就是每个键，值" class="headerlink" title="字典的items()直接就是每个键，值"></a>字典的items()直接就是每个键，值</h1><p>print student_grades.items()</p>
+<h1 id="‘a’-67-‘c’-90-‘b’-66-‘y’-100-‘x’-62-‘z’-100-1"><a href="#‘a’-67-‘c’-90-‘b’-66-‘y’-100-‘x’-62-‘z’-100-1" class="headerlink" title="[(‘a’, 67), (‘c’, 90), (‘b’, 66), (‘y’, 100), (‘x’, 62), (‘z’, 100)]"></a>[(‘a’, 67), (‘c’, 90), (‘b’, 66), (‘y’, 100), (‘x’, 62), (‘z’, 100)]</h1><h1 id="使用sorted-的一个参数，也就是key-key就是你要传入一个函数"><a href="#使用sorted-的一个参数，也就是key-key就是你要传入一个函数" class="headerlink" title="使用sorted()的一个参数，也就是key,key就是你要传入一个函数"></a>使用sorted()的一个参数，也就是key,key就是你要传入一个函数</h1><p>print sorted(student_grades.items(), key = lambda x: x[1])</p>
+<h1 id="‘x’-62-‘b’-66-‘a’-67-‘c’-90-‘y’-100-‘z’-100"><a href="#‘x’-62-‘b’-66-‘a’-67-‘c’-90-‘y’-100-‘z’-100" class="headerlink" title="[(‘x’, 62), (‘b’, 66), (‘a’, 67), (‘c’, 90), (‘y’, 100), (‘z’, 100)]"></a>[(‘x’, 62), (‘b’, 66), (‘a’, 67), (‘c’, 90), (‘y’, 100), (‘z’, 100)]</h1><p></p>
+<h3 id="1-5-快速找到多个字典中的公共键（key"><a href="#1-5-快速找到多个字典中的公共键（key" class="headerlink" title="1.5 快速找到多个字典中的公共键（key)"></a>1.5 快速找到多个字典中的公共键（key)</h3><p>利用集合（set)的交集操作：</p>
+<ol>
+<li>使用字典的viewkeys()方法，得到一个字典keys的集合；</li>
+<li>使用map函数，得到所有字典的keys的集合；</li>
+<li>使用reduce函数，取所有字典的keys的集合的交集。</li>
+</ol>
+<h4 id="Details-2"><a href="#Details-2" class="headerlink" title="Details"></a>Details</h4><p><code></code></p>
+<h1 id="多个字典中的公共键，也就是在每个字典中都出现的键"><a href="#多个字典中的公共键，也就是在每个字典中都出现的键" class="headerlink" title="多个字典中的公共键，也就是在每个字典中都出现的键"></a>多个字典中的公共键，也就是在每个字典中都出现的键</h1><p>from random import randint, sample  # sample取样</p>
+<h1 id="产生随机进球球员"><a href="#产生随机进球球员" class="headerlink" title="产生随机进球球员"></a>产生随机进球球员</h1><p>print sample(‘abcdefg’, 3)</p>
+<h1 id="‘a’-‘e’-‘b’"><a href="#‘a’-‘e’-‘b’" class="headerlink" title="[‘a’, ‘e’, ‘b’]"></a>[‘a’, ‘e’, ‘b’]</h1><h1 id="进球球员数目也是随机的-3-6个人进球了"><a href="#进球球员数目也是随机的-3-6个人进球了" class="headerlink" title="进球球员数目也是随机的, 3-6个人进球了"></a>进球球员数目也是随机的, 3-6个人进球了</h1><p>print sample(‘abcdefg’, randint(3, 6))</p>
+<h1 id="‘e’-‘b’-‘g’-‘d’"><a href="#‘e’-‘b’-‘g’-‘d’" class="headerlink" title="[‘e’, ‘b’, ‘g’, ‘d’]"></a>[‘e’, ‘b’, ‘g’, ‘d’]</h1><h1 id="字典解析产生每轮的数据"><a href="#字典解析产生每轮的数据" class="headerlink" title="字典解析产生每轮的数据"></a>字典解析产生每轮的数据</h1><h1 id="每一轮的进球数限定为1-4个"><a href="#每一轮的进球数限定为1-4个" class="headerlink" title="每一轮的进球数限定为1-4个"></a>每一轮的进球数限定为1-4个</h1><p>s1 = {x: randint(1, 4) for x in sample(‘abcdefg’, randint(3, 6))}<br>s2 = {x: randint(1, 4) for x in sample(‘abcdefg’, randint(3, 6))}<br>s3 = {x: randint(1, 4) for x in sample(‘abcdefg’, randint(3, 6))}<br>print s1</p>
+<h1 id="‘a’-1-‘c’-2-‘b’-4-‘e’-2-‘d’-2-‘f’-4"><a href="#‘a’-1-‘c’-2-‘b’-4-‘e’-2-‘d’-2-‘f’-4" class="headerlink" title="{‘a’: 1, ‘c’: 2, ‘b’: 4, ‘e’: 2, ‘d’: 2, ‘f’: 4}"></a>{‘a’: 1, ‘c’: 2, ‘b’: 4, ‘e’: 2, ‘d’: 2, ‘f’: 4}</h1><p>print ‘——–’<br>print s2</p>
+<h1 id="‘c’-4-‘b’-2-‘g’-1"><a href="#‘c’-4-‘b’-2-‘g’-1" class="headerlink" title="{‘c’: 4, ‘b’: 2, ‘g’: 1}"></a>{‘c’: 4, ‘b’: 2, ‘g’: 1}</h1><p>print ‘——–’<br>print s3</p>
+<h1 id="‘c’-3-‘e’-3-‘g’-3"><a href="#‘c’-3-‘e’-3-‘g’-3" class="headerlink" title="{‘c’: 3, ‘e’: 3, ‘g’: 3}"></a>{‘c’: 3, ‘e’: 3, ‘g’: 3}</h1><p>print ‘——–’</p>
+<h1 id="迭代键值，对于字典的迭代就是迭代它的键"><a href="#迭代键值，对于字典的迭代就是迭代它的键" class="headerlink" title="迭代键值，对于字典的迭代就是迭代它的键"></a>迭代键值，对于字典的迭代就是迭代它的键</h1><p>res = []  # 列表或者集合存储起来<br>for k in s1:<br>    if k in s2 and k in s3:<br>        res.append(k)<br>print res</p>
+<h1 id="‘c’"><a href="#‘c’" class="headerlink" title="[‘c’]"></a>[‘c’]</h1><h1 id="但是这种方法啰嗦而且执行的效率也不好"><a href="#但是这种方法啰嗦而且执行的效率也不好" class="headerlink" title="但是这种方法啰嗦而且执行的效率也不好"></a>但是这种方法啰嗦而且执行的效率也不好</h1><h1 id="方法2-集合的操作"><a href="#方法2-集合的操作" class="headerlink" title="方法2 集合的操作"></a>方法2 集合的操作</h1><h1 id="首先使用字典的viewkeys-得到每个字典所有键的集合"><a href="#首先使用字典的viewkeys-得到每个字典所有键的集合" class="headerlink" title="首先使用字典的viewkeys()得到每个字典所有键的集合"></a>首先使用字典的viewkeys()得到每个字典所有键的集合</h1><h1 id="实际上是keys的视图"><a href="#实际上是keys的视图" class="headerlink" title="实际上是keys的视图"></a>实际上是keys的视图</h1><p>print s1.viewkeys()</p>
+<h1 id="dict-keys-‘a’-‘c’-‘b’-‘e’-‘d’-‘f’"><a href="#dict-keys-‘a’-‘c’-‘b’-‘e’-‘d’-‘f’" class="headerlink" title="dict_keys([‘a’, ‘c’, ‘b’, ‘e’, ‘d’, ‘f’])"></a>dict_keys([‘a’, ‘c’, ‘b’, ‘e’, ‘d’, ‘f’])</h1><p>print s2.viewkeys()</p>
+<h1 id="dict-keys-‘c’-‘b’-‘g’"><a href="#dict-keys-‘c’-‘b’-‘g’" class="headerlink" title="dict_keys([‘c’, ‘b’, ‘g’])"></a>dict_keys([‘c’, ‘b’, ‘g’])</h1><h1 id="集合-支持集合的交集操作"><a href="#集合-支持集合的交集操作" class="headerlink" title="集合 支持集合的交集操作"></a>集合 支持集合的交集操作</h1><p>print s1.viewkeys() &amp; s2.viewkeys()</p>
+<h1 id="set-‘c’-‘b’"><a href="#set-‘c’-‘b’" class="headerlink" title="set([‘c’, ‘b’])"></a>set([‘c’, ‘b’])</h1><h1 id="前三轮的"><a href="#前三轮的" class="headerlink" title="前三轮的"></a>前三轮的</h1><p>print s1.viewkeys() &amp; s2.viewkeys() &amp; s3.viewkeys()</p>
+<h1 id="set-‘c’"><a href="#set-‘c’" class="headerlink" title="set([‘c’])"></a>set([‘c’])</h1><p>print ‘——‘</p>
+<h1 id="对于n轮-分别使用map-reduce-来处理这样的问题"><a href="#对于n轮-分别使用map-reduce-来处理这样的问题" class="headerlink" title="对于n轮  分别使用map() reduce()来处理这样的问题"></a>对于n轮  分别使用map() reduce()来处理这样的问题</h1><h1 id="首先得到每一轮的keys的集合"><a href="#首先得到每一轮的keys的集合" class="headerlink" title="首先得到每一轮的keys的集合"></a>首先得到每一轮的keys的集合</h1><p>print map(dict.viewkeys, [s1, s2, s3])</p>
+<h1 id="dict-keys-‘a’-‘c’-‘b’-‘e’-‘d’-‘f’-dict-keys-‘c’-‘b’-‘g’-dict-keys-‘c’-‘e’-‘g’"><a href="#dict-keys-‘a’-‘c’-‘b’-‘e’-‘d’-‘f’-dict-keys-‘c’-‘b’-‘g’-dict-keys-‘c’-‘e’-‘g’" class="headerlink" title="[dict_keys([‘a’, ‘c’, ‘b’, ‘e’, ‘d’, ‘f’]), dict_keys([‘c’, ‘b’, ‘g’]), dict_keys([‘c’, ‘e’, ‘g’])]"></a>[dict_keys([‘a’, ‘c’, ‘b’, ‘e’, ‘d’, ‘f’]), dict_keys([‘c’, ‘b’, ‘g’]), dict_keys([‘c’, ‘e’, ‘g’])]</h1><h1 id="使用reduce函数进行交集-迭代map中的所有集合"><a href="#使用reduce函数进行交集-迭代map中的所有集合" class="headerlink" title="使用reduce函数进行交集, 迭代map中的所有集合"></a>使用reduce函数进行交集, 迭代map中的所有集合</h1><p>print reduce(lambda a, b: a &amp; b, map(dict.viewkeys, [s1, s2, s3]))</p>
+<h1 id="set-‘c’-1"><a href="#set-‘c’-1" class="headerlink" title="set([‘c’])"></a>set([‘c’])</h1><p></p>
+<h3 id="1-6-字典保持有序"><a href="#1-6-字典保持有序" class="headerlink" title="1.6 字典保持有序"></a>1.6 字典保持有序</h3><p>使用collections.OrderedDict: 以OrderedDict替代内置字典Dict, 依次将选手成绩存入OrderedDict。</p>
+<h4 id="Details-3"><a href="#Details-3" class="headerlink" title="Details"></a>Details</h4><p><code></code></p>
+<h1 id="像列表一样，按照每个项进入字典的次序来打印，但是python默认的字典是不具备这个功能的，不具备有序性"><a href="#像列表一样，按照每个项进入字典的次序来打印，但是python默认的字典是不具备这个功能的，不具备有序性" class="headerlink" title="像列表一样，按照每个项进入字典的次序来打印，但是python默认的字典是不具备这个功能的，不具备有序性"></a>像列表一样，按照每个项进入字典的次序来打印，但是python默认的字典是不具备这个功能的，不具备有序性</h1><p>d = {}<br>d[‘Jim’] = (1, 35)<br>d[‘Leo’] = (2, 37)<br>d[‘Bob’] = (3, 40)</p>
+<h1 id="我们希望迭代字典d的时候，按照先后顺序遍历"><a href="#我们希望迭代字典d的时候，按照先后顺序遍历" class="headerlink" title="我们希望迭代字典d的时候，按照先后顺序遍历"></a>我们希望迭代字典d的时候，按照先后顺序遍历</h1><p>for k in d:<br>    print k</p>
+<h1 id="Bob"><a href="#Bob" class="headerlink" title="Bob"></a>Bob</h1><h1 id="Jim"><a href="#Jim" class="headerlink" title="Jim"></a>Jim</h1><h1 id="Leo"><a href="#Leo" class="headerlink" title="Leo"></a>Leo</h1><h1 id="但是内置dict并不维护每个项进入的先后顺序"><a href="#但是内置dict并不维护每个项进入的先后顺序" class="headerlink" title="但是内置dict并不维护每个项进入的先后顺序"></a>但是内置dict并不维护每个项进入的先后顺序</h1><h1 id="我们需要一个能维护每个项进入的先后顺序的数据结构"><a href="#我们需要一个能维护每个项进入的先后顺序的数据结构" class="headerlink" title="我们需要一个能维护每个项进入的先后顺序的数据结构"></a>我们需要一个能维护每个项进入的先后顺序的数据结构</h1><h1 id="使用collections-OrderedDict"><a href="#使用collections-OrderedDict" class="headerlink" title="使用collections.OrderedDict"></a>使用collections.OrderedDict</h1><p>from collections import OrderedDict<br>d = OrderedDict()<br>d[‘Jim’] = (1, 35)<br>d[‘Leo’] = (2, 37)<br>d[‘Bob’] = (3, 40)<br>for k in d:<br>    print k</p>
+<h1 id="Jim-1"><a href="#Jim-1" class="headerlink" title="Jim"></a>Jim</h1><h1 id="Leo-1"><a href="#Leo-1" class="headerlink" title="Leo"></a>Leo</h1><h1 id="Bob-1"><a href="#Bob-1" class="headerlink" title="Bob"></a>Bob</h1><h1 id="按照每个项进入字典的次序来遍历的"><a href="#按照每个项进入字典的次序来遍历的" class="headerlink" title="按照每个项进入字典的次序来遍历的"></a>按照每个项进入字典的次序来遍历的</h1><p>from time import time  # 返回当前系统时间<br>from random import randint<br>from collections import OrderedDict</p>
+<p>d = OrderedDict()<br>players = list(‘ABCDEFGH’)<br>start = time()</p>
+<p>for i in xrange(8):<br>    raw_input()<br>    p = players.pop(randint(0, 7-i))<br>    end = time()<br>    print i + 1, p, end - start<br>    d[p] = (i + 1, end - start)</p>
+<p>print ‘-‘ * 20<br>for k in d:<br>    print k, d[k]</p>
+<h1 id="1-C-2-22200012207"><a href="#1-C-2-22200012207" class="headerlink" title="1 C 2.22200012207"></a>1 C 2.22200012207</h1><p>#</p>
+<h1 id="2-A-2-80599999428"><a href="#2-A-2-80599999428" class="headerlink" title="2 A 2.80599999428"></a>2 A 2.80599999428</h1><p># </p>
+<h1 id="3-D-3-13300013542"><a href="#3-D-3-13300013542" class="headerlink" title="3 D 3.13300013542"></a>3 D 3.13300013542</h1><p>#</p>
+<h1 id="4-F-3-42000007629"><a href="#4-F-3-42000007629" class="headerlink" title="4 F 3.42000007629"></a>4 F 3.42000007629</h1><p>#</p>
+<h1 id="5-B-3-77200007439"><a href="#5-B-3-77200007439" class="headerlink" title="5 B 3.77200007439"></a>5 B 3.77200007439</h1><p>#</p>
+<h1 id="6-G-4-1400001049"><a href="#6-G-4-1400001049" class="headerlink" title="6 G 4.1400001049"></a>6 G 4.1400001049</h1><p>#</p>
+<h1 id="7-E-4-49399995804"><a href="#7-E-4-49399995804" class="headerlink" title="7 E 4.49399995804"></a>7 E 4.49399995804</h1><p>#</p>
+<h1 id="8-H-4-91799998283"><a href="#8-H-4-91799998283" class="headerlink" title="8 H 4.91799998283"></a>8 H 4.91799998283</h1><h1 id="——————–"><a href="#——————–" class="headerlink" title="——————–"></a>——————–</h1><h1 id="C-1-2-2220001220703125"><a href="#C-1-2-2220001220703125" class="headerlink" title="C (1, 2.2220001220703125)"></a>C (1, 2.2220001220703125)</h1><h1 id="A-2-2-805999994277954"><a href="#A-2-2-805999994277954" class="headerlink" title="A (2, 2.805999994277954)"></a>A (2, 2.805999994277954)</h1><h1 id="D-3-3-133000135421753"><a href="#D-3-3-133000135421753" class="headerlink" title="D (3, 3.133000135421753)"></a>D (3, 3.133000135421753)</h1><h1 id="F-4-3-4200000762939453"><a href="#F-4-3-4200000762939453" class="headerlink" title="F (4, 3.4200000762939453)"></a>F (4, 3.4200000762939453)</h1><h1 id="B-5-3-7720000743865967"><a href="#B-5-3-7720000743865967" class="headerlink" title="B (5, 3.7720000743865967)"></a>B (5, 3.7720000743865967)</h1><h1 id="G-6-4-140000104904175"><a href="#G-6-4-140000104904175" class="headerlink" title="G (6, 4.140000104904175)"></a>G (6, 4.140000104904175)</h1><h1 id="E-7-4-49399995803833"><a href="#E-7-4-49399995803833" class="headerlink" title="E (7, 4.49399995803833)"></a>E (7, 4.49399995803833)</h1><h1 id="H-8-4-917999982833862"><a href="#H-8-4-917999982833862" class="headerlink" title="H (8, 4.917999982833862)"></a>H (8, 4.917999982833862)</h1><p></p>
+<h3 id="1-7-实现历史纪录功能"><a href="#1-7-实现历史纪录功能" class="headerlink" title="1.7 实现历史纪录功能"></a>1.7 实现历史纪录功能</h3><p>实现用户的历史纪录功能（最多n条）。<br>使用容量为n的队列存储历史纪录：</p>
+<ol>
+<li>使用标准库collections中的deque，它是一个双端循环队列。（相关：Python语言及其应用-5.5.4 双端队列：栈+队列 103页）；</li>
+<li>程序退出前，可以使用pickle将队列对象存入文件，再次运行程序时将其导入。</li>
+</ol>
+<h4 id="Details-4"><a href="#Details-4" class="headerlink" title="Details"></a>Details</h4><p><code></code></p>
+<h1 id="from-random-import-randint"><a href="#from-random-import-randint" class="headerlink" title="from random import randint"></a>from random import randint</h1><p>#</p>
+<h1 id="N-randint-1-100-产生0-100之间的随机数"><a href="#N-randint-1-100-产生0-100之间的随机数" class="headerlink" title="N = randint(1, 100)  # 产生0-100之间的随机数"></a>N = randint(1, 100)  # 产生0-100之间的随机数</h1><p>#</p>
+<h1 id="def-guess-k"><a href="#def-guess-k" class="headerlink" title="def guess(k):"></a>def guess(k):</h1><h1 id="if-k-N"><a href="#if-k-N" class="headerlink" title="if k == N:"></a>if k == N:</h1><h1 id="print-‘right’"><a href="#print-‘right’" class="headerlink" title="print ‘right’"></a>print ‘right’</h1><h1 id="if-k-lt-N"><a href="#if-k-lt-N" class="headerlink" title="if k &lt; N:"></a>if k &lt; N:</h1><h1 id="print-“-s-is-less-than-N”-k"><a href="#print-“-s-is-less-than-N”-k" class="headerlink" title="print “%s is less-than N” % k"></a>print “%s is less-than N” % k</h1><h1 id="else"><a href="#else" class="headerlink" title="else:"></a>else:</h1><h1 id="print-“-s-is-greater-than-N”-k"><a href="#print-“-s-is-greater-than-N”-k" class="headerlink" title="print “%s is greater-than N” % k"></a>print “%s is greater-than N” % k</h1><h1 id="return-False"><a href="#return-False" class="headerlink" title="return False"></a>return False</h1><p>#</p>
+<h1 id="while-True"><a href="#while-True" class="headerlink" title="while True:"></a>while True:</h1><h1 id="line-raw-input-“please-inout-a-number-“-接收用户输入"><a href="#line-raw-input-“please-inout-a-number-“-接收用户输入" class="headerlink" title="line = raw_input(“please inout a number: “)  # 接收用户输入"></a>line = raw_input(“please inout a number: “)  # 接收用户输入</h1><h1 id="if-line-isdigit"><a href="#if-line-isdigit" class="headerlink" title="if line.isdigit():"></a>if line.isdigit():</h1><h1 id="k-int-line"><a href="#k-int-line" class="headerlink" title="k = int(line)"></a>k = int(line)</h1><h1 id="if-guess-k"><a href="#if-guess-k" class="headerlink" title="if guess(k):"></a>if guess(k):</h1><h1 id="break"><a href="#break" class="headerlink" title="break"></a>break</h1><h1 id="使用容量为n的队列存放历史记录-先入先出"><a href="#使用容量为n的队列存放历史记录-先入先出" class="headerlink" title="使用容量为n的队列存放历史记录  先入先出"></a>使用容量为n的队列存放历史记录  先入先出</h1><h1 id="使用collections-deque-它是一个双端循环队列"><a href="#使用collections-deque-它是一个双端循环队列" class="headerlink" title="使用collections.deque,它是一个双端循环队列"></a>使用collections.deque,它是一个双端循环队列</h1><p>from collections import deque</p>
+<h1 id="deque-函数创建队列"><a href="#deque-函数创建队列" class="headerlink" title="deque()函数创建队列"></a>deque()函数创建队列</h1><h1 id="如果创建带有容量的队列，需要传入第2个参数，容量值"><a href="#如果创建带有容量的队列，需要传入第2个参数，容量值" class="headerlink" title="如果创建带有容量的队列，需要传入第2个参数，容量值"></a>如果创建带有容量的队列，需要传入第2个参数，容量值</h1><p>q = deque([], 5)  # 队列初始值设为空<br>q.append(1)  # 进行右边的入队操作<br>print q</p>
+<h1 id="deque-1-maxlen-5"><a href="#deque-1-maxlen-5" class="headerlink" title="deque([1], maxlen=5)"></a>deque([1], maxlen=5)</h1><p>q.append(2)<br>q.append(3)<br>q.append(4)<br>q.append(5)<br>print q</p>
+<h1 id="deque-1-2-3-4-5-maxlen-5"><a href="#deque-1-2-3-4-5-maxlen-5" class="headerlink" title="deque([1, 2, 3, 4, 5], maxlen=5)"></a>deque([1, 2, 3, 4, 5], maxlen=5)</h1><p>q.append(6)<br>print q</p>
+<h1 id="deque-2-3-4-5-6-maxlen-5"><a href="#deque-2-3-4-5-6-maxlen-5" class="headerlink" title="deque([2, 3, 4, 5, 6], maxlen=5)"></a>deque([2, 3, 4, 5, 6], maxlen=5)</h1><p>q.append(100)<br>print q</p>
+<h1 id="deque-3-4-5-6-100-maxlen-5"><a href="#deque-3-4-5-6-100-maxlen-5" class="headerlink" title="deque([3, 4, 5, 6, 100], maxlen=5)"></a>deque([3, 4, 5, 6, 100], maxlen=5)</h1><p>from random import randint<br>from collections import deque</p>
+<p>N = randint(1, 100)  # 产生0-100之间的随机数<br>history = deque([], 5)   # 初始化队列</p>
+<p>def guess(k):<br>    if k == N:<br>        print ‘right’<br>    if k &lt; N:<br>        print “%s is less-than N” % k<br>    else:<br>        print “%s is greater-than N” % k<br>    return False</p>
+<p>while True:<br>    line = raw_input(“please inout a number: “)  # 接收用户输入<br>    if line.isdigit():<br>        k = int(line)<br>        history.append(k)<br>        if guess(k):<br>            break<br>    elif line == ‘history’ or line == ‘h?’:<br>        print history<br>        print list(history)</p>
+<h1 id="please-inout-a-number-50"><a href="#please-inout-a-number-50" class="headerlink" title="please inout a number: 50"></a>please inout a number: 50</h1><h1 id="50-is-less-than-N"><a href="#50-is-less-than-N" class="headerlink" title="50 is less-than N"></a>50 is less-than N</h1><h1 id="please-inout-a-number-80"><a href="#please-inout-a-number-80" class="headerlink" title="please inout a number: 80"></a>please inout a number: 80</h1><h1 id="80-is-greater-than-N"><a href="#80-is-greater-than-N" class="headerlink" title="80 is greater-than N"></a>80 is greater-than N</h1><h1 id="please-inout-a-number-70"><a href="#please-inout-a-number-70" class="headerlink" title="please inout a number: 70"></a>please inout a number: 70</h1><h1 id="70-is-greater-than-N"><a href="#70-is-greater-than-N" class="headerlink" title="70 is greater-than N"></a>70 is greater-than N</h1><h1 id="please-inout-a-number-h"><a href="#please-inout-a-number-h" class="headerlink" title="please inout a number: h?"></a>please inout a number: h?</h1><h1 id="deque-50-80-70-maxlen-5"><a href="#deque-50-80-70-maxlen-5" class="headerlink" title="deque([50, 80, 70], maxlen=5)"></a>deque([50, 80, 70], maxlen=5)</h1><h1 id="50-80-70"><a href="#50-80-70" class="headerlink" title="[50, 80, 70]"></a>[50, 80, 70]</h1><h1 id="please-inout-a-number-60"><a href="#please-inout-a-number-60" class="headerlink" title="please inout a number: 60"></a>please inout a number: 60</h1><h1 id="60-is-greater-than-N"><a href="#60-is-greater-than-N" class="headerlink" title="60 is greater-than N"></a>60 is greater-than N</h1><h1 id="please-inout-a-number-65"><a href="#please-inout-a-number-65" class="headerlink" title="please inout a number: 65"></a>please inout a number: 65</h1><h1 id="65-is-greater-than-N"><a href="#65-is-greater-than-N" class="headerlink" title="65 is greater-than N"></a>65 is greater-than N</h1><h1 id="please-inout-a-number-h-1"><a href="#please-inout-a-number-h-1" class="headerlink" title="please inout a number: h?"></a>please inout a number: h?</h1><h1 id="deque-50-80-70-60-65-maxlen-5"><a href="#deque-50-80-70-60-65-maxlen-5" class="headerlink" title="deque([50, 80, 70, 60, 65], maxlen=5)"></a>deque([50, 80, 70, 60, 65], maxlen=5)</h1><h1 id="50-80-70-60-65"><a href="#50-80-70-60-65" class="headerlink" title="[50, 80, 70, 60, 65]"></a>[50, 80, 70, 60, 65]</h1><h1 id="please-inout-a-number-64"><a href="#please-inout-a-number-64" class="headerlink" title="please inout a number: 64"></a>please inout a number: 64</h1><h1 id="64-is-greater-than-N"><a href="#64-is-greater-than-N" class="headerlink" title="64 is greater-than N"></a>64 is greater-than N</h1><h1 id="please-inout-a-number-63"><a href="#please-inout-a-number-63" class="headerlink" title="please inout a number: 63"></a>please inout a number: 63</h1><h1 id="63-is-greater-than-N"><a href="#63-is-greater-than-N" class="headerlink" title="63 is greater-than N"></a>63 is greater-than N</h1><h1 id="please-inout-a-number-h-2"><a href="#please-inout-a-number-h-2" class="headerlink" title="please inout a number: h?"></a>please inout a number: h?</h1><h1 id="deque-70-60-65-64-63-maxlen-5"><a href="#deque-70-60-65-64-63-maxlen-5" class="headerlink" title="deque([70, 60, 65, 64, 63], maxlen=5)"></a>deque([70, 60, 65, 64, 63], maxlen=5)</h1><h1 id="70-60-65-64-63"><a href="#70-60-65-64-63" class="headerlink" title="[70, 60, 65, 64, 63]"></a>[70, 60, 65, 64, 63]</h1><h1 id="please-inout-a-number-62"><a href="#please-inout-a-number-62" class="headerlink" title="please inout a number: 62"></a>please inout a number: 62</h1><h1 id="62-is-greater-than-N"><a href="#62-is-greater-than-N" class="headerlink" title="62 is greater-than N"></a>62 is greater-than N</h1><h1 id="please-inout-a-number-61"><a href="#please-inout-a-number-61" class="headerlink" title="please inout a number: 61"></a>please inout a number: 61</h1><h1 id="61-is-greater-than-N"><a href="#61-is-greater-than-N" class="headerlink" title="61 is greater-than N"></a>61 is greater-than N</h1><h1 id="please-inout-a-number-55"><a href="#please-inout-a-number-55" class="headerlink" title="please inout a number: 55"></a>please inout a number: 55</h1><h1 id="right"><a href="#right" class="headerlink" title="right"></a>right</h1><h1 id="55-is-greater-than-N"><a href="#55-is-greater-than-N" class="headerlink" title="55 is greater-than N"></a>55 is greater-than N</h1><h1 id="please-inout-a-number-50-1"><a href="#please-inout-a-number-50-1" class="headerlink" title="please inout a number: 50"></a>please inout a number: 50</h1><h1 id="50-is-less-than-N-1"><a href="#50-is-less-than-N-1" class="headerlink" title="50 is less-than N"></a>50 is less-than N</h1><h1 id="please-inout-a-number-54"><a href="#please-inout-a-number-54" class="headerlink" title="please inout a number: 54"></a>please inout a number: 54</h1><h1 id="54-is-less-than-N"><a href="#54-is-less-than-N" class="headerlink" title="54 is less-than N"></a>54 is less-than N</h1><h1 id="please-inout-a-number-h-3"><a href="#please-inout-a-number-h-3" class="headerlink" title="please inout a number: h?"></a>please inout a number: h?</h1><h1 id="deque-62-61-55-50-54-maxlen-5"><a href="#deque-62-61-55-50-54-maxlen-5" class="headerlink" title="deque([62, 61, 55, 50, 54], maxlen=5)"></a>deque([62, 61, 55, 50, 54], maxlen=5)</h1><h1 id="62-61-55-50-54"><a href="#62-61-55-50-54" class="headerlink" title="[62, 61, 55, 50, 54]"></a>[62, 61, 55, 50, 54]</h1><h1 id="please-inout-a-number-53"><a href="#please-inout-a-number-53" class="headerlink" title="please inout a number: 53"></a>please inout a number: 53</h1><h1 id="53-is-less-than-N"><a href="#53-is-less-than-N" class="headerlink" title="53 is less-than N"></a>53 is less-than N</h1><h1 id="please-inout-a-number-52"><a href="#please-inout-a-number-52" class="headerlink" title="please inout a number: 52"></a>please inout a number: 52</h1><h1 id="52-is-less-than-N"><a href="#52-is-less-than-N" class="headerlink" title="52 is less-than N"></a>52 is less-than N</h1><h1 id="please-inout-a-number-51"><a href="#please-inout-a-number-51" class="headerlink" title="please inout a number: 51"></a>please inout a number: 51</h1><h1 id="51-is-less-than-N"><a href="#51-is-less-than-N" class="headerlink" title="51 is less-than N"></a>51 is less-than N</h1><h1 id="please-inout-a-number-h-4"><a href="#please-inout-a-number-h-4" class="headerlink" title="please inout a number: h?"></a>please inout a number: h?</h1><h1 id="deque-50-54-53-52-51-maxlen-5"><a href="#deque-50-54-53-52-51-maxlen-5" class="headerlink" title="deque([50, 54, 53, 52, 51], maxlen=5)"></a>deque([50, 54, 53, 52, 51], maxlen=5)</h1><h1 id="50-54-53-52-51"><a href="#50-54-53-52-51" class="headerlink" title="[50, 54, 53, 52, 51]"></a>[50, 54, 53, 52, 51]</h1><h1 id="please-inout-a-number-55-1"><a href="#please-inout-a-number-55-1" class="headerlink" title="please inout a number: 55"></a>please inout a number: 55</h1><h1 id="right-1"><a href="#right-1" class="headerlink" title="right"></a>right</h1><h1 id="55-is-greater-than-N-1"><a href="#55-is-greater-than-N-1" class="headerlink" title="55 is greater-than N"></a>55 is greater-than N</h1><h1 id="please-inout-a-number-50-2"><a href="#please-inout-a-number-50-2" class="headerlink" title="please inout a number: 50"></a>please inout a number: 50</h1><h1 id="50-is-less-than-N-2"><a href="#50-is-less-than-N-2" class="headerlink" title="50 is less-than N"></a>50 is less-than N</h1><h1 id="please-inout-a-number-51-1"><a href="#please-inout-a-number-51-1" class="headerlink" title="please inout a number: 51"></a>please inout a number: 51</h1><h1 id="51-is-less-than-N-1"><a href="#51-is-less-than-N-1" class="headerlink" title="51 is less-than N"></a>51 is less-than N</h1><h1 id="please-inout-a-number-52-1"><a href="#please-inout-a-number-52-1" class="headerlink" title="please inout a number: 52"></a>please inout a number: 52</h1><h1 id="52-is-less-than-N-1"><a href="#52-is-less-than-N-1" class="headerlink" title="52 is less-than N"></a>52 is less-than N</h1><h1 id="please-inout-a-number-53-1"><a href="#please-inout-a-number-53-1" class="headerlink" title="please inout a number: 53"></a>please inout a number: 53</h1><h1 id="53-is-less-than-N-1"><a href="#53-is-less-than-N-1" class="headerlink" title="53 is less-than N"></a>53 is less-than N</h1><h1 id="please-inout-a-number-54-1"><a href="#please-inout-a-number-54-1" class="headerlink" title="please inout a number: 54"></a>please inout a number: 54</h1><h1 id="54-is-less-than-N-1"><a href="#54-is-less-than-N-1" class="headerlink" title="54 is less-than N"></a>54 is less-than N</h1><h1 id="please-inout-a-number-55-2"><a href="#please-inout-a-number-55-2" class="headerlink" title="please inout a number: 55"></a>please inout a number: 55</h1><h1 id="right-2"><a href="#right-2" class="headerlink" title="right"></a>right</h1><h1 id="55-is-greater-than-N-2"><a href="#55-is-greater-than-N-2" class="headerlink" title="55 is greater-than N"></a>55 is greater-than N</h1><h1 id="目前这个队列queue是在内存当中，程序退出就消失掉了。需要把历史记录这个对象存储到文件中"><a href="#目前这个队列queue是在内存当中，程序退出就消失掉了。需要把历史记录这个对象存储到文件中" class="headerlink" title="目前这个队列queue是在内存当中，程序退出就消失掉了。需要把历史记录这个对象存储到文件中"></a>目前这个队列queue是在内存当中，程序退出就消失掉了。需要把历史记录这个对象存储到文件中</h1><h1 id="也就是把history对象存储到文件中，下次运行程序再把它load进来"><a href="#也就是把history对象存储到文件中，下次运行程序再把它load进来" class="headerlink" title="也就是把history对象存储到文件中，下次运行程序再把它load进来"></a>也就是把history对象存储到文件中，下次运行程序再把它load进来</h1><p>import pickle</p>
+<h1 id="pickle可以把一个python对象存储到文件当中，也可以从文件当中load一个python对象"><a href="#pickle可以把一个python对象存储到文件当中，也可以从文件当中load一个python对象" class="headerlink" title="pickle可以把一个python对象存储到文件当中，也可以从文件当中load一个python对象"></a>pickle可以把一个python对象存储到文件当中，也可以从文件当中load一个python对象</h1><h1 id="存储文件"><a href="#存储文件" class="headerlink" title="存储文件"></a>存储文件</h1><p>pickle.dump(q, open(‘history’, ‘w’))  # dump方法接收两个参数，第一个参数是存储的python对象，第二个参数是要指定一个文件</p>
+<p>q2 = pickle.load(open(‘history’))   #  从文件中提取python对象</p>
+<h1 id="q2和q是一致的"><a href="#q2和q是一致的" class="headerlink" title="q2和q是一致的"></a>q2和q是一致的</h1><p></p>
+<h2 id="二、迭代器与生成器"><a href="#二、迭代器与生成器" class="headerlink" title="二、迭代器与生成器"></a>二、迭代器与生成器</h2><h3 id="2-1-实现可迭代对象和迭代器对象"><a href="#2-1-实现可迭代对象和迭代器对象" class="headerlink" title="2.1 实现可迭代对象和迭代器对象"></a>2.1 实现可迭代对象和迭代器对象</h3><ol>
+<li>实现一个迭代器对象WeatherIterator, next方法每次返回一个城市气温；</li>
+<li><p>实现一个可迭代对象WeatherIterable, <strong>iter</strong>方法返回一个迭代器对象。</p>
+<h4 id="Details-5"><a href="#Details-5" class="headerlink" title="Details"></a>Details</h4><p><code></code></p>
+<h1 id="这两种对象都是python中的可迭代对象"><a href="#这两种对象都是python中的可迭代对象" class="headerlink" title="这两种对象都是python中的可迭代对象"></a>这两种对象都是python中的可迭代对象</h1><p>l = [1, 2, 3, 4]<br>s = ‘abcde’</p>
+</li>
+</ol>
+<h1 id="迭代列表"><a href="#迭代列表" class="headerlink" title="迭代列表"></a>迭代列表</h1><p>for x in l:<br>    print x</p>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><h1 id="3"><a href="#3" class="headerlink" title="3"></a>3</h1><h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><h1 id="迭代字符串"><a href="#迭代字符串" class="headerlink" title="迭代字符串"></a>迭代字符串</h1><p>for x in s:<br>    print x</p>
+<h1 id="a"><a href="#a" class="headerlink" title="a"></a>a</h1><h1 id="b"><a href="#b" class="headerlink" title="b"></a>b</h1><h1 id="c"><a href="#c" class="headerlink" title="c"></a>c</h1><h1 id="d"><a href="#d" class="headerlink" title="d"></a>d</h1><h1 id="e"><a href="#e" class="headerlink" title="e"></a>e</h1><h1 id="首先要确保in-后面是个可迭代对象"><a href="#首先要确保in-后面是个可迭代对象" class="headerlink" title="首先要确保in 后面是个可迭代对象"></a>首先要确保in 后面是个可迭代对象</h1><h1 id="如果它是一个可迭代对象的话，它能由python的内置函数iter得到一个迭代器对象"><a href="#如果它是一个可迭代对象的话，它能由python的内置函数iter得到一个迭代器对象" class="headerlink" title="如果它是一个可迭代对象的话，它能由python的内置函数iter得到一个迭代器对象"></a>如果它是一个可迭代对象的话，它能由python的内置函数iter得到一个迭代器对象</h1><h1 id="可迭代和迭代器，这两个概念不要混淆"><a href="#可迭代和迭代器，这两个概念不要混淆" class="headerlink" title="可迭代和迭代器，这两个概念不要混淆"></a>可迭代和迭代器，这两个概念不要混淆</h1><h1 id="iter-l-由可迭代对象，得到迭代器"><a href="#iter-l-由可迭代对象，得到迭代器" class="headerlink" title="iter(l) 由可迭代对象，得到迭代器"></a>iter(l) 由可迭代对象，得到迭代器</h1><p>print iter(l)  # 得到列表的迭代器对象</p>
+<h1 id="-1"><a href="#-1" class="headerlink" title=""></a><listiterator object="" at="" 0x0000000002d624e0=""></listiterator></h1><p>print iter(s)</p>
+<h1 id="-2"><a href="#-2" class="headerlink" title=""></a><iterator object="" at="" 0x00000000038b24e0=""></iterator></h1><h1 id="print-iter-5"><a href="#print-iter-5" class="headerlink" title="print iter(5)"></a>print iter(5)</h1><h1 id="Traceback-most-recent-call-last"><a href="#Traceback-most-recent-call-last" class="headerlink" title="Traceback (most recent call last):"></a>Traceback (most recent call last):</h1><h1 id="File-“C-Users-Administrator-PycharmProjects-HighEndPython-3-1-py”-line-34-in"><a href="#File-“C-Users-Administrator-PycharmProjects-HighEndPython-3-1-py”-line-34-in" class="headerlink" title="File “C:/Users/Administrator/PycharmProjects/HighEndPython/3_1.py”, line 34, in "></a>File “C:/Users/Administrator/PycharmProjects/HighEndPython/3_1.py”, line 34, in <module></module></h1><h1 id="print-iter-5-1"><a href="#print-iter-5-1" class="headerlink" title="print iter(5)"></a>print iter(5)</h1><h1 id="TypeError-‘int’-object-is-not-iterable"><a href="#TypeError-‘int’-object-is-not-iterable" class="headerlink" title="TypeError: ‘int’ object is not iterable"></a>TypeError: ‘int’ object is not iterable</h1><h1 id="数字不是一个可迭代对象"><a href="#数字不是一个可迭代对象" class="headerlink" title="数字不是一个可迭代对象"></a>数字不是一个可迭代对象</h1><h1 id="为什么列表和字符串是可迭代对象？"><a href="#为什么列表和字符串是可迭代对象？" class="headerlink" title="为什么列表和字符串是可迭代对象？"></a>为什么列表和字符串是可迭代对象？</h1><h1 id="他们满足了某种特殊接口"><a href="#他们满足了某种特殊接口" class="headerlink" title="他们满足了某种特殊接口"></a>他们满足了某种特殊接口</h1><p>print l.<strong>iter</strong>()</p>
+<h1 id="-3"><a href="#-3" class="headerlink" title=""></a><listiterator object="" at="" 0x00000000023924e0=""></listiterator></h1><p>print ‘—‘</p>
+<h1 id="列表下有一个叫iter的方法，它就是迭代协议的接口"><a href="#列表下有一个叫iter的方法，它就是迭代协议的接口" class="headerlink" title="列表下有一个叫iter的方法，它就是迭代协议的接口"></a>列表下有一个叫<strong>iter</strong>的方法，它就是迭代协议的接口</h1><h1 id="调用iter-l-实际内部执行了-l-iter-也就调用了这个对象的iter-方法"><a href="#调用iter-l-实际内部执行了-l-iter-也就调用了这个对象的iter-方法" class="headerlink" title="调用iter(l),实际内部执行了 l.iter(),也就调用了这个对象的iter()方法"></a>调用iter(l),实际内部执行了 l.<strong>iter</strong>(),也就调用了这个对象的<strong>iter</strong>()方法</h1><h1 id="字符串中没有找到iter-方法，但是它有个getitem-方法"><a href="#字符串中没有找到iter-方法，但是它有个getitem-方法" class="headerlink" title="字符串中没有找到iter()方法，但是它有个getitem()方法"></a>字符串中没有找到<strong>iter</strong>()方法，但是它有个<strong>getitem</strong>()方法</h1><h1 id="内置函数iter-首先会去找标准的迭代接口iter-如果找不到就找getitem-方法"><a href="#内置函数iter-首先会去找标准的迭代接口iter-如果找不到就找getitem-方法" class="headerlink" title="内置函数iter()首先会去找标准的迭代接口iter(),如果找不到就找getitem()方法"></a>内置函数iter()首先会去找标准的迭代接口<strong>iter</strong>(),如果找不到就找<strong>getitem</strong>()方法</h1><h1 id="In-the-first-form-the-argument-must"><a href="#In-the-first-form-the-argument-must" class="headerlink" title="# In the first form, the argument must"></a># In the first form, the argument must</h1><h1 id="supply-its-own-iterator-or-be-a-sequence-要么支持自身迭代器，要么是一个序列，getitem-就是一个序列的接口"><a href="#supply-its-own-iterator-or-be-a-sequence-要么支持自身迭代器，要么是一个序列，getitem-就是一个序列的接口" class="headerlink" title="supply its own iterator, or be a sequence.要么支持自身迭代器，要么是一个序列，getitem()就是一个序列的接口"></a>supply its own iterator, or be a sequence.要么支持自身迭代器，要么是一个序列，<strong>getitem</strong>()就是一个序列的接口</h1><h1 id="迭代器对象满足什么接口？"><a href="#迭代器对象满足什么接口？" class="headerlink" title="迭代器对象满足什么接口？"></a>迭代器对象满足什么接口？</h1><p>t = iter(l)<br>print t.next()</p>
+<h1 id="它只有next-接口"><a href="#它只有next-接口" class="headerlink" title="它只有next()接口"></a>它只有next()接口</h1><p>print t.next()<br>print t.next()<br>print t.next()<br>print t.next()<br>print t.next()</p>
+<h1 id="1-1"><a href="#1-1" class="headerlink" title="1"></a>1</h1><h1 id="2-1"><a href="#2-1" class="headerlink" title="2"></a>2</h1><h1 id="3-1"><a href="#3-1" class="headerlink" title="3"></a>3</h1><h1 id="4-1"><a href="#4-1" class="headerlink" title="4"></a>4</h1><h1 id="整个列表迭代完毕会抛出异常"><a href="#整个列表迭代完毕会抛出异常" class="headerlink" title="整个列表迭代完毕会抛出异常"></a>整个列表迭代完毕会抛出异常</h1><h1 id="for循环工作的机制"><a href="#for循环工作的机制" class="headerlink" title="for循环工作的机制"></a>for循环工作的机制</h1><h1 id="实际上先由iter-l-得到一个迭代器，接下来不停的调用next"><a href="#实际上先由iter-l-得到一个迭代器，接下来不停的调用next" class="headerlink" title="实际上先由iter(l)得到一个迭代器，接下来不停的调用next()"></a>实际上先由iter(l)得到一个迭代器，接下来不停的调用next()</h1><h1 id="直到最终捕获到一个StopIteration的异常，整个for循环就跳出来了"><a href="#直到最终捕获到一个StopIteration的异常，整个for循环就跳出来了" class="headerlink" title="直到最终捕获到一个StopIteration的异常，整个for循环就跳出来了"></a>直到最终捕获到一个StopIteration的异常，整个for循环就跳出来了</h1><p> </p>
+<h3 id="2-2-生成器函数实现可迭代对象"><a href="#2-2-生成器函数实现可迭代对象" class="headerlink" title="2.2 生成器函数实现可迭代对象"></a>2.2 生成器函数实现可迭代对象</h3><p>将该类的<strong>iter</strong>方法实现成生成器函数，每次yield返回一个素数。</p>
+<h4 id="Details-6"><a href="#Details-6" class="headerlink" title="Details"></a>Details</h4><p><code></code></p>
+<h1 id="首先实现一个迭代器对象，它有一个next-方法，当迭代完毕应该抛出一个停止迭代异常"><a href="#首先实现一个迭代器对象，它有一个next-方法，当迭代完毕应该抛出一个停止迭代异常" class="headerlink" title="首先实现一个迭代器对象，它有一个next()方法，当迭代完毕应该抛出一个停止迭代异常"></a>首先实现一个迭代器对象，它有一个next()方法，当迭代完毕应该抛出一个停止迭代异常</h1><h1 id="实现一个可迭代对象，它有一个iter-方法，它能返回上面这样一个迭代器对象"><a href="#实现一个可迭代对象，它有一个iter-方法，它能返回上面这样一个迭代器对象" class="headerlink" title="实现一个可迭代对象，它有一个iter()方法，它能返回上面这样一个迭代器对象"></a>实现一个可迭代对象，它有一个<strong>iter</strong>()方法，它能返回上面这样一个迭代器对象</h1><p>import requests</p>
+<p>def getweather(city):<br>    r = requests.get(u’<a href="http://wthrcdn.etouch.cn/weather_mini?city=" target="_blank" rel="external">http://wthrcdn.etouch.cn/weather_mini?city=</a>‘ + city)<br>    data = r.json()[‘data’][‘forecast’][0]<br>    return ‘%s: %s , %s ‘ % (city, data[‘low’], data[‘high’])</p>
+<p>#[u’北京’,u’上海’,u’广州’,u’长春’<br>print getweather(u’北京’)<br>print getweather(u’长春’)<br>print getweather(u’深圳’)</p>
+<h1 id="北京-低温-6℃-高温-6℃"><a href="#北京-低温-6℃-高温-6℃" class="headerlink" title="北京: 低温 -6℃ , 高温 6℃"></a>北京: 低温 -6℃ , 高温 6℃</h1><h1 id="长春-低温-17℃-高温-7℃"><a href="#长春-低温-17℃-高温-7℃" class="headerlink" title="长春: 低温 -17℃ , 高温 -7℃"></a>长春: 低温 -17℃ , 高温 -7℃</h1><h1 id="深圳-低温-13℃-高温-23℃"><a href="#深圳-低温-13℃-高温-23℃" class="headerlink" title="深圳: 低温 13℃ , 高温 23℃"></a>深圳: 低温 13℃ , 高温 23℃</h1><h1 id="可迭代对象和迭代器对象，python的标准库当中，对它们的接口已经有了定义"><a href="#可迭代对象和迭代器对象，python的标准库当中，对它们的接口已经有了定义" class="headerlink" title="可迭代对象和迭代器对象，python的标准库当中，对它们的接口已经有了定义"></a>可迭代对象和迭代器对象，python的标准库当中，对它们的接口已经有了定义</h1><p>from collections import Iterable, Iterator<br>print Iterator.<strong>abstractmethods</strong></p>
+<h1 id="frozenset-‘next’"><a href="#frozenset-‘next’" class="headerlink" title="frozenset([‘next’])"></a>frozenset([‘next’])</h1><h1 id="迭代器的抽象接口是next"><a href="#迭代器的抽象接口是next" class="headerlink" title="迭代器的抽象接口是next"></a>迭代器的抽象接口是next</h1><p>print Iterable.<strong>abstractmethods</strong></p>
+<h1 id="frozenset-‘iter‘"><a href="#frozenset-‘iter‘" class="headerlink" title="frozenset([‘iter‘])"></a>frozenset([‘<strong>iter</strong>‘])</h1><h1 id="可迭代对象的抽象接口是iter"><a href="#可迭代对象的抽象接口是iter" class="headerlink" title="可迭代对象的抽象接口是iter"></a>可迭代对象的抽象接口是<strong>iter</strong></h1><h1 id="直接继承这两个抽象类"><a href="#直接继承这两个抽象类" class="headerlink" title="直接继承这两个抽象类"></a>直接继承这两个抽象类</h1><h1 id="import-requests"><a href="#import-requests" class="headerlink" title="import requests"></a>import requests</h1><p>#</p>
+<h1 id="def-getweather-city"><a href="#def-getweather-city" class="headerlink" title="def getweather(city):"></a>def getweather(city):</h1><h1 id="r-requests-get-u’http-wthrcdn-etouch-cn-weather-mini-city-‘-city"><a href="#r-requests-get-u’http-wthrcdn-etouch-cn-weather-mini-city-‘-city" class="headerlink" title="r = requests.get(u’http://wthrcdn.etouch.cn/weather_mini?city=‘ + city)"></a>r = requests.get(u’<a href="http://wthrcdn.etouch.cn/weather_mini?city=" target="_blank" rel="external">http://wthrcdn.etouch.cn/weather_mini?city=</a>‘ + city)</h1><h1 id="data-r-json-‘data’-‘forecast’-0"><a href="#data-r-json-‘data’-‘forecast’-0" class="headerlink" title="data = r.json()[‘data’][‘forecast’][0]"></a>data = r.json()[‘data’][‘forecast’][0]</h1><h1 id="return-‘-s-s-s-‘-city-data-‘low’-data-‘high’"><a href="#return-‘-s-s-s-‘-city-data-‘low’-data-‘high’" class="headerlink" title="return ‘%s: %s , %s ‘ % (city, data[‘low’], data[‘high’])"></a>return ‘%s: %s , %s ‘ % (city, data[‘low’], data[‘high’])</h1><p>#[u’北京’,u’上海’,u’广州’,u’长春’]</p>
+<h1 id="print-getweather-u’北京’"><a href="#print-getweather-u’北京’" class="headerlink" title="print getweather(u’北京’)"></a>print getweather(u’北京’)</h1><h1 id="print-getweather-u’长春’"><a href="#print-getweather-u’长春’" class="headerlink" title="print getweather(u’长春’)"></a>print getweather(u’长春’)</h1><h1 id="print-getweather-u’深圳’"><a href="#print-getweather-u’深圳’" class="headerlink" title="print getweather(u’深圳’)"></a>print getweather(u’深圳’)</h1><p>from collections import Iterable, Iterator</p>
+<h1 id="首先实现Iterator"><a href="#首先实现Iterator" class="headerlink" title="首先实现Iterator"></a>首先实现Iterator</h1><p>class WeatherIterator(Iterator):<br>    def <strong>init</strong>(self, cities):  # 天气的迭代器应该有一个参数，描述这个迭代器都能返回哪些城市的基本信息<br>        self.cities = cities</p>
+<pre><code>    # 还需要知道迭代位置,刻画迭代的位置
+    self.index = 0
+
+def getweather(self, city):
+    r = requests.get(u&apos;http://wthrcdn.etouch.cn/weather_mini?city=&apos; + city)
+    data = r.json()[&apos;data&apos;][&apos;forecast&apos;][0]
+    return &apos;%s: %s , %s &apos; % (city, data[&apos;low&apos;], data[&apos;high&apos;])
+
+def next(self):
+    if self.index == len(self.cities):
+        raise StopIteration
+    city = self.cities[self.index]
+    self.index += 1
+    return self.getweather(city)
+# 气温迭代器完成
+</code></pre><p>class WeatherIterable(Iterable):<br>    def <strong>init</strong>(self, cities):<br>        self.cities = cities  # 为了后面传给Iterator这个构造器</p>
+<pre><code>def __iter__(self):
+    return WeatherIterator(self.cities) # 实例
+</code></pre><p>for x in WeatherIterable([u’北京’,u’上海’,u’广州’,u’长春’]):<br>    print x</p>
+<h1 id="北京-低温-6℃-高温-6℃-1"><a href="#北京-低温-6℃-高温-6℃-1" class="headerlink" title="北京: 低温 -6℃ , 高温 6℃"></a>北京: 低温 -6℃ , 高温 6℃</h1><h1 id="上海-低温-3℃-高温-12℃"><a href="#上海-低温-3℃-高温-12℃" class="headerlink" title="上海: 低温 3℃ , 高温 12℃"></a>上海: 低温 3℃ , 高温 12℃</h1><h1 id="广州-低温-11℃-高温-22℃"><a href="#广州-低温-11℃-高温-22℃" class="headerlink" title="广州: 低温 11℃ , 高温 22℃"></a>广州: 低温 11℃ , 高温 22℃</h1><h1 id="长春-低温-17℃-高温-7℃-1"><a href="#长春-低温-17℃-高温-7℃-1" class="headerlink" title="长春: 低温 -17℃ , 高温 -7℃"></a>长春: 低温 -17℃ , 高温 -7℃</h1><h1 id="在某些惰性场合使用它们的优势"><a href="#在某些惰性场合使用它们的优势" class="headerlink" title="在某些惰性场合使用它们的优势"></a>在某些惰性场合使用它们的优势</h1><p></p>
+<h3 id="2-3-反向迭代"><a href="#2-3-反向迭代" class="headerlink" title="2.3 反向迭代"></a>2.3 反向迭代</h3><p>如何进行反向迭代以及如何实现反向迭代？<br>实现反向迭代协议的<strong>reversed</strong>方法，它返回一个反向迭代器。</p>
+<h3 id="2-4-迭代器做切片操作"><a href="#2-4-迭代器做切片操作" class="headerlink" title="2.4 迭代器做切片操作"></a>2.4 迭代器做切片操作</h3><p>使用标准库中的itertools.islice, 它能返回一个迭代对象切片的生成器。</p>
+<h3 id="2-5-迭代多个可迭代对象"><a href="#2-5-迭代多个可迭代对象" class="headerlink" title="2.5 迭代多个可迭代对象"></a>2.5 迭代多个可迭代对象</h3><p>如何在一个for语句中迭代多个可迭代对象：<br>并行：使用内置函数zip, 它能将多个可迭代对象合并，每次迭代返回一个元组。<br>串行：使用标准库中的itertools.chain, 它能将多个可迭代对象连接。</p>
+<h2 id="三、字符串处理"><a href="#三、字符串处理" class="headerlink" title="三、字符串处理"></a>三、字符串处理</h2><h3 id="3-1-拆分含有多种分割符的字符串"><a href="#3-1-拆分含有多种分割符的字符串" class="headerlink" title="3.1 拆分含有多种分割符的字符串"></a>3.1 拆分含有多种分割符的字符串</h3><h4 id="3-1-1-str-split-方法"><a href="#3-1-1-str-split-方法" class="headerlink" title="3.1.1 str.split()方法"></a>3.1.1 str.split()方法</h4><p>连续使用str.split()方法，每次处理一种分割符号。</p>
+<h4 id="3-1-2-正则表达式re-split-方法"><a href="#3-1-2-正则表达式re-split-方法" class="headerlink" title="3.1.2 正则表达式re.split()方法"></a>3.1.2 正则表达式re.split()方法</h4><p>使用正则表达式的re.split()方法，一次性拆分字符串。</p>
+<h3 id="3-2-判断字符串a是否以字符串b开头或结尾"><a href="#3-2-判断字符串a是否以字符串b开头或结尾" class="headerlink" title="3.2 判断字符串a是否以字符串b开头或结尾"></a>3.2 判断字符串a是否以字符串b开头或结尾</h3><p>使用字符串的str.startswith()和str.endswith()方法。注意：多个匹配时参数使用元组。</p>
+<h3 id="3-3-调整字符串中文本的格式"><a href="#3-3-调整字符串中文本的格式" class="headerlink" title="3.3 调整字符串中文本的格式"></a>3.3 调整字符串中文本的格式</h3><p>使用正则表达式re.sub()方法做字符串替换，利用正则表达式的捕获组，捕获每个部分内容，在替换字符串中调整各个捕获组的顺序。</p>
+<h3 id="3-4-字符串拼接"><a href="#3-4-字符串拼接" class="headerlink" title="3.4 字符串拼接"></a>3.4 字符串拼接</h3><p>多个小字符串拼接成大的字符串。</p>
+<h4 id="3-4-1-迭代列表"><a href="#3-4-1-迭代列表" class="headerlink" title="3.4.1 迭代列表"></a>3.4.1 迭代列表</h4><p>迭代列表，连续使用’+’操作依次拼接每一个字符串。</p>
+<h4 id="3-4-2-str-join-方法"><a href="#3-4-2-str-join-方法" class="headerlink" title="3.4.2 str.join()方法"></a>3.4.2 str.join()方法</h4><p>使用str.join()方法，更加快速的凭借列表中所有字符串。</p>
+<h3 id="3-5-字符串左右居中对齐"><a href="#3-5-字符串左右居中对齐" class="headerlink" title="3.5 字符串左右居中对齐"></a>3.5 字符串左右居中对齐</h3><h4 id="3-5-1-str-ljust-str-rjust-str-center"><a href="#3-5-1-str-ljust-str-rjust-str-center" class="headerlink" title="3.5.1 str.ljust(), str.rjust, str.center()"></a>3.5.1 str.ljust(), str.rjust, str.center()</h4><p>使用字符串的str.ljust(), str.rjust, str.center()进行左、右，居中对齐。</p>
+<h4 id="3-5-2-format"><a href="#3-5-2-format" class="headerlink" title="3.5.2 format()"></a>3.5.2 format()</h4><p>使用format()方法，传递类似’<20','>20’,’^20’参数完成同样任务。</20','></p>
+<h3 id="3-6-去掉字符串中不需要的字符"><a href="#3-6-去掉字符串中不需要的字符" class="headerlink" title="3.6 去掉字符串中不需要的字符"></a>3.6 去掉字符串中不需要的字符</h3><h4 id="3-6-1-strip-lstrip-rstrip-方法"><a href="#3-6-1-strip-lstrip-rstrip-方法" class="headerlink" title="3.6.1 strip(),lstrip(),rstrip()方法"></a>3.6.1 strip(),lstrip(),rstrip()方法</h4><p>字符串strip(),lstrip(),rstrip()方法去掉字符串两端字符。</p>
+<h4 id="3-6-2-切片-拼接"><a href="#3-6-2-切片-拼接" class="headerlink" title="3.6.2 切片 + 拼接"></a>3.6.2 切片 + 拼接</h4><p>删除单个固定位置的字符，可以使用切片 + 拼接的方式。</p>
+<h4 id="3-6-3-replace-方法或re-sub"><a href="#3-6-3-replace-方法或re-sub" class="headerlink" title="3.6.3 replace()方法或re.sub()"></a>3.6.3 replace()方法或re.sub()</h4><p>字符串的replace()方法或正则表达式re.sub()删除任意位置字符。</p>
+<h4 id="3-6-4-translate-方法"><a href="#3-6-4-translate-方法" class="headerlink" title="3.6.4 translate()方法"></a>3.6.4 translate()方法</h4><p>字符串translate()方法，可以同时删除多种不同字符。</p>
+<h2 id="四、文件I-O"><a href="#四、文件I-O" class="headerlink" title="四、文件I/O"></a>四、文件I/O</h2><h3 id="4-1-读写文本文件"><a href="#4-1-读写文本文件" class="headerlink" title="4.1 读写文本文件"></a>4.1 读写文本文件</h3><h4 id="4-1-1-python2-x"><a href="#4-1-1-python2-x" class="headerlink" title="4.1.1 python2.x"></a>4.1.1 python2.x</h4><p>写入文件前对unicode编码，读入文件后对二进制字符串解码。</p>
+<h4 id="4-1-2-python3-x"><a href="#4-1-2-python3-x" class="headerlink" title="4.1.2 python3.x"></a>4.1.2 python3.x</h4><p>open函数指定’t’的文本模式，encoding指定编码格式。</p>
+<h3 id="4-2-处理二进制文件"><a href="#4-2-处理二进制文件" class="headerlink" title="4.2 处理二进制文件"></a>4.2 处理二进制文件</h3><p>open函数以二进制模式打开文件，指定mode参数为’b’.<br>二进制数据可以用readinto, 读入到提前分配好的buffer中，便于数据处理。<br>解析二进制数据可以使用标准库中的struct模块的unpack方法。</p>
+<h3 id="4-3-设置文件的缓冲"><a href="#4-3-设置文件的缓冲" class="headerlink" title="4.3 设置文件的缓冲"></a>4.3 设置文件的缓冲</h3><p>全缓冲：open函数的buffering设置为大于1的整数n,n为缓冲区大小。<br>行缓冲：open函数的buffering设置为1。<br>无缓冲：open函数的buffering设置为0。</p>
+<h3 id="4-4-文件映射到内存"><a href="#4-4-文件映射到内存" class="headerlink" title="4.4 文件映射到内存"></a>4.4 文件映射到内存</h3><p>使用标准库中mmap模块的mmap()函数，它需要一个打开的文件描述符作为参数。</p>
+<h3 id="4-5-访问文件的状态"><a href="#4-5-访问文件的状态" class="headerlink" title="4.5 访问文件的状态"></a>4.5 访问文件的状态</h3><p>函数调用：标准库中os模块下的三个系统调用stat,fstat,lstat获取文件状态。<br>快捷函数：标准库中os.path下一些函数，使用起来更加简洁。</p>
+<h3 id="4-6-使用临时文件"><a href="#4-6-使用临时文件" class="headerlink" title="4.6 使用临时文件"></a>4.6 使用临时文件</h3><p>使用标准库中tempfile下的TemporaryFile,NamedTemporaryFile。</p>
+<h2 id="五、csv、json、xml、excel"><a href="#五、csv、json、xml、excel" class="headerlink" title="五、csv、json、xml、excel"></a>五、csv、json、xml、excel</h2><h3 id="5-1-读写csv数据"><a href="#5-1-读写csv数据" class="headerlink" title="5.1 读写csv数据"></a>5.1 读写csv数据</h3><p>使用标准库中的csv模块，可以使用其中reader和writer完成csv文件读写。</p>
+<h3 id="5-2-读写json数据"><a href="#5-2-读写json数据" class="headerlink" title="5.2 读写json数据"></a>5.2 读写json数据</h3><p>使用标准库中的json模块，其中loads、dumps函数可以完成json数据的读写。</p>
+<h3 id="5-3-解析简单的xml文档"><a href="#5-3-解析简单的xml文档" class="headerlink" title="5.3 解析简单的xml文档"></a>5.3 解析简单的xml文档</h3><p>使用标准库中的xml.etree.ElementTree，其中的parse函数可以解析xml文档。</p>
+<h3 id="5-4-构建xml文档"><a href="#5-4-构建xml文档" class="headerlink" title="5.4 构建xml文档"></a>5.4 构建xml文档</h3><p>使用标准库中的xml.etree.ElementTree，使用write()方法写入文件。</p>
+<h3 id="5-5-读写excel文件"><a href="#5-5-读写excel文件" class="headerlink" title="5.5 读写excel文件"></a>5.5 读写excel文件</h3><p>使用第三方库xlrd和xlwt，这两个库分别用于excel读和写。</p>
+<h2 id="六、类与对象"><a href="#六、类与对象" class="headerlink" title="六、类与对象"></a>六、类与对象</h2><h3 id="6-1-派生内置不可变类型并修改实例化行为"><a href="#6-1-派生内置不可变类型并修改实例化行为" class="headerlink" title="6.1 派生内置不可变类型并修改实例化行为"></a>6.1 派生内置不可变类型并修改实例化行为</h3><p>定义类IntTuple继承内置tuple,并实现_new__,修改实例化行为。</p>
+<h3 id="6-2-创建大量实例节省内存"><a href="#6-2-创建大量实例节省内存" class="headerlink" title="6.2 创建大量实例节省内存"></a>6.2 创建大量实例节省内存</h3><p>定义类的<strong>slots</strong>属性，它是用来声明实例属性名字的列表。 </p>
+<h3 id="6-3-让对象支持上下文管理"><a href="#6-3-让对象支持上下文管理" class="headerlink" title="6.3 让对象支持上下文管理"></a>6.3 让对象支持上下文管理</h3><p>实现上下文管理协议，需定义实例的<strong>enter</strong>,<strong>exit</strong>方法，他们分别在with开始和结束时被调用。</p>
+<h3 id="6-4-创建可管理的对象属性"><a href="#6-4-创建可管理的对象属性" class="headerlink" title="6.4 创建可管理的对象属性"></a>6.4 创建可管理的对象属性</h3><p>使用property函数为类创建可管理属性，fget/fset/fdel对应相应属性访问。</p>
+<h3 id="6-5-让类支持比较操作"><a href="#6-5-让类支持比较操作" class="headerlink" title="6.5 让类支持比较操作"></a>6.5 让类支持比较操作</h3><p>比较符号运算符重载，需要实现以下方法：小于<strong>lt</strong>,小于等于<strong>le</strong>,大于<strong>gt</strong>,大于等于<strong>ge</strong>,等于<strong>eq</strong>,不等于<strong>ne</strong>。<br>使用标准库下的functools下的类装饰器total_ordering可以简化此过程。</p>
+<h3 id="6-6-使用描述符对实例属性做类型检查"><a href="#6-6-使用描述符对实例属性做类型检查" class="headerlink" title="6.6 使用描述符对实例属性做类型检查"></a>6.6 使用描述符对实例属性做类型检查</h3><p>使用描述符来实现需要类型检查的属性：<br>分别实现<strong>get</strong>,<strong>set</strong>,<strong>delete</strong>方法，在<strong>set</strong>内使用isinstancce函数做类型检查。</p>
+<h3 id="6-7-在环状数据结构中管理内存"><a href="#6-7-在环状数据结构中管理内存" class="headerlink" title="6.7 在环状数据结构中管理内存"></a>6.7 在环状数据结构中管理内存</h3><p>使用标准库weakref，它可以创建一种能访问对象但不增加引用计数的对象。</p>
+<h3 id="6-8-通过实例方法名字的字符串调用方法"><a href="#6-8-通过实例方法名字的字符串调用方法" class="headerlink" title="6.8 通过实例方法名字的字符串调用方法"></a>6.8 通过实例方法名字的字符串调用方法</h3><p>方法一：使用内置函数getattr,通过名字在实例上获取方法对象，然后调用。<br>方法二：使用标准库operator下的methodcaller函数调用。</p>
+<h2 id="七、多线程与多进程"><a href="#七、多线程与多进程" class="headerlink" title="七、多线程与多进程"></a>七、多线程与多进程</h2><h3 id="7-1-使用多线程"><a href="#7-1-使用多线程" class="headerlink" title="7.1 使用多线程"></a>7.1 使用多线程</h3><p>使用标准库threading.Thread创建线程，在每一个线程中下载并转换一只股票数据。</p>
+<h3 id="7-2-线程间通信"><a href="#7-2-线程间通信" class="headerlink" title="7.2 线程间通信"></a>7.2 线程间通信</h3><p>使用标准库中Queue.Queue，它是一个线程安全的队列。<br>Download线程把下载数据放入队列，Convert线程从队列里提取数据。</p>
+<h3 id="7-3-线程间进行事件通知"><a href="#7-3-线程间进行事件通知" class="headerlink" title="7.3 线程间进行事件通知"></a>7.3 线程间进行事件通知</h3><p>线程间的事件通知，可以使用标准库中Threading.Event:</p>
+<ol>
+<li>等待事件一端调用wait, 等待事件。</li>
+<li>通知事件一端调用set，通知事件。</li>
+</ol>
+<h3 id="7-4-使用线程本地数据"><a href="#7-4-使用线程本地数据" class="headerlink" title="7.4 使用线程本地数据"></a>7.4 使用线程本地数据</h3><p>threading.local函数可以创建线程本地数据空间，其下属性对每个线程独立存在。</p>
+<h3 id="7-5-使用线程池"><a href="#7-5-使用线程池" class="headerlink" title="7.5 使用线程池"></a>7.5 使用线程池</h3><p>使用标准库中concurrent.futures下的ThreadPoolExecutor，对象的submit和map方法可以用来启动线程池中线程执行任务。</p>
+<h3 id="7-6-使用多进程"><a href="#7-6-使用多进程" class="headerlink" title="7.6 使用多进程"></a>7.6 使用多进程</h3><p>使用标准库中multiprocessing.Process，它可以启动子进程执行任务，操作接口，进程间通信，进程间同步等都与Threading,Thread类似。</p>
+<h2 id="八、装饰器"><a href="#八、装饰器" class="headerlink" title="八、装饰器"></a>八、装饰器</h2><h3 id="8-1-使用函数装饰器"><a href="#8-1-使用函数装饰器" class="headerlink" title="8.1 使用函数装饰器"></a>8.1 使用函数装饰器</h3><p>定义函数装饰器，用它来生成一个在原函数基础添加了新功能的函数，替换原函数。</p>
+<h3 id="8-2-为被装饰的函数保存元数据"><a href="#8-2-为被装饰的函数保存元数据" class="headerlink" title="8.2 为被装饰的函数保存元数据"></a>8.2 为被装饰的函数保存元数据</h3><p>使用标准库functools中的装饰器wraps装饰内部包裹函数，可以制定将原函数的某些属性，更新到包裹函数上面。</p>
+<h3 id="8-3-定义带参数的装饰器"><a href="#8-3-定义带参数的装饰器" class="headerlink" title="8.3 定义带参数的装饰器"></a>8.3 定义带参数的装饰器</h3><p>带参数的装饰器，也就是根据参数定制化一个装饰器，可以看成生产装饰器的工厂，每次调用typeasseert，返回一个特定的装饰器，然后用它去修饰其他函数。</p>
+<h3 id="8-4-实现属性可修改的函数装饰器"><a href="#8-4-实现属性可修改的函数装饰器" class="headerlink" title="8.4 实现属性可修改的函数装饰器"></a>8.4 实现属性可修改的函数装饰器</h3><p>为包裹函数增添一个函数，用来修改闭包中使用的自由变量。<br>在python3中：使用nonlocal访问嵌套作用域中的变量引用。</p>
+<h3 id="8-5-在类中定义装饰器"><a href="#8-5-在类中定义装饰器" class="headerlink" title="8.5 在类中定义装饰器"></a>8.5 在类中定义装饰器</h3><p>为了让装饰器在使用上更加灵活，可以把类的实例方法作为装饰器，此时在包裹函数中就可以持有实例对象，便于修改属性和拓展功能。</p>
+<p>更多：<a href="http://coding.imooc.com/class/62.html" target="_blank" rel="external">Python高效编程技巧实战</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/10/Xadmin入门与进阶/" rel="next" title="Django Xadmin入门与进阶">
+                <i class="fa fa-chevron-left"></i> Django Xadmin入门与进阶
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/14/MySQL入门到应用/" rel="prev" title="MySQL入门到应用">
+                MySQL入门到应用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Nana Xie" />
+          <p class="site-author-name" itemprop="name">Nana Xie</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay Hungry Stay Foolish</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/NanaCode" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、数据结构"><span class="nav-text">一、数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-列表字典集合中根据条件筛选数据"><span class="nav-text">1.1 列表字典集合中根据条件筛选数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-列表"><span class="nav-text">1.1.1 列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-字典"><span class="nav-text">1.1.2 字典</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3-集合"><span class="nav-text">1.1.3 集合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-元组元素命名"><span class="nav-text">1.2 元组元素命名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-定义数值变量"><span class="nav-text">1.2.1 定义数值变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-namedtuple替代内置tuple"><span class="nav-text">1.2.2 namedtuple替代内置tuple</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-统计序列元素出现频度"><span class="nav-text">1.3 统计序列元素出现频度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Details"><span class="nav-text">Details</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法1"><span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表解析生成随机序列"><span class="nav-text">列表解析生成随机序列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-11-15-6-20-6-7-7-10-5-4-15-10-16-15-16-12-3-13-13-15-2-19-7-17-10-16-1-17-6"><span class="nav-text">[6, 11, 15, 6, 20, 6, 7, 7, 10, 5, 4, 15, 10, 16, 15, 16, 12, 3, 13, 13, 15, 2, 19, 7, 17, 10, 16, 1, 17, 6]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#date作为字典的键，0作为字典的值，创建一个字典来"><span class="nav-text">date作为字典的键，0作为字典的值，创建一个字典来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-0-2-0-3-0-4-0-5-0-6-0-7-0-10-0-11-0-12-0-13-0-15-0-16-0-17-0-19-0-20-0"><span class="nav-text">{1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 10: 0, 11: 0, 12: 0, 13: 0, 15: 0, 16: 0, 17: 0, 19: 0, 20: 0}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进行对data的迭代"><span class="nav-text">进行对data的迭代</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-2-1-3-1-4-1-5-1-6-4-7-3-10-3-11-1-12-1-13-2-15-4-16-3-17-2-19-1-20-1"><span class="nav-text">{1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 4, 7: 3, 10: 3, 11: 1, 12: 1, 13: 2, 15: 4, 16: 3, 17: 2, 19: 1, 20: 1}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#根据字典的值对字典中的项进行排序"><span class="nav-text">根据字典的值对字典中的项进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法2，更简洁的方法"><span class="nav-text">方法2，更简洁的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直接把data传给Counter的构造器"><span class="nav-text">直接把data传给Counter的构造器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-2-1-3-1-4-1-5-1-6-4-7-3-10-3-11-1-12-1-13-2-15-4-16-3-17-2-19-1-20-1-1"><span class="nav-text">{1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 4, 7: 3, 10: 3, 11: 1, 12: 1, 13: 2, 15: 4, 16: 3, 17: 2, 19: 1, 20: 1}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Counter-6-4-15-4-7-3-10-3-16-3-13-2-17-2-1-1-2-1-3-1-4-1-5-1-11-1-12-1-19-1-20-1"><span class="nav-text">Counter({6: 4, 15: 4, 7: 3, 10: 3, 16: 3, 13: 2, 17: 2, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 11: 1, 12: 1, 19: 1, 20: 1})</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c2这个Counter对象，可以更直接的统计出哪些频度出现更高"><span class="nav-text">c2这个Counter对象，可以更直接的统计出哪些频度出现更高</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-4-15-4-7-3"><span class="nav-text">[(6, 4), (15, 4), (7, 3)]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#英文文章词频统计"><span class="nav-text">英文文章词频统计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先分隔词，把每个词取出来放到一个序列中"><span class="nav-text">首先分隔词，把每个词取出来放到一个序列中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用正则表达式的分隔模块"><span class="nav-text">使用正则表达式的分隔模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对每个词出现的频度进行统计"><span class="nav-text">对每个词出现的频度进行统计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-字典中的项排序"><span class="nav-text">1.4 字典中的项排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Details-1"><span class="nav-text">Details</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内置函数在内部是以C的速度运行，速度更快"><span class="nav-text">内置函数在内部是以C的速度运行，速度更快</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0-1-2-5-9"><span class="nav-text">[0, 1, 2, 5, 9]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建随机成绩表"><span class="nav-text">创建随机成绩表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典解析"><span class="nav-text">字典解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘a’-67-‘c’-90-‘b’-66-‘y’-100-‘x’-62-‘z’-100"><span class="nav-text">{‘a’: 67, ‘c’: 90, ‘b’: 66, ‘y’: 100, ‘x’: 62, ‘z’: 100}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘a’-‘b’-‘c’-‘x’-‘y’-‘z’"><span class="nav-text">[‘a’, ‘b’, ‘c’, ‘x’, ‘y’, ‘z’]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#并不是按照值进行排序的，而是按照键进行排序的"><span class="nav-text">并不是按照值进行排序的，而是按照键进行排序的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sorted传入的是一个可迭代对象，对于字典的可迭代对象，也就是iter-sorted-student-grades-为了看见它可以转换为list"><span class="nav-text">sorted传入的是一个可迭代对象，对于字典的可迭代对象，也就是iter(sorted_student_grades),为了看见它可以转换为list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘a’-‘b’-‘c’-‘x’-‘y’-‘z’-1"><span class="nav-text">[‘a’, ‘b’, ‘c’, ‘x’, ‘y’, ‘z’]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实际上是对键进行了排序，并且值已经不存在了"><span class="nav-text">实际上是对键进行了排序，并且值已经不存在了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对字典进行转换，让它变成sorted（）可以排序的结构"><span class="nav-text">对字典进行转换，让它变成sorted（）可以排序的结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#元组的比较，先比较第0个元素，如果第0个元素想等的情况下，再比较第1个元素"><span class="nav-text">元组的比较，先比较第0个元素，如果第0个元素想等的情况下，再比较第1个元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#True"><span class="nav-text">True</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#False"><span class="nav-text">False</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#True-1"><span class="nav-text">True</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将字典转换成元组的列表"><span class="nav-text">将字典转换成元组的列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keys-得到所有的键"><span class="nav-text">keys()得到所有的键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘a’-‘c’-‘b’-‘y’-‘x’-‘z’"><span class="nav-text">[‘a’, ‘c’, ‘b’, ‘y’, ‘x’, ‘z’]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#values-得到所有的值"><span class="nav-text">values()得到所有的值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#67-90-66-100-62-100"><span class="nav-text">[67, 90, 66, 100, 62, 100]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用zio-函数把两个列表拼起来，变成一个"><span class="nav-text">使用zio()函数把两个列表拼起来，变成一个</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#67-‘a’-90-‘c’-66-‘b’-100-‘y’-62-‘x’-100-‘z’"><span class="nav-text">[(67, ‘a’), (90, ‘c’), (66, ‘b’), (100, ‘y’), (62, ‘x’), (100, ‘z’)]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依次类推，构成元组的列表"><span class="nav-text">依次类推，构成元组的列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在内存使用上，更优化一些"><span class="nav-text">在内存使用上，更优化一些</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python2的版本上，keys-和values-得到的都是列表。如果列表很大，很浪费空间，可以使用它的迭代版本"><span class="nav-text">python2的版本上，keys()和values()得到的都是列表。如果列表很大，很浪费空间，可以使用它的迭代版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同样也能得到这样的结果，-但是存储空间上少一些浪费"><span class="nav-text">同样也能得到这样的结果， 但是存储空间上少一些浪费</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#67-‘a’-90-‘c’-66-‘b’-100-‘y’-62-‘x’-100-‘z’-1"><span class="nav-text">[(67, ‘a’), (90, ‘c’), (66, ‘b’), (100, ‘y’), (62, ‘x’), (100, ‘z’)]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成绩由小到大进行排序"><span class="nav-text">成绩由小到大进行排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#62-‘x’-66-‘b’-67-‘a’-90-‘c’-100-‘y’-100-‘z’"><span class="nav-text">[(62, ‘x’), (66, ‘b’), (67, ‘a’), (90, ‘c’), (100, ‘y’), (100, ‘z’)]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法二-利用sorted-的key参数"><span class="nav-text">方法二 利用sorted()的key参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典的items-直接就是每个键，值"><span class="nav-text">字典的items()直接就是每个键，值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘a’-67-‘c’-90-‘b’-66-‘y’-100-‘x’-62-‘z’-100-1"><span class="nav-text">[(‘a’, 67), (‘c’, 90), (‘b’, 66), (‘y’, 100), (‘x’, 62), (‘z’, 100)]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用sorted-的一个参数，也就是key-key就是你要传入一个函数"><span class="nav-text">使用sorted()的一个参数，也就是key,key就是你要传入一个函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘x’-62-‘b’-66-‘a’-67-‘c’-90-‘y’-100-‘z’-100"><span class="nav-text">[(‘x’, 62), (‘b’, 66), (‘a’, 67), (‘c’, 90), (‘y’, 100), (‘z’, 100)]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-快速找到多个字典中的公共键（key"><span class="nav-text">1.5 快速找到多个字典中的公共键（key)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Details-2"><span class="nav-text">Details</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多个字典中的公共键，也就是在每个字典中都出现的键"><span class="nav-text">多个字典中的公共键，也就是在每个字典中都出现的键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#产生随机进球球员"><span class="nav-text">产生随机进球球员</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘a’-‘e’-‘b’"><span class="nav-text">[‘a’, ‘e’, ‘b’]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进球球员数目也是随机的-3-6个人进球了"><span class="nav-text">进球球员数目也是随机的, 3-6个人进球了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘e’-‘b’-‘g’-‘d’"><span class="nav-text">[‘e’, ‘b’, ‘g’, ‘d’]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典解析产生每轮的数据"><span class="nav-text">字典解析产生每轮的数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#每一轮的进球数限定为1-4个"><span class="nav-text">每一轮的进球数限定为1-4个</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘a’-1-‘c’-2-‘b’-4-‘e’-2-‘d’-2-‘f’-4"><span class="nav-text">{‘a’: 1, ‘c’: 2, ‘b’: 4, ‘e’: 2, ‘d’: 2, ‘f’: 4}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘c’-4-‘b’-2-‘g’-1"><span class="nav-text">{‘c’: 4, ‘b’: 2, ‘g’: 1}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘c’-3-‘e’-3-‘g’-3"><span class="nav-text">{‘c’: 3, ‘e’: 3, ‘g’: 3}</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代键值，对于字典的迭代就是迭代它的键"><span class="nav-text">迭代键值，对于字典的迭代就是迭代它的键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘c’"><span class="nav-text">[‘c’]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#但是这种方法啰嗦而且执行的效率也不好"><span class="nav-text">但是这种方法啰嗦而且执行的效率也不好</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法2-集合的操作"><span class="nav-text">方法2 集合的操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先使用字典的viewkeys-得到每个字典所有键的集合"><span class="nav-text">首先使用字典的viewkeys()得到每个字典所有键的集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实际上是keys的视图"><span class="nav-text">实际上是keys的视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dict-keys-‘a’-‘c’-‘b’-‘e’-‘d’-‘f’"><span class="nav-text">dict_keys([‘a’, ‘c’, ‘b’, ‘e’, ‘d’, ‘f’])</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dict-keys-‘c’-‘b’-‘g’"><span class="nav-text">dict_keys([‘c’, ‘b’, ‘g’])</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集合-支持集合的交集操作"><span class="nav-text">集合 支持集合的交集操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set-‘c’-‘b’"><span class="nav-text">set([‘c’, ‘b’])</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前三轮的"><span class="nav-text">前三轮的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set-‘c’"><span class="nav-text">set([‘c’])</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对于n轮-分别使用map-reduce-来处理这样的问题"><span class="nav-text">对于n轮  分别使用map() reduce()来处理这样的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先得到每一轮的keys的集合"><span class="nav-text">首先得到每一轮的keys的集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dict-keys-‘a’-‘c’-‘b’-‘e’-‘d’-‘f’-dict-keys-‘c’-‘b’-‘g’-dict-keys-‘c’-‘e’-‘g’"><span class="nav-text">[dict_keys([‘a’, ‘c’, ‘b’, ‘e’, ‘d’, ‘f’]), dict_keys([‘c’, ‘b’, ‘g’]), dict_keys([‘c’, ‘e’, ‘g’])]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用reduce函数进行交集-迭代map中的所有集合"><span class="nav-text">使用reduce函数进行交集, 迭代map中的所有集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set-‘c’-1"><span class="nav-text">set([‘c’])</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-字典保持有序"><span class="nav-text">1.6 字典保持有序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Details-3"><span class="nav-text">Details</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#像列表一样，按照每个项进入字典的次序来打印，但是python默认的字典是不具备这个功能的，不具备有序性"><span class="nav-text">像列表一样，按照每个项进入字典的次序来打印，但是python默认的字典是不具备这个功能的，不具备有序性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我们希望迭代字典d的时候，按照先后顺序遍历"><span class="nav-text">我们希望迭代字典d的时候，按照先后顺序遍历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bob"><span class="nav-text">Bob</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jim"><span class="nav-text">Jim</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Leo"><span class="nav-text">Leo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#但是内置dict并不维护每个项进入的先后顺序"><span class="nav-text">但是内置dict并不维护每个项进入的先后顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我们需要一个能维护每个项进入的先后顺序的数据结构"><span class="nav-text">我们需要一个能维护每个项进入的先后顺序的数据结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用collections-OrderedDict"><span class="nav-text">使用collections.OrderedDict</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jim-1"><span class="nav-text">Jim</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Leo-1"><span class="nav-text">Leo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bob-1"><span class="nav-text">Bob</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#按照每个项进入字典的次序来遍历的"><span class="nav-text">按照每个项进入字典的次序来遍历的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-C-2-22200012207"><span class="nav-text">1 C 2.22200012207</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-A-2-80599999428"><span class="nav-text">2 A 2.80599999428</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-D-3-13300013542"><span class="nav-text">3 D 3.13300013542</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-F-3-42000007629"><span class="nav-text">4 F 3.42000007629</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-B-3-77200007439"><span class="nav-text">5 B 3.77200007439</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-G-4-1400001049"><span class="nav-text">6 G 4.1400001049</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-E-4-49399995804"><span class="nav-text">7 E 4.49399995804</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-H-4-91799998283"><span class="nav-text">8 H 4.91799998283</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#——————–"><span class="nav-text">——————–</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-1-2-2220001220703125"><span class="nav-text">C (1, 2.2220001220703125)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-2-2-805999994277954"><span class="nav-text">A (2, 2.805999994277954)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#D-3-3-133000135421753"><span class="nav-text">D (3, 3.133000135421753)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#F-4-3-4200000762939453"><span class="nav-text">F (4, 3.4200000762939453)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#B-5-3-7720000743865967"><span class="nav-text">B (5, 3.7720000743865967)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#G-6-4-140000104904175"><span class="nav-text">G (6, 4.140000104904175)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#E-7-4-49399995803833"><span class="nav-text">E (7, 4.49399995803833)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#H-8-4-917999982833862"><span class="nav-text">H (8, 4.917999982833862)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-实现历史纪录功能"><span class="nav-text">1.7 实现历史纪录功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Details-4"><span class="nav-text">Details</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#from-random-import-randint"><span class="nav-text">from random import randint</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#N-randint-1-100-产生0-100之间的随机数"><span class="nav-text">N = randint(1, 100)  # 产生0-100之间的随机数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#def-guess-k"><span class="nav-text">def guess(k):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if-k-N"><span class="nav-text">if k == N:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-‘right’"><span class="nav-text">print ‘right’</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if-k-lt-N"><span class="nav-text">if k < N:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-“-s-is-less-than-N”-k"><span class="nav-text">print “%s is less-than N” % k</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#else"><span class="nav-text">else:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-“-s-is-greater-than-N”-k"><span class="nav-text">print “%s is greater-than N” % k</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#return-False"><span class="nav-text">return False</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#while-True"><span class="nav-text">while True:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#line-raw-input-“please-inout-a-number-“-接收用户输入"><span class="nav-text">line = raw_input(“please inout a number: “)  # 接收用户输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if-line-isdigit"><span class="nav-text">if line.isdigit():</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#k-int-line"><span class="nav-text">k = int(line)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if-guess-k"><span class="nav-text">if guess(k):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#break"><span class="nav-text">break</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用容量为n的队列存放历史记录-先入先出"><span class="nav-text">使用容量为n的队列存放历史记录  先入先出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用collections-deque-它是一个双端循环队列"><span class="nav-text">使用collections.deque,它是一个双端循环队列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-函数创建队列"><span class="nav-text">deque()函数创建队列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如果创建带有容量的队列，需要传入第2个参数，容量值"><span class="nav-text">如果创建带有容量的队列，需要传入第2个参数，容量值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-1-maxlen-5"><span class="nav-text">deque([1], maxlen=5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-1-2-3-4-5-maxlen-5"><span class="nav-text">deque([1, 2, 3, 4, 5], maxlen=5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-2-3-4-5-6-maxlen-5"><span class="nav-text">deque([2, 3, 4, 5, 6], maxlen=5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-3-4-5-6-100-maxlen-5"><span class="nav-text">deque([3, 4, 5, 6, 100], maxlen=5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-50"><span class="nav-text">please inout a number: 50</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#50-is-less-than-N"><span class="nav-text">50 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-80"><span class="nav-text">please inout a number: 80</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#80-is-greater-than-N"><span class="nav-text">80 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-70"><span class="nav-text">please inout a number: 70</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-is-greater-than-N"><span class="nav-text">70 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-h"><span class="nav-text">please inout a number: h?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-50-80-70-maxlen-5"><span class="nav-text">deque([50, 80, 70], maxlen=5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#50-80-70"><span class="nav-text">[50, 80, 70]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-60"><span class="nav-text">please inout a number: 60</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#60-is-greater-than-N"><span class="nav-text">60 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-65"><span class="nav-text">please inout a number: 65</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#65-is-greater-than-N"><span class="nav-text">65 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-h-1"><span class="nav-text">please inout a number: h?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-50-80-70-60-65-maxlen-5"><span class="nav-text">deque([50, 80, 70, 60, 65], maxlen=5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#50-80-70-60-65"><span class="nav-text">[50, 80, 70, 60, 65]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-64"><span class="nav-text">please inout a number: 64</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#64-is-greater-than-N"><span class="nav-text">64 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-63"><span class="nav-text">please inout a number: 63</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#63-is-greater-than-N"><span class="nav-text">63 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-h-2"><span class="nav-text">please inout a number: h?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-70-60-65-64-63-maxlen-5"><span class="nav-text">deque([70, 60, 65, 64, 63], maxlen=5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-60-65-64-63"><span class="nav-text">[70, 60, 65, 64, 63]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-62"><span class="nav-text">please inout a number: 62</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#62-is-greater-than-N"><span class="nav-text">62 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-61"><span class="nav-text">please inout a number: 61</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#61-is-greater-than-N"><span class="nav-text">61 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-55"><span class="nav-text">please inout a number: 55</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#right"><span class="nav-text">right</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#55-is-greater-than-N"><span class="nav-text">55 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-50-1"><span class="nav-text">please inout a number: 50</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#50-is-less-than-N-1"><span class="nav-text">50 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-54"><span class="nav-text">please inout a number: 54</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#54-is-less-than-N"><span class="nav-text">54 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-h-3"><span class="nav-text">please inout a number: h?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-62-61-55-50-54-maxlen-5"><span class="nav-text">deque([62, 61, 55, 50, 54], maxlen=5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#62-61-55-50-54"><span class="nav-text">[62, 61, 55, 50, 54]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-53"><span class="nav-text">please inout a number: 53</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-is-less-than-N"><span class="nav-text">53 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-52"><span class="nav-text">please inout a number: 52</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#52-is-less-than-N"><span class="nav-text">52 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-51"><span class="nav-text">please inout a number: 51</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#51-is-less-than-N"><span class="nav-text">51 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-h-4"><span class="nav-text">please inout a number: h?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deque-50-54-53-52-51-maxlen-5"><span class="nav-text">deque([50, 54, 53, 52, 51], maxlen=5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#50-54-53-52-51"><span class="nav-text">[50, 54, 53, 52, 51]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-55-1"><span class="nav-text">please inout a number: 55</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#right-1"><span class="nav-text">right</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#55-is-greater-than-N-1"><span class="nav-text">55 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-50-2"><span class="nav-text">please inout a number: 50</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#50-is-less-than-N-2"><span class="nav-text">50 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-51-1"><span class="nav-text">please inout a number: 51</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#51-is-less-than-N-1"><span class="nav-text">51 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-52-1"><span class="nav-text">please inout a number: 52</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#52-is-less-than-N-1"><span class="nav-text">52 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-53-1"><span class="nav-text">please inout a number: 53</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-is-less-than-N-1"><span class="nav-text">53 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-54-1"><span class="nav-text">please inout a number: 54</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#54-is-less-than-N-1"><span class="nav-text">54 is less-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#please-inout-a-number-55-2"><span class="nav-text">please inout a number: 55</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#right-2"><span class="nav-text">right</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#55-is-greater-than-N-2"><span class="nav-text">55 is greater-than N</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目前这个队列queue是在内存当中，程序退出就消失掉了。需要把历史记录这个对象存储到文件中"><span class="nav-text">目前这个队列queue是在内存当中，程序退出就消失掉了。需要把历史记录这个对象存储到文件中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#也就是把history对象存储到文件中，下次运行程序再把它load进来"><span class="nav-text">也就是把history对象存储到文件中，下次运行程序再把它load进来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pickle可以把一个python对象存储到文件当中，也可以从文件当中load一个python对象"><span class="nav-text">pickle可以把一个python对象存储到文件当中，也可以从文件当中load一个python对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#存储文件"><span class="nav-text">存储文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#q2和q是一致的"><span class="nav-text">q2和q是一致的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二、迭代器与生成器"><span class="nav-text">二、迭代器与生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-实现可迭代对象和迭代器对象"><span class="nav-text">2.1 实现可迭代对象和迭代器对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Details-5"><span class="nav-text">Details</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这两种对象都是python中的可迭代对象"><span class="nav-text">这两种对象都是python中的可迭代对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代列表"><span class="nav-text">迭代列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-text">1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-text">2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-text">3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4"><span class="nav-text">4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代字符串"><span class="nav-text">迭代字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#a"><span class="nav-text">a</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#b"><span class="nav-text">b</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c"><span class="nav-text">c</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#d"><span class="nav-text">d</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#e"><span class="nav-text">e</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先要确保in-后面是个可迭代对象"><span class="nav-text">首先要确保in 后面是个可迭代对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如果它是一个可迭代对象的话，它能由python的内置函数iter得到一个迭代器对象"><span class="nav-text">如果它是一个可迭代对象的话，它能由python的内置函数iter得到一个迭代器对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可迭代和迭代器，这两个概念不要混淆"><span class="nav-text">可迭代和迭代器，这两个概念不要混淆</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iter-l-由可迭代对象，得到迭代器"><span class="nav-text">iter(l) 由可迭代对象，得到迭代器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#-1"><span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#-2"><span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-iter-5"><span class="nav-text">print iter(5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Traceback-most-recent-call-last"><span class="nav-text">Traceback (most recent call last):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#File-“C-Users-Administrator-PycharmProjects-HighEndPython-3-1-py”-line-34-in"><span class="nav-text">File “C:/Users/Administrator/PycharmProjects/HighEndPython/3_1.py”, line 34, in </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-iter-5-1"><span class="nav-text">print iter(5)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TypeError-‘int’-object-is-not-iterable"><span class="nav-text">TypeError: ‘int’ object is not iterable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数字不是一个可迭代对象"><span class="nav-text">数字不是一个可迭代对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么列表和字符串是可迭代对象？"><span class="nav-text">为什么列表和字符串是可迭代对象？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#他们满足了某种特殊接口"><span class="nav-text">他们满足了某种特殊接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#-3"><span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表下有一个叫iter的方法，它就是迭代协议的接口"><span class="nav-text">列表下有一个叫iter的方法，它就是迭代协议的接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用iter-l-实际内部执行了-l-iter-也就调用了这个对象的iter-方法"><span class="nav-text">调用iter(l),实际内部执行了 l.iter(),也就调用了这个对象的iter()方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串中没有找到iter-方法，但是它有个getitem-方法"><span class="nav-text">字符串中没有找到iter()方法，但是它有个getitem()方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内置函数iter-首先会去找标准的迭代接口iter-如果找不到就找getitem-方法"><span class="nav-text">内置函数iter()首先会去找标准的迭代接口iter(),如果找不到就找getitem()方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#In-the-first-form-the-argument-must"><span class="nav-text"># In the first form, the argument must</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#supply-its-own-iterator-or-be-a-sequence-要么支持自身迭代器，要么是一个序列，getitem-就是一个序列的接口"><span class="nav-text">supply its own iterator, or be a sequence.要么支持自身迭代器，要么是一个序列，getitem()就是一个序列的接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代器对象满足什么接口？"><span class="nav-text">迭代器对象满足什么接口？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#它只有next-接口"><span class="nav-text">它只有next()接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1"><span class="nav-text">1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-1"><span class="nav-text">2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-1"><span class="nav-text">3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-1"><span class="nav-text">4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#整个列表迭代完毕会抛出异常"><span class="nav-text">整个列表迭代完毕会抛出异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for循环工作的机制"><span class="nav-text">for循环工作的机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实际上先由iter-l-得到一个迭代器，接下来不停的调用next"><span class="nav-text">实际上先由iter(l)得到一个迭代器，接下来不停的调用next()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直到最终捕获到一个StopIteration的异常，整个for循环就跳出来了"><span class="nav-text">直到最终捕获到一个StopIteration的异常，整个for循环就跳出来了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-生成器函数实现可迭代对象"><span class="nav-text">2.2 生成器函数实现可迭代对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Details-6"><span class="nav-text">Details</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先实现一个迭代器对象，它有一个next-方法，当迭代完毕应该抛出一个停止迭代异常"><span class="nav-text">首先实现一个迭代器对象，它有一个next()方法，当迭代完毕应该抛出一个停止迭代异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现一个可迭代对象，它有一个iter-方法，它能返回上面这样一个迭代器对象"><span class="nav-text">实现一个可迭代对象，它有一个iter()方法，它能返回上面这样一个迭代器对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#北京-低温-6℃-高温-6℃"><span class="nav-text">北京: 低温 -6℃ , 高温 6℃</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#长春-低温-17℃-高温-7℃"><span class="nav-text">长春: 低温 -17℃ , 高温 -7℃</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深圳-低温-13℃-高温-23℃"><span class="nav-text">深圳: 低温 13℃ , 高温 23℃</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可迭代对象和迭代器对象，python的标准库当中，对它们的接口已经有了定义"><span class="nav-text">可迭代对象和迭代器对象，python的标准库当中，对它们的接口已经有了定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#frozenset-‘next’"><span class="nav-text">frozenset([‘next’])</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代器的抽象接口是next"><span class="nav-text">迭代器的抽象接口是next</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#frozenset-‘iter‘"><span class="nav-text">frozenset([‘iter‘])</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可迭代对象的抽象接口是iter"><span class="nav-text">可迭代对象的抽象接口是iter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直接继承这两个抽象类"><span class="nav-text">直接继承这两个抽象类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#import-requests"><span class="nav-text">import requests</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#def-getweather-city"><span class="nav-text">def getweather(city):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#r-requests-get-u’http-wthrcdn-etouch-cn-weather-mini-city-‘-city"><span class="nav-text">r = requests.get(u’http://wthrcdn.etouch.cn/weather_mini?city=‘ + city)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#data-r-json-‘data’-‘forecast’-0"><span class="nav-text">data = r.json()[‘data’][‘forecast’][0]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#return-‘-s-s-s-‘-city-data-‘low’-data-‘high’"><span class="nav-text">return ‘%s: %s , %s ‘ % (city, data[‘low’], data[‘high’])</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-getweather-u’北京’"><span class="nav-text">print getweather(u’北京’)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-getweather-u’长春’"><span class="nav-text">print getweather(u’长春’)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print-getweather-u’深圳’"><span class="nav-text">print getweather(u’深圳’)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#首先实现Iterator"><span class="nav-text">首先实现Iterator</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#北京-低温-6℃-高温-6℃-1"><span class="nav-text">北京: 低温 -6℃ , 高温 6℃</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上海-低温-3℃-高温-12℃"><span class="nav-text">上海: 低温 3℃ , 高温 12℃</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#广州-低温-11℃-高温-22℃"><span class="nav-text">广州: 低温 11℃ , 高温 22℃</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#长春-低温-17℃-高温-7℃-1"><span class="nav-text">长春: 低温 -17℃ , 高温 -7℃</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在某些惰性场合使用它们的优势"><span class="nav-text">在某些惰性场合使用它们的优势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-反向迭代"><span class="nav-text">2.3 反向迭代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-迭代器做切片操作"><span class="nav-text">2.4 迭代器做切片操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-迭代多个可迭代对象"><span class="nav-text">2.5 迭代多个可迭代对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、字符串处理"><span class="nav-text">三、字符串处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-拆分含有多种分割符的字符串"><span class="nav-text">3.1 拆分含有多种分割符的字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-str-split-方法"><span class="nav-text">3.1.1 str.split()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-正则表达式re-split-方法"><span class="nav-text">3.1.2 正则表达式re.split()方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-判断字符串a是否以字符串b开头或结尾"><span class="nav-text">3.2 判断字符串a是否以字符串b开头或结尾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-调整字符串中文本的格式"><span class="nav-text">3.3 调整字符串中文本的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-字符串拼接"><span class="nav-text">3.4 字符串拼接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1-迭代列表"><span class="nav-text">3.4.1 迭代列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2-str-join-方法"><span class="nav-text">3.4.2 str.join()方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-字符串左右居中对齐"><span class="nav-text">3.5 字符串左右居中对齐</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-1-str-ljust-str-rjust-str-center"><span class="nav-text">3.5.1 str.ljust(), str.rjust, str.center()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-2-format"><span class="nav-text">3.5.2 format()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-去掉字符串中不需要的字符"><span class="nav-text">3.6 去掉字符串中不需要的字符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-1-strip-lstrip-rstrip-方法"><span class="nav-text">3.6.1 strip(),lstrip(),rstrip()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-2-切片-拼接"><span class="nav-text">3.6.2 切片 + 拼接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-3-replace-方法或re-sub"><span class="nav-text">3.6.3 replace()方法或re.sub()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-4-translate-方法"><span class="nav-text">3.6.4 translate()方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、文件I-O"><span class="nav-text">四、文件I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-读写文本文件"><span class="nav-text">4.1 读写文本文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-python2-x"><span class="nav-text">4.1.1 python2.x</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-python3-x"><span class="nav-text">4.1.2 python3.x</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-处理二进制文件"><span class="nav-text">4.2 处理二进制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-设置文件的缓冲"><span class="nav-text">4.3 设置文件的缓冲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-文件映射到内存"><span class="nav-text">4.4 文件映射到内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-访问文件的状态"><span class="nav-text">4.5 访问文件的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-使用临时文件"><span class="nav-text">4.6 使用临时文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、csv、json、xml、excel"><span class="nav-text">五、csv、json、xml、excel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-读写csv数据"><span class="nav-text">5.1 读写csv数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-读写json数据"><span class="nav-text">5.2 读写json数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-解析简单的xml文档"><span class="nav-text">5.3 解析简单的xml文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-构建xml文档"><span class="nav-text">5.4 构建xml文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-读写excel文件"><span class="nav-text">5.5 读写excel文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、类与对象"><span class="nav-text">六、类与对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-派生内置不可变类型并修改实例化行为"><span class="nav-text">6.1 派生内置不可变类型并修改实例化行为</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-创建大量实例节省内存"><span class="nav-text">6.2 创建大量实例节省内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-让对象支持上下文管理"><span class="nav-text">6.3 让对象支持上下文管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-创建可管理的对象属性"><span class="nav-text">6.4 创建可管理的对象属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-让类支持比较操作"><span class="nav-text">6.5 让类支持比较操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-使用描述符对实例属性做类型检查"><span class="nav-text">6.6 使用描述符对实例属性做类型检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-在环状数据结构中管理内存"><span class="nav-text">6.7 在环状数据结构中管理内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-通过实例方法名字的字符串调用方法"><span class="nav-text">6.8 通过实例方法名字的字符串调用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、多线程与多进程"><span class="nav-text">七、多线程与多进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-使用多线程"><span class="nav-text">7.1 使用多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-线程间通信"><span class="nav-text">7.2 线程间通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-线程间进行事件通知"><span class="nav-text">7.3 线程间进行事件通知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-使用线程本地数据"><span class="nav-text">7.4 使用线程本地数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-使用线程池"><span class="nav-text">7.5 使用线程池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-使用多进程"><span class="nav-text">7.6 使用多进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、装饰器"><span class="nav-text">八、装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-使用函数装饰器"><span class="nav-text">8.1 使用函数装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-为被装饰的函数保存元数据"><span class="nav-text">8.2 为被装饰的函数保存元数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-定义带参数的装饰器"><span class="nav-text">8.3 定义带参数的装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-实现属性可修改的函数装饰器"><span class="nav-text">8.4 实现属性可修改的函数装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-在类中定义装饰器"><span class="nav-text">8.5 在类中定义装饰器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nana Xie</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NKj4cIziN7Jv2VdApl3RrMIF-gzGzoHsz", "3me0jhp47YDrT8nzgYGhztxo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

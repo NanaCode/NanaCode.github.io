@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hello, Nana" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Pycharm是专门用于python开发的一款IDE免费版将不能新建django项目Mysql for windows  安装注意：记住注册当初设置的密码，因为连接过程需要用到密码python2.7 windows x86-64 MSI installer 数据库其实安装完成以后， 没有一套管理系统来进行管理会觉得很麻烦， 所以mysql-server实际上就是数据库， 你安装mysql-cli的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django开发心得与笔记">
+<meta property="og:url" content="http://yoursite.com/2017/10/28/Django开发心得与笔记/index.html">
+<meta property="og:site_name" content="Nana&#39;s Blog">
+<meta property="og:description" content="Pycharm是专门用于python开发的一款IDE免费版将不能新建django项目Mysql for windows  安装注意：记住注册当初设置的密码，因为连接过程需要用到密码python2.7 windows x86-64 MSI installer 数据库其实安装完成以后， 没有一套管理系统来进行管理会觉得很麻烦， 所以mysql-server实际上就是数据库， 你安装mysql-cli的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2017/10/29/59f5de4b882a7.png">
+<meta property="og:updated_time" content="2017-10-29T14:49:29.380Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django开发心得与笔记">
+<meta name="twitter:description" content="Pycharm是专门用于python开发的一款IDE免费版将不能新建django项目Mysql for windows  安装注意：记住注册当初设置的密码，因为连接过程需要用到密码python2.7 windows x86-64 MSI installer 数据库其实安装完成以后， 没有一套管理系统来进行管理会觉得很麻烦， 所以mysql-server实际上就是数据库， 你安装mysql-cli的">
+<meta name="twitter:image" content="https://i.loli.net/2017/10/29/59f5de4b882a7.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"top","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/28/Django开发心得与笔记/"/>
+
+
+
+
+
+  <title>Django开发心得与笔记 | Nana's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-top page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nana's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Today is the first day of the rest of your life.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/Django开发心得与笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nana Xie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nana's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django开发心得与笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T15:40:32+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/28/Django开发心得与笔记/" class="leancloud_visitors" data-flag-title="Django开发心得与笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Pycharm是专门用于python开发的一款IDE<br>免费版将不能新建django项目<br>Mysql for windows  安装注意：记住注册当初设置的密码，因为连接过程需要用到密码<br>python2.7 windows x86-64 MSI installer</p>
+<p>数据库其实安装完成以后， 没有一套管理系统来进行管理会觉得很麻烦， 所以mysql-server实际上就是数据库， 你安装mysql-cli的话才能连接上数据库进行管理， navicat也是用来管理数据库的， 所以一般开发的时候你只需要安装mysql-server， 然后安装navicat来连接数据库进行管理就行了</p>
+<p>系统环境变量的设置：<br>ComSpec  %SystemRoot%\system32\cmd.exe<br>Path：<br>C:\Python27<br>C:\Python27\Scripts<br>C:\Users\Administrator\AppData\Local\Programs\Python\Python35<br>C:\Users\Administrator\AppData\Local\Programs\Python\Python35\Scripts<br>C:\Users\Administrator\AppData\Local\Programs\Python\Python36<br>C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts</p>
+<p>使用pip install xxx报错<br>UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xc0 in position 0: ordinal not in range(128)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1、在Python的安装目录C:/Python27/Lib/里找到mimetypes.py文件；</div><div class="line">2、打开mimetypes.py文件，在import结束后添加以下代码：</div><div class="line"></div><div class="line">import sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(&apos;utf-8&apos;)</div><div class="line"></div><div class="line">保存文件 重新执行pip</div><div class="line">即可</div></pre></td></tr></table></figure></p>
+<p>pip install virtualenv<br>virtualenv xxx<br>Virtualenv 安装目录默认放在当前命令的运行目录下</p>
+<p>进入和退出虚拟环境: 进入Scripts目录，activate.bat  deactivate.bat</p>
+<p>上面的方法需要我们知道当前安装的虚拟环境的目录，比较麻烦。下面这种方法可以很方便的进入虚拟环境：<br>pip install virtualenvwrapper(注意windows下virtualenvwrapper-win)<br>mkvirtualenv xxx<br>进入 退出虚拟环境 workon xxx  deactivate</p>
+<p>百度 virtualenvwrapper 默认虚拟环境目录的设置</p>
+<p>pip install timeout问题<br>pip –default-timeout=100 install -U pip<br>或者使用国内镜像 豆瓣源 清华源等</p>
+<p>pycharm配置虚拟环境：<br>Interpreter: xxx/python.exe<br>pycharm设置快捷键 settings-keymap-Eclipse<br>全局搜索Ctrl+H</p>
+<p>Run-Edit Configuration-Host:0.0.0.0 通过IP地址访问<br>Invalid HTTP_HOST header: ‘192.168.x.xxx:8000’. You may need to add u’192.168.x.xxx’ to ALLOWED_HOSTS.<br>settings.py文件中有个参数 ALLOWED_HOSTS 你搜索一下， 将这个值设置为 ALLOWED_HOSTS = [‘*’]<br> 就行了</p>
+<p>cmd-ipconfig 查看本地IP地址（Linux ifconfig）<br>设置source root</p>
+<p>navicat<br>创建到数据库的连接 连接测试<br>新建数据库<br>字符集一定要选utf8<br>排序规则：utf8_general_ci<br>设计表<br>新加列-添加栏位<br>navicat执行sql语句 查询-新建查询-输入sql语句-select * from users  所有sql语句都可以在这里执行<br>快速表的复制  复制-粘贴<br>数据库传输：右键-数据传输-源到目标  复制操作还是剪切操作？？？<br>数据库的导入和导出：运行SQL文件 转储SQL文件</p>
+<p>先讲一下什么是ping：Ping是Windows下的一个命令。在Unix和Linux下也有这个命令。ping也属于一个通信协议，是TCP/IP协议的一部分利用“ping”命令可以检查网络是否连通，可以很好地帮助我们分析和判定网络故障。应用格式：Ping空格IP地址。该命令还可以加许多参数使用，具体是键入Ping按回车即可看到详细说明。</p>
+<p>新建app<br>Tools-Run manage.py Task-startapp xxx<br>static目录存放静态文件-普通文件夹<br>log文件夹存放日志-普通文件夹<br>media目录存放用户上传的文件-普通文件夹<br>apps文件夹用于存放各个app-可导入的包，含init.py文件</p>
+<p>apps mark as source root 不需要输入apps的路径 但是这样命令行会报错No module named xxx<br>BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(<strong>file</strong>)))<br>sys.path.insert(0, os.path.join(BASE_DIR, ‘apps’))<br>sys.path.insert(0, os.path.join(BASE_DIR, ‘extra_apps’))<br>这样设置</p>
+<p>django请求到响应的完整过程</p>
+<p>配置settings连接数据库<br>数据库创建好以后<br>DATABASES = {<br>    ‘default’: {<br>        ‘ENGINE’: ‘django.db.backends.mysql’,</p>
+<pre><code>#&apos;NAME&apos;: os.path.join(BASE_DIR, &apos;db.sqlite3&apos;),
+&apos;NAME&apos;: &apos;xxxxxx&apos;,
+&apos;USER&apos;: &apos;root&apos;,
+&apos;PASSWORD&apos;: &apos;xxx&apos;,
+&apos;HOST&apos;: &apos;127.0.0.1&apos;,
+</code></pre><!--         'OPTIONS': {
+            "init_command": 'SET foreign_key_checks=0;',
+        } -->
+<pre><code>}
+</code></pre><p>}</p>
+<p>生成django默认的数据表<br>Run-Run manage.py Task<br>报错：提示没有mysqlDB 这就是django需要用到的驱动，连接mysql的驱动<br>Error loading MySQLdb module: No module name MySQLdb<br>解决：pip install mysql-python<br>pip install mysql-python安装过程报错：<br>error: command ‘C:\Program Files (x86)\Microsoft\Visual Studio\14.0\VC\BIN\amd64\link.exe’ failed with exit status 1120<br>windows安装MySQL驱动的时候都会出现这个问题<br><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a> 下载对应的驱动<br>下载目录安装对应的驱动 如pip install MySQL_python-1.2.5-cp27-none-win_amd64.whl<br>新玉建议安装pymysql 使用pymysql需要在<strong>init</strong>中导入模块<br>import pymysql<br>pymysql.install_as_MySQLdb()</p>
+<p>makemigrations-migrate</p>
+<p>创建url映射<br>url(r’^form/$’, getform)  getform不需要括号，只需要名字即可<br>^表示以form为开头,$表示以/结尾的地址<br>配置相应的view来做处理</p>
+<p>Ctrl 加鼠标左键 跟踪到render函数里  Alt+左箭头回来<br>不能直接用form.html这个名称，因为django内置了很多html页面，这个名称，django会自动收集django本身的html文件  右键-Refactor-Rename</p>
+<p>ctrl+s pycharm会自动重启项目</p>
+<p>报错TemplateDoesNotExist<br>解决：settings-TEMPLATES-DIRS需要指明templates的目录，django就可以在该目录寻找html文件<br>‘DIRS’: [os.path.join(BASE_DIR, ‘templates’)],<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">TEMPLATES = [</div><div class="line">    &#123;</div><div class="line">        &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;,</div><div class="line">        &apos;DIRS&apos;: [os.path.join(BASE_DIR, &apos;templates&apos;)],</div><div class="line">        &apos;APP_DIRS&apos;: True,</div><div class="line">        &apos;OPTIONS&apos;: &#123;</div><div class="line">            &apos;context_processors&apos;: [</div><div class="line">                &apos;django.template.context_processors.debug&apos;,</div><div class="line">                &apos;django.template.context_processors.request&apos;,</div><div class="line">                &apos;django.contrib.auth.context_processors.auth&apos;,</div><div class="line">                &apos;django.contrib.messages.context_processors.messages&apos;,</div><div class="line">                &apos;django.core.context_processors.media&apos;,</div><div class="line">            ],</div><div class="line">        &#125;,</div><div class="line">    &#125;,</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>页面可以显示，但是样式没有：css路径有问题<br>涉及setting中静态路径的配置<br>默认：STATIC_URL = ‘/static/‘<br>因为没有配置static的根路径<br>之前只是建了个static的文件夹，并没有跟django说该文件夹就是static的路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">STATICFILES_DIRS = [</div><div class="line">    os.path.join(BASE_DIR, &quot;static&quot;)</div><div class="line">]</div><div class="line">或者</div><div class="line">STATICFILES_DIRS = (</div><div class="line">    os.path.join(BASE_DIR, &quot;static&quot;),</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>变量名DIRS复数形式，可以设置多个static的路径</p>
+<p><img src="https://i.loli.net/2017/10/29/59f5de4b882a7.png" alt="项目配置流程" title="项目配置流程"></p>
+<p>mysql-python与mysqlclient</p>
+<p>tab与shift+tab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">def __unicode__(self):</div><div class="line">    return self.username</div></pre></td></tr></table></figure>
+<p>以字符串的形式显示对象，和java里面的类的tostring方法一样</p>
+<p>django orm与model</p>
+<p>CharField类型必须指定默认长度 max-length, 否则会报错CharField must define a ‘max_length’ attribute. MySQL does not allow unique CharFields to hava a max_length &gt; 255.<br>verbose_name=u”昵称” 在后台管理系统会发挥很大的用处<br>EmailField 专门对邮箱做验证</p>
+<pre><code>class Meta:
+    verbose_name = &quot;用户信息&quot;    指定数据表显示名称
+    verbose_name_plural = verbose_name
+</code></pre><p>如果编辑models.py后，makemigrations显示No changes detected in app xxx, 是因为没有将新建的app注册到settings里面</p>
+<p>报错：<br>SyntaxError: Non-ASCII character ‘\xe4’ in xxx , but no encoding declared<br>解决：<br>因为model中用到了中文，但文件开头并没有定义好utf编码</p>
+<h1 id="encoding-utf-8"><a href="#encoding-utf-8" class="headerlink" title="* encoding:utf-8 *"></a><em>*</em> encoding:utf-8 <em>*</em></h1><p>django默认生成数据表的结构：app名称_model名称  所有小写 如message_usermessage</p>
+<p>django model的Field类型<br>EmailField<br>ForeignKey<br>DateTimeField<br>IntegerField<br>IPAddressField<br>FileField<br>ImageField</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&apos;AutoField&apos;, &apos;BLANK_CHOICE_DASH&apos;, &apos;BigIntegerField&apos;, &apos;BinaryField&apos;,</div><div class="line">&apos;BooleanField&apos;, &apos;CharField&apos;, &apos;CommaSeparatedIntegerField&apos;, &apos;DateField&apos;,</div><div class="line">&apos;DateTimeField&apos;, &apos;DecimalField&apos;, &apos;DurationField&apos;, &apos;EmailField&apos;, &apos;Empty&apos;,</div><div class="line">&apos;Field&apos;, &apos;FieldDoesNotExist&apos;, &apos;FilePathField&apos;, &apos;FloatField&apos;,</div><div class="line">&apos;GenericIPAddressField&apos;, &apos;IPAddressField&apos;, &apos;IntegerField&apos;, &apos;NOT_PROVIDED&apos;,</div><div class="line">&apos;NullBooleanField&apos;, &apos;PositiveIntegerField&apos;, &apos;PositiveSmallIntegerField&apos;,</div><div class="line">&apos;SlugField&apos;, &apos;SmallIntegerField&apos;, &apos;TextField&apos;, &apos;TimeField&apos;, &apos;URLField&apos;,</div><div class="line">&apos;UUIDField&apos;</div></pre></td></tr></table></figure>
+<p>该字段可以为空，null=True, blank=True</p>
+<p>设定默认值，default=u””自动赋值为空</p>
+<p>不指定主键会自动生成id,可以自己指定主键primary_key=True</p>
+<p>报错：<br>You are trying to add a non-nullable field ‘xxx’ to xxx without a default<br>解决：<br>default=””<br>有些疑问，主键可以默认设置为空吗？</p>
+<p>django的meta信息<br>class Meta:<br>    verbose_name = “用户信息”<br>    verbose_name_plural = verbose_name<br>    db_table = “xxx”  指定数据表名称<br>    ordering = “xxx”  默认排序 query的时候自动排序 加上-就是倒序的排列 就不需要通过order_by了</p>
+<p>from .models import xxx   .代表同级目录下的文件</p>
+<p>all_courses = Course.objects.all().order_by(“-add_time”)<br>objects 类默认的数据表管理器 这个管理器给我们提供了很多方法<br>all()数据库所有的记录返回<br>返回来的all_courses变量是queryset类型，django的内置类型，这种类型可以让我们进行for循环</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/27/Django社区网站项目-自学笔记/" rel="next" title="Django社区网站项目-自学笔记">
+                <i class="fa fa-chevron-left"></i> Django社区网站项目-自学笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/28/python操作MySQL数据库/" rel="prev" title="python操作MySQL数据库">
+                python操作MySQL数据库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Nana Xie" />
+          <p class="site-author-name" itemprop="name">Nana Xie</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay Hungry Stay Foolish</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/NanaCode" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#encoding-utf-8"><span class="nav-text">* encoding:utf-8 *</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nana Xie</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NKj4cIziN7Jv2VdApl3RrMIF-gzGzoHsz", "3me0jhp47YDrT8nzgYGhztxo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
