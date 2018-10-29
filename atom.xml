@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-12T14:26:02.773Z</updated>
+  <updated>2018-03-26T13:03:40.048Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如果我是python面试官</title>
+    <link href="http://yoursite.com/2018/03/26/%E5%A6%82%E6%9E%9C%E6%88%91%E6%98%AFpython%E9%9D%A2%E8%AF%95%E5%AE%98/"/>
+    <id>http://yoursite.com/2018/03/26/如果我是python面试官/</id>
+    <published>2018-03-26T13:03:39.000Z</published>
+    <updated>2018-03-26T13:03:40.048Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>学习docker之小心得</title>
+    <link href="http://yoursite.com/2018/03/17/%E5%AD%A6%E4%B9%A0docker%E4%B9%8B%E5%B0%8F%E5%BF%83%E5%BE%97/"/>
+    <id>http://yoursite.com/2018/03/17/学习docker之小心得/</id>
+    <published>2018-03-17T04:18:19.000Z</published>
+    <updated>2018-03-17T04:18:19.511Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>小事例讲讲python的字符串编码</title>
+    <link href="http://yoursite.com/2018/03/16/%E5%B0%8F%E4%BA%8B%E4%BE%8B%E8%AE%B2%E8%AE%B2python%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%BC%96%E7%A0%81/"/>
+    <id>http://yoursite.com/2018/03/16/小事例讲讲python的字符串编码/</id>
+    <published>2018-03-16T03:43:01.000Z</published>
+    <updated>2018-03-16T03:43:01.803Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Git常见命令小结</title>
@@ -152,6 +194,35 @@
     
     
       <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins持续集成环境搭建</title>
+    <link href="http://yoursite.com/2018/03/12/Jenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2018/03/12/Jenkins持续集成环境搭建/</id>
+    <published>2018-03-12T03:20:39.000Z</published>
+    <updated>2018-03-31T01:19:32.908Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://jenkins.io/" target="_blank" rel="external">https://jenkins.io/</a></p>
+<p>Download-</p>
+<p>windows版本 msi文件  根据界面提示配置</p>
+<p>Generic Java package(.war)版本 war文件<br>java -jar jenkins.war</p>
+<p>jenkins默认8080端口</p>
+<p>localhost:8080端口访问</p>
+<p>Unlock jenkins</p>
+<p>自动跳转安装插件的地方<br>Install suggested Plugins</p>
+<p>Create First Admin User</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://jenkins.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://jenkins.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Download-&lt;/p&gt;
+&lt;p&gt;windows版本 msi文件  根据界面提示配置&lt;/p
+    
+    </summary>
+    
     
   </entry>
   
@@ -1040,7 +1111,7 @@ Note: some Windows users have reported this error when they installed Python for
     <link href="http://yoursite.com/2017/08/23/%E7%BC%96%E7%A8%8B%E8%AE%BE%E8%AE%A1%E8%B5%84%E6%BA%90/"/>
     <id>http://yoursite.com/2017/08/23/编程设计资源/</id>
     <published>2017-08-23T03:39:59.000Z</published>
-    <updated>2018-03-12T13:23:03.626Z</updated>
+    <updated>2018-03-14T13:04:02.746Z</updated>
     
     <content type="html"><![CDATA[<h3 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h3><p><a href="https://www.google.com" target="_blank" rel="external">谷歌</a>    –lantern，你懂的(更新，lantern挂了，现在只能自己搭ss了，ORZ)<br><a href="https://www.baidu.com" target="_blank" rel="external">百度</a></p>
 <h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p><a href="https://www.w3cschool.cn/" target="_blank" rel="external">W3C</a>    –前端基础<br><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a>    –NexT网站主题<br><a href="http://livestyle.io/" target="_blank" rel="external">liveStyle</a>    –前端可视化工具<br><a href="http://livereload.com/" target="_blank" rel="external">liveReload</a>    –前端可视化工具<br><a href="https://browsersync.io/" target="_blank" rel="external">browserSync</a>    –前端可视化工具<br><a href="http://www.imooc.com/learn/668" target="_blank" rel="external">从 psd 到 html</a>    –切图实战教程<br><a href="http://www.imooc.com/learn/506" target="_blank" rel="external">前端工程师必备的PS技能——切图篇</a><br><a href="https://dillinger.io/" target="_blank" rel="external">DILLINGER</a>    –在线编辑Markdown网站</p>
@@ -1052,7 +1123,7 @@ Note: some Windows users have reported this error when they installed Python for
 <h3 id="美国服务器搬瓦工"><a href="#美国服务器搬瓦工" class="headerlink" title="美国服务器搬瓦工"></a>美国服务器搬瓦工</h3><p><a href="https://www.banwagong.com/" target="_blank" rel="external">Bangwagon VPS</a>  –美国服务器搬瓦工<br><a href="http://banwagong.cn/" target="_blank" rel="external">Bangwagon VPS China</a>  –美国服务器搬瓦工中国站<br><a href="https://bwh1.net/clientarea.php" target="_blank" rel="external">Bangwagon Host-Client Area</a>   –美国服务器 搬瓦工客户中心</p>
 <!-- ### Python书籍推荐
 [A Byte of Python](https://python.swaroopch.com/)    --简明 Python 教程 -->
-<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p><a href="https://stackoverflow.com" target="_blank" rel="external">stackoverflow</a>  –遇到报错可以经常来这里找找解决办法<br><a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git For Windows</a>  –Windows系统下的Git<br><a href="https://python.swaroopch.com/" target="_blank" rel="external">A Byte of Python</a>    –简明 Python 教程<br><a href="http://www.wiz.cn/" target="_blank" rel="external">为知笔记</a>    –好记性不如烂笔头，多做笔记，多思考<br><a href="http://wongbingming.me/" target="_blank" rel="external">Ming’s Blog</a>     –明的博客<br><a href="https://w3techs.com/" target="_blank" rel="external">W3Tachs</a>   –网站技术分析<br><a href="https://www.liaoxuefeng.com/" target="_blank" rel="external">廖雪峰官方网站</a>   –Javascript/Python/Git等教程<br><a href="https://github.com/" target="_blank" rel="external">GitHub</a>    –代码托管网站<br><a href="https://www.quora.com/" target="_blank" rel="external">Quora</a>   –国外问答网站<br><a href="https://salttiger.com/" target="_blank" rel="external">SaltTiger</a>   –每天一本编程书，每天进步一点点<br><a href="http://www.imooc.com/" target="_blank" rel="external">慕课网</a><br><a href="https://www.zhihu.com/" target="_blank" rel="external">Zhihu</a><br><a href="https://developers.douban.com/" target="_blank" rel="external">豆瓣开发者服务</a><br><a href="https://developers.douban.com/wiki/?title=guide" target="_blank" rel="external">豆瓣API快速入门</a><br><a href="https://www.linkedin.com" target="_blank" rel="external">LinkedIn</a><br><a href="http://www.ofmonkey.com/" target="_blank" rel="external">程序员在线工具</a><br><a href="http://www.izheteng.com/" target="_blank" rel="external">爱折腾</a><br><a href="http://www.zhetenga.com/" target="_blank" rel="external">好折腾</a><br><a href="http://en.origami-club.com/index.html" target="_blank" rel="external">origami</a><br><a href="https://leancloud.cn/" target="_blank" rel="external">LeanCloud</a><br><a href="https://desktop.github.com/" target="_blank" rel="external">Github Desktop</a><br><a href="http://ueditor.baidu.com/website/" target="_blank" rel="external">UEditor</a><br><a href="https://github.com/zhangfisher/DjangoUeditor/tree/master/DjangoUeditor" target="_blank" rel="external">DjangoUeditor</a><br><a href="https://gitter.im/FreeCodeCamp/chinese" target="_blank" rel="external">FreeCodeCamp/chinese</a><br><a href="projectsedu.com">聚学在线</a><br><a href="https://probberechts.github.io/cactus-dark/2016/11/01/An-overview-of-all-Markdown-elements/" target="_blank" rel="external">An overview of all Markdown elements</a><br><a href="https://www.kennethreitz.org/" target="_blank" rel="external">KENNETH REITZ</a>   –逆袭男神的程序大神<br><a href="https://zhuanlan.zhihu.com/djstudyteam" target="_blank" rel="external">Django 学习小组</a><br><a href="http://littlewin.info/" target="_blank" rel="external">琪中有不凡</a><br><a href="http://www.atool.org" target="_blank" rel="external">ATOOL在线工具</a><br><a href="https://gallery.proficad.eu/tools/autocad-viewer.aspx" target="_blank" rel="external">在线DXF和DWG看图</a><br><a href="http://www.gsxt.gov.cn/index.html" target="_blank" rel="external">国家企业信用信息公示系统</a><br><a href="http://www.chsi.com.cn/" target="_blank" rel="external">学信网</a><br><a href="https://asciinema.org/" target="_blank" rel="external">asciinema</a>    –asciinema [as-kee-nuh-muh] is a free and open source solution for recording terminal sessions and sharing them on the web.<br><a href="http://gsnedders.html5.org/outliner/" target="_blank" rel="external">HTML 5 Outliner</a>    –用标题和分节元素生成一个可导航的页面大纲，HTML5大纲生成页面<br><a href="http://necolas.github.io/normalize.css/" target="_blank" rel="external">Normalize.css</a><br><a href="https://caniuse.com/" target="_blank" rel="external">Can I use</a><br><a href="https://autoprefixer.github.io/" target="_blank" rel="external">Autoprefixer CSS online</a>    –浏览器前缀的后处理程序<br><a href="https://www.letasoft.com/sound-booster-download/" target="_blank" rel="external">Letasoft Sound Booster</a>    –系统音量增大软件<br><a href="https://code.visualstudio.com/Download" target="_blank" rel="external">Visual Studio Code</a><br><!-- [关于 DIY 的网站](https://www.zhihu.com/question/20029721)
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p><a href="https://stackoverflow.com" target="_blank" rel="external">stackoverflow</a>  –遇到报错可以经常来这里找找解决办法<br><a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git For Windows</a>  –Windows系统下的Git<br><a href="https://python.swaroopch.com/" target="_blank" rel="external">A Byte of Python</a>    –简明 Python 教程<br><a href="http://www.wiz.cn/" target="_blank" rel="external">为知笔记</a>    –好记性不如烂笔头，多做笔记，多思考<br><a href="http://wongbingming.me/" target="_blank" rel="external">Ming’s Blog</a>     –明的博客<br><a href="https://w3techs.com/" target="_blank" rel="external">W3Tachs</a>   –网站技术分析<br><a href="https://www.liaoxuefeng.com/" target="_blank" rel="external">廖雪峰官方网站</a>   –Javascript/Python/Git等教程<br><a href="https://github.com/" target="_blank" rel="external">GitHub</a>    –代码托管网站<br><a href="https://www.quora.com/" target="_blank" rel="external">Quora</a>   –国外问答网站<br><a href="https://salttiger.com/" target="_blank" rel="external">SaltTiger</a>   –每天一本编程书，每天进步一点点<br><a href="http://www.imooc.com/" target="_blank" rel="external">慕课网</a><br><a href="https://www.zhihu.com/" target="_blank" rel="external">Zhihu</a><br><a href="https://developers.douban.com/" target="_blank" rel="external">豆瓣开发者服务</a><br><a href="https://developers.douban.com/wiki/?title=guide" target="_blank" rel="external">豆瓣API快速入门</a><br><a href="https://www.linkedin.com" target="_blank" rel="external">LinkedIn</a><br><a href="http://www.ofmonkey.com/" target="_blank" rel="external">程序员在线工具</a><br><a href="http://www.izheteng.com/" target="_blank" rel="external">爱折腾</a><br><a href="http://www.zhetenga.com/" target="_blank" rel="external">好折腾</a><br><a href="http://en.origami-club.com/index.html" target="_blank" rel="external">origami</a><br><a href="https://leancloud.cn/" target="_blank" rel="external">LeanCloud</a><br><a href="https://desktop.github.com/" target="_blank" rel="external">Github Desktop</a><br><a href="http://ueditor.baidu.com/website/" target="_blank" rel="external">UEditor</a><br><a href="https://github.com/zhangfisher/DjangoUeditor/tree/master/DjangoUeditor" target="_blank" rel="external">DjangoUeditor</a><br><a href="https://gitter.im/FreeCodeCamp/chinese" target="_blank" rel="external">FreeCodeCamp/chinese</a><br><a href="projectsedu.com">聚学在线</a><br><a href="https://probberechts.github.io/cactus-dark/2016/11/01/An-overview-of-all-Markdown-elements/" target="_blank" rel="external">An overview of all Markdown elements</a><br><a href="https://www.kennethreitz.org/" target="_blank" rel="external">KENNETH REITZ</a>   –逆袭男神的程序大神<br><a href="https://zhuanlan.zhihu.com/djstudyteam" target="_blank" rel="external">Django 学习小组</a><br><a href="http://littlewin.info/" target="_blank" rel="external">琪中有不凡</a><br><a href="http://www.atool.org" target="_blank" rel="external">ATOOL在线工具</a><br><a href="https://gallery.proficad.eu/tools/autocad-viewer.aspx" target="_blank" rel="external">在线DXF和DWG看图</a><br><a href="http://www.gsxt.gov.cn/index.html" target="_blank" rel="external">国家企业信用信息公示系统</a><br><a href="http://www.chsi.com.cn/" target="_blank" rel="external">学信网</a><br><a href="https://asciinema.org/" target="_blank" rel="external">asciinema</a>    –asciinema [as-kee-nuh-muh] is a free and open source solution for recording terminal sessions and sharing them on the web.<br><a href="http://gsnedders.html5.org/outliner/" target="_blank" rel="external">HTML 5 Outliner</a>    –用标题和分节元素生成一个可导航的页面大纲，HTML5大纲生成页面<br><a href="http://necolas.github.io/normalize.css/" target="_blank" rel="external">Normalize.css</a><br><a href="https://caniuse.com/" target="_blank" rel="external">Can I use</a><br><a href="https://autoprefixer.github.io/" target="_blank" rel="external">Autoprefixer CSS online</a>    –浏览器前缀的后处理程序<br><a href="https://www.letasoft.com/sound-booster-download/" target="_blank" rel="external">Letasoft Sound Booster</a>    –系统音量增大软件<br><a href="https://code.visualstudio.com/Download" target="_blank" rel="external">Visual Studio Code</a><br><a href="http://bigjpg.com/" target="_blank" rel="external">bigjpg 人工智能</a>    –AI人工智能图片放大，亲测效果不错<br><!-- [关于 DIY 的网站](https://www.zhihu.com/question/20029721)
 [手工网站](https://www.zhihu.com/question/20107003) --></p>
 <p>我们的人生很长，遇到的问题很多，而且经常不带重样的。经验主义显然没办法全部应付。唯有升维思考，多问为什么，对症下药，才能在残酷的现实社会当中，从容面对各种问题，并将它们各个击破。-<a href="https://www.zhihu.com/question/22000194" target="_blank" rel="external">两种思维方式的不同</a></p>
 <p>但是啊，人生不一样，人生有很多正确答案，继续读大学是正确答案，不去也是，热衷运动也是，喜欢音乐也好，和朋友一起玩耍也罢，为了某人而绕远路也是，这些都是正确答案。-《龙樱》</p>
