@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-12T14:26:02.773Z</updated>
+  <updated>2018-10-29T10:23:36.868Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我回来啦</title>
+    <link href="http://yoursite.com/2018/10/29/%E6%88%91%E5%9B%9E%E6%9D%A5%E5%95%A6/"/>
+    <id>http://yoursite.com/2018/10/29/我回来啦/</id>
+    <published>2018-10-29T10:09:39.000Z</published>
+    <updated>2018-10-29T10:23:36.868Z</updated>
+    
+    <content type="html"><![CDATA[<p>今年三月以来，发生了很多事情，感觉这几个月自己的人生就像在过山车一样。<br>感情始终是白卷，若职业发展顺利也罢，不料却屡屡受挫。<br>一度深受打击，这个个人网站也没有再打理了。<br>不过经过这段时间的反思后，对很多事情的看法也变了。<br>尤其是在我这段时间坚持早起、运动、每天晚上写日记、每天写一篇公众号文章后，发现自己也渐渐在内心里找回了以前的热情。<br>网站也会继续更新了，希望我的分享可以帮到大家。<br>大家一起成长，一起进步，一起加油哈。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年三月以来，发生了很多事情，感觉这几个月自己的人生就像在过山车一样。&lt;br&gt;感情始终是白卷，若职业发展顺利也罢，不料却屡屡受挫。&lt;br&gt;一度深受打击，这个个人网站也没有再打理了。&lt;br&gt;不过经过这段时间的反思后，对很多事情的看法也变了。&lt;br&gt;尤其是在我这段时间坚持早起、
+    
+    </summary>
+    
+    
+      <category term="个人感悟" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>Git常见命令小结</title>
