@@ -156,35 +156,6 @@
   </entry>
   
   <entry>
-    <title>Jenkins持续集成环境搭建</title>
-    <link href="http://yoursite.com/2018/03/12/Jenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2018/03/12/Jenkins持续集成环境搭建/</id>
-    <published>2018-03-12T03:20:39.000Z</published>
-    <updated>2018-03-31T01:19:32.908Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://jenkins.io/" target="_blank" rel="external">https://jenkins.io/</a></p>
-<p>Download-</p>
-<p>windows版本 msi文件  根据界面提示配置</p>
-<p>Generic Java package(.war)版本 war文件<br>java -jar jenkins.war</p>
-<p>jenkins默认8080端口</p>
-<p>localhost:8080端口访问</p>
-<p>Unlock jenkins</p>
-<p>自动跳转安装插件的地方<br>Install suggested Plugins</p>
-<p>Create First Admin User</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://jenkins.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://jenkins.io/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Download-&lt;/p&gt;
-&lt;p&gt;windows版本 msi文件  根据界面提示配置&lt;/p
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>电脑多版本Python共存的方法</title>
     <link href="http://yoursite.com/2018/02/12/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%A4%9A%E7%89%88%E6%9C%ACpython%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>http://yoursite.com/2018/02/12/电脑安装多版本python的方法/</id>
