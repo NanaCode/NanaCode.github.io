@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-07T08:23:03.351Z</updated>
+  <updated>2018-11-07T12:01:06.998Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,16 @@
     <link href="http://yoursite.com/2018/11/07/HTTP%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%8A%A0%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/11/07/HTTP协议原理加实战笔记/</id>
     <published>2018-11-07T02:24:56.000Z</published>
-    <updated>2018-11-07T08:23:03.351Z</updated>
+    <updated>2018-11-07T12:01:06.998Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="一、导学"><a href="#一、导学" class="headerlink" title="一、导学"></a>一、导学</h1><h2 id="1-1-导学"><a href="#1-1-导学" class="headerlink" title="1.1 导学"></a>1.1 导学</h2><h2 id="1-2-内容介绍"><a href="#1-2-内容介绍" class="headerlink" title="1.2 内容介绍"></a>1.2 内容介绍</h2><h1 id="二、HTTP协议基础及发展历史"><a href="#二、HTTP协议基础及发展历史" class="headerlink" title="二、HTTP协议基础及发展历史"></a>二、HTTP协议基础及发展历史</h1><h2 id="2-1-5层网络模型介绍"><a href="#2-1-5层网络模型介绍" class="headerlink" title="2.1 5层网络模型介绍"></a>2.1 5层网络模型介绍</h2><h2 id="2-2-HTTP协议的发展历史"><a href="#2-2-HTTP协议的发展历史" class="headerlink" title="2.2 HTTP协议的发展历史"></a>2.2 HTTP协议的发展历史</h2><h2 id="2-3-HTTP的三次握手"><a href="#2-3-HTTP的三次握手" class="headerlink" title="2.3 HTTP的三次握手"></a>2.3 HTTP的三次握手</h2><h2 id="2-4-URI-URL和URN"><a href="#2-4-URI-URL和URN" class="headerlink" title="2.4 URI-URL和URN"></a>2.4 URI-URL和URN</h2><h2 id="2-5-HTTP报文格式"><a href="#2-5-HTTP报文格式" class="headerlink" title="2.5 HTTP报文格式"></a>2.5 HTTP报文格式</h2><h2 id="2-6-创建一个最简单的web服务"><a href="#2-6-创建一个最简单的web服务" class="headerlink" title="2.6 创建一个最简单的web服务"></a>2.6 创建一个最简单的web服务</h2><h1 id="三、HTTP各种特性总览"><a href="#三、HTTP各种特性总览" class="headerlink" title="三、HTTP各种特性总览"></a>三、HTTP各种特性总览</h1><h2 id="3-1-认识HTTP客户端"><a href="#3-1-认识HTTP客户端" class="headerlink" title="3.1 认识HTTP客户端"></a>3.1 认识HTTP客户端</h2><h2 id="3-2-CORS跨域请求的限制与解决"><a href="#3-2-CORS跨域请求的限制与解决" class="headerlink" title="3.2 CORS跨域请求的限制与解决"></a>3.2 CORS跨域请求的限制与解决</h2><h2 id="3-3-CORS跨域限制以及预请求验证"><a href="#3-3-CORS跨域限制以及预请求验证" class="headerlink" title="3.3 CORS跨域限制以及预请求验证"></a>3.3 CORS跨域限制以及预请求验证</h2><h2 id="3-4-缓存头Cache-Control的含义和使用"><a href="#3-4-缓存头Cache-Control的含义和使用" class="headerlink" title="3.4 缓存头Cache-Control的含义和使用"></a>3.4 缓存头Cache-Control的含义和使用</h2><h2 id="3-5-缓存验证Last-Modified和Etag的使用"><a href="#3-5-缓存验证Last-Modified和Etag的使用" class="headerlink" title="3.5 缓存验证Last-Modified和Etag的使用"></a>3.5 缓存验证Last-Modified和Etag的使用</h2><h2 id="3-6-cookie和session"><a href="#3-6-cookie和session" class="headerlink" title="3.6 cookie和session"></a>3.6 cookie和session</h2><h2 id="3-7-HTTP长连接"><a href="#3-7-HTTP长连接" class="headerlink" title="3.7 HTTP长连接"></a>3.7 HTTP长连接</h2><h2 id="3-8-数据协商"><a href="#3-8-数据协商" class="headerlink" title="3.8 数据协商"></a>3.8 数据协商</h2><h2 id="3-9-Redirect"><a href="#3-9-Redirect" class="headerlink" title="3.9 Redirect"></a>3.9 Redirect</h2><h2 id="3-10-CSP"><a href="#3-10-CSP" class="headerlink" title="3.10 CSP"></a>3.10 CSP</h2><h1 id="四、Nginx代理以及面向未来的HTTP"><a href="#四、Nginx代理以及面向未来的HTTP" class="headerlink" title="四、Nginx代理以及面向未来的HTTP"></a>四、Nginx代理以及面向未来的HTTP</h1><h2 id="4-1-Nginx安装和基础代理配置"><a href="#4-1-Nginx安装和基础代理配置" class="headerlink" title="4.1 Nginx安装和基础代理配置"></a>4.1 Nginx安装和基础代理配置</h2><h2 id="4-2-Nginx代理配置和代理缓存的用处"><a href="#4-2-Nginx代理配置和代理缓存的用处" class="headerlink" title="4.2 Nginx代理配置和代理缓存的用处"></a>4.2 Nginx代理配置和代理缓存的用处</h2><h2 id="4-3-HTTPS解析"><a href="#4-3-HTTPS解析" class="headerlink" title="4.3 HTTPS解析"></a>4.3 HTTPS解析</h2><h2 id="4-4-使用Nginx部署HTTPS服务"><a href="#4-4-使用Nginx部署HTTPS服务" class="headerlink" title="4.4 使用Nginx部署HTTPS服务"></a>4.4 使用Nginx部署HTTPS服务</h2><h2 id="4-5-HTTP2的优势和Nginx配置HTTP2的简单使用"><a href="#4-5-HTTP2的优势和Nginx配置HTTP2的简单使用" class="headerlink" title="4.5 HTTP2的优势和Nginx配置HTTP2的简单使用"></a>4.5 HTTP2的优势和Nginx配置HTTP2的简单使用</h2><h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><!-- # 一、课程导学
+    <content type="html"><![CDATA[<h1 id="一、导学"><a href="#一、导学" class="headerlink" title="一、导学"></a>一、导学</h1><p><strong>Cache-Control设置</strong>:<br><em>基本：max-age=100
+</em>设置public、private控制只能在客户端进行缓存，还是可以通过代理服务器进行缓存<br><em>设置must-revalidate,在缓存过期之后，必须到服务端验证过之后，才能继续使用缓存
+</em>设置no-cache、no-store控制我们是否使用缓存</p>
+<p><strong>缓存验证</strong>:<br>last-modified配合if-modified-since<br>etag配合if-none-match</p>
+<p><strong>每个HTTP的头都有使用价值</strong>:<br>Content-Type、Content-Encoding等用来约束数据类型<br>Cookie保持会话信息（常见的session方案就是通过cookie来实现的）<br>CORS实现跨域并保持安全性限制（如何保证跨域服务安全）</p>
+<p>浏览器输入URL后HTTP请求返回的完整过程如下图所示：<br><img src="https://i.loli.net/2018/11/07/5be2d38b61643.png" alt="浏览器输入URL后HTTP请求返回的完整过程" title="浏览器输入URL后HTTP请求返回的完整过程"></p>
+<p><strong>Redirect</strong><br>为什么一开始就要做一个redirect? 首先判断需不需要redirect，以及redirect到哪里<br><strong>App cache</strong><br>第二部，看缓存，因为请求的资源可能已经缓存过了。<br><strong>DNS</strong><br>输入的是域名，域名要对应成IP之后，我们才能真正的访问到服务器。 先去查找域名对应的IP地址，就叫DNS解析。<br><strong>TCP</strong><br>有了IP之后，就要去创建TCP连接。经过TCP的三次握手之后，才能真正的把连接创建起来。如果请求是HTTPS的，要创建一个HTTPS的连接，跟TCP的三次握手不一样，中间要有一个保证安全的数据传输过程。<br><strong>Request</strong><br>连接创建好后，才真正开始发送HTTP请求的数据包。<br><strong>Response</strong><br>发送完成后，服务器接受到数据，进行数据操作后，返回我们请求想要的内容，开始返回数据。返回数据后，这个HTTP请求才真正的完成。<br>这也是我们打开浏览器之后，输入URL之后，整个有关于数据加载的过程所会经历的每个时间点。</p>
+<h1 id="二、HTTP协议基础及发展历史"><a href="#二、HTTP协议基础及发展历史" class="headerlink" title="二、HTTP协议基础及发展历史"></a>二、HTTP协议基础及发展历史</h1><h2 id="2-1-5层网络模型介绍"><a href="#2-1-5层网络模型介绍" class="headerlink" title="2.1 5层网络模型介绍"></a>2.1 5层网络模型介绍</h2><h2 id="2-2-HTTP协议的发展历史"><a href="#2-2-HTTP协议的发展历史" class="headerlink" title="2.2 HTTP协议的发展历史"></a>2.2 HTTP协议的发展历史</h2><h2 id="2-3-HTTP的三次握手"><a href="#2-3-HTTP的三次握手" class="headerlink" title="2.3 HTTP的三次握手"></a>2.3 HTTP的三次握手</h2><h2 id="2-4-URI-URL和URN"><a href="#2-4-URI-URL和URN" class="headerlink" title="2.4 URI-URL和URN"></a>2.4 URI-URL和URN</h2><h2 id="2-5-HTTP报文格式"><a href="#2-5-HTTP报文格式" class="headerlink" title="2.5 HTTP报文格式"></a>2.5 HTTP报文格式</h2><h2 id="2-6-创建一个最简单的web服务"><a href="#2-6-创建一个最简单的web服务" class="headerlink" title="2.6 创建一个最简单的web服务"></a>2.6 创建一个最简单的web服务</h2><h1 id="三、HTTP各种特性总览"><a href="#三、HTTP各种特性总览" class="headerlink" title="三、HTTP各种特性总览"></a>三、HTTP各种特性总览</h1><h2 id="3-1-认识HTTP客户端"><a href="#3-1-认识HTTP客户端" class="headerlink" title="3.1 认识HTTP客户端"></a>3.1 认识HTTP客户端</h2><h2 id="3-2-CORS跨域请求的限制与解决"><a href="#3-2-CORS跨域请求的限制与解决" class="headerlink" title="3.2 CORS跨域请求的限制与解决"></a>3.2 CORS跨域请求的限制与解决</h2><h2 id="3-3-CORS跨域限制以及预请求验证"><a href="#3-3-CORS跨域限制以及预请求验证" class="headerlink" title="3.3 CORS跨域限制以及预请求验证"></a>3.3 CORS跨域限制以及预请求验证</h2><h2 id="3-4-缓存头Cache-Control的含义和使用"><a href="#3-4-缓存头Cache-Control的含义和使用" class="headerlink" title="3.4 缓存头Cache-Control的含义和使用"></a>3.4 缓存头Cache-Control的含义和使用</h2><h2 id="3-5-缓存验证Last-Modified和Etag的使用"><a href="#3-5-缓存验证Last-Modified和Etag的使用" class="headerlink" title="3.5 缓存验证Last-Modified和Etag的使用"></a>3.5 缓存验证Last-Modified和Etag的使用</h2><h2 id="3-6-cookie和session"><a href="#3-6-cookie和session" class="headerlink" title="3.6 cookie和session"></a>3.6 cookie和session</h2><h2 id="3-7-HTTP长连接"><a href="#3-7-HTTP长连接" class="headerlink" title="3.7 HTTP长连接"></a>3.7 HTTP长连接</h2><h2 id="3-8-数据协商"><a href="#3-8-数据协商" class="headerlink" title="3.8 数据协商"></a>3.8 数据协商</h2><h2 id="3-9-Redirect"><a href="#3-9-Redirect" class="headerlink" title="3.9 Redirect"></a>3.9 Redirect</h2><h2 id="3-10-CSP"><a href="#3-10-CSP" class="headerlink" title="3.10 CSP"></a>3.10 CSP</h2><h1 id="四、Nginx代理以及面向未来的HTTP"><a href="#四、Nginx代理以及面向未来的HTTP" class="headerlink" title="四、Nginx代理以及面向未来的HTTP"></a>四、Nginx代理以及面向未来的HTTP</h1><h2 id="4-1-Nginx安装和基础代理配置"><a href="#4-1-Nginx安装和基础代理配置" class="headerlink" title="4.1 Nginx安装和基础代理配置"></a>4.1 Nginx安装和基础代理配置</h2><h2 id="4-2-Nginx代理配置和代理缓存的用处"><a href="#4-2-Nginx代理配置和代理缓存的用处" class="headerlink" title="4.2 Nginx代理配置和代理缓存的用处"></a>4.2 Nginx代理配置和代理缓存的用处</h2><h2 id="4-3-HTTPS解析"><a href="#4-3-HTTPS解析" class="headerlink" title="4.3 HTTPS解析"></a>4.3 HTTPS解析</h2><h2 id="4-4-使用Nginx部署HTTPS服务"><a href="#4-4-使用Nginx部署HTTPS服务" class="headerlink" title="4.4 使用Nginx部署HTTPS服务"></a>4.4 使用Nginx部署HTTPS服务</h2><h2 id="4-5-HTTP2的优势和Nginx配置HTTP2的简单使用"><a href="#4-5-HTTP2的优势和Nginx配置HTTP2的简单使用" class="headerlink" title="4.5 HTTP2的优势和Nginx配置HTTP2的简单使用"></a>4.5 HTTP2的优势和Nginx配置HTTP2的简单使用</h2><h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><!-- # 一、课程导学
 ## 1.1导学
 ### 1.1.1WHY
 #### 1.1.1.1很多WEB开发真的不理解HTTP
@@ -127,8 +134,74 @@ Ajax请求也是HTTP请求，Ajax POST方式去传输一些数据，传输过程
 
 
 ## HTTP协议的发展历史
+第一个定稿的HTTP协议版本是HTTP/0.9
+
+只有一个命令GET
+没有HEADER等描述数据的信息
+服务器发送完毕，就关闭TCP连接
+
+明确一点： 这里的连接跟HTTP的请求是不一样的 HTTP请求并发数
+HTTP请求跟TCP连接不是一个概念
+同一个TCP连接里可以发送很多个HTTP请求，以前的协议版本不能这么做，但是现在HTTP/1.1里面，我们可以这么做了。HTTP/2会更大的优化相关的东西来提高HTTP传输的效率以及服务器的性能。
+TCP连接对应的是多个HTTP请求，而一个HTTP请求一定是在某个TCP连接里面去进行发送的。
+
+第二个版本：HTTP/1.0,这个版本跟我们现在最普遍使用的HTTP/1.1差不了多少。
+
+增加了很多命令:比如POST PUT HEADER
+增加status code和header: status code描述服务端处理某一请求后的状态
+header对应不管是发送还是请求的相关数据，它的描述以及我们对这部分数据进行操作的方法
+还增加多字符集支持、多部分发送、权限、缓存等
+
+HTTP/1.1
+只是在HTTP1.0上增加了一些功能来优化整个网络链接的过程
+支持持久连接： HTTP/1.0版本对比待。   HTTP/1.1 创建链接的过程中，它的消耗是比较高的，延迟也会比较高，所以如果我们在建立完一个链接之后，可以不关闭，以后新的HTTP请求可以一直在这个链接里面发送的话，性能会高很多。
+增加了pipeline: 可以在同一个链接里面发送多个请求。服务端对请求按照顺序进行一个内容的返回,如果前一个请求等待的时间非常的长，后一个请求处理的比较快，后一个请求不能先发送，要等前一个请求数据发送完成之后，才能进行发送，这部分时间相当于我们一个串行一个并行，里面性能的差异就体现出来，这个在HTTP/2里面就会进行一个优化。
+增加host和其他一些命令： 有了host之后，就可以在同一台服务器，在这台物理服务器上我们可以同时跑多个不同的web服务，比如一个nodejs服务，一个java服务。然后通过host这个字段来表示，我都是请求到这台物理服务器上面，但是要请求的是里面哪一个软件服务，通过host来进行判断。这个头增加的好处就是我们在同一个物理服务器或者同一个集群里面，可以部署很多不同的web服务来进行一个使用。提高物理服务的一个使用效率。
+
+HTTP2
+现在还没有普及，但是肯定是未来
+
+所有数据以二进制传输：HTTP/1.1里面，大部分数据传输是通过字符串，数据的分片方式是不太一样的。在HTTP2里面，所有数据都是以帧进行传输的，同样是因为有了这个好处，所以下面
+同一个连接里面发送多个请求不再需要按照顺序来进行返回处理，可以同时返回数据，并行的效率
+头信息压缩以及推送等提高效率的功能：HTTP2是为了解决HTTP/1.1里面性能底下的一些问题  头信息压缩的概念 有效减少带宽使用 推送功能 HTTP-客户端永远是主动方，服务端永远是被动方。 推送-HTTP2里服务端是剋主动发起一些数据传输的
+web页面 css js文件，链接方式在html文本里面显示的 通过浏览器解析里面内容之后，。。。顺序的问题，串行
+HTML css js发送顺序是并行的，
+
+HTTPS 安全版本的HTTP协议 实际使用内容和HTTP/1.1没有特别大的区别
+
+
+
 ## HTTP的三次握手
+先理解一个概念
+图
+在客户端和服务器之间进行一个HTTP请求的发送和返回的过程当中，我们需要创建一个叫TCP connection的东西，因为HTTP是不存在连接这么一个概念的，只有请求和响应这么一个概念。
+请求和相应都是数据包，它们之间需要经过一个传输的通道的，传输的通道就在TCP里面去创建了这么一个从客户端发起和服务端接收的这么一个连接。这个连接是可以一直保持在那边的，然后HTTP请求是在这个连接的基础上面是发送的。在TCP连接上面是可以发送多个HTTP连接请求的，不同版本里面这个模式是不一样的。
+HTTP/1.0里面，这个连接是在一个HTTP请求创建的时候，就去创出这个HTTP连接。。。TCP连接就关闭了
+HTTP/1.1 连接保持在那边 。。。 TCP连接在创建的过程当中，是有三次握手这么一个消耗的。三次握手代表有三次网络传输。客户端发送一次，服务端返回一次，客户端再发送一次。这时才创建了TCP连接，然后才能去发送HTTP请求。如果TCP连接保持在那边，那么第二个HTTP请求就没有三次握手的开销，HTTP2里面还有一个好处就是，TCP连接上面的HTTp请求是可以并发的。同一个用户对同一个服务器发起一个网页请求的时候，它只需要一个TCP连接
+TCP连接和HTTP请求之间的一个关系
+
+三次握手时序图（图）
+首先客户端发起一个我要创建一个连接的这么一个数据包的请求，它发送到服务端，有一个标志位SYN=1, 这是一个创建请求的数据包，后面会发送一个叫Seq=X,一般X等于1。服务端接收到这个数据包之后，知道有个客户端要给我创建连接了，创建连接后，服务端就会开启一个TCP socket的一个端口。端口开启之后，返回给客户端，返回客户端数据里面也是一个SYN第一个标志位，然后它会返回ACK，ACK等于第一个客户端发送过来的Seq也就是X + 1， 然后再发送一个Seq, 这个是服务端的seq。 客户端拿到之后，客户端再发送ACK = Y + 1， Seq等于一个新的数字。
+这就是创建一个TCP连接的过程。
+为什么要进行三次握手呢？为了防止服务端开启一些无用的连接，网络传输是有延时的，。。。
+没有三次握手，服务端不知道客户端到底有没有接收到我返回的信息。并且没有给一个确认说，要创建还是关闭这个请求，服务端的端口就一直开着等着客户端来发送实际的请求数据了。这时服务端开销就浪费了，它不知道连接已经创建失败了，可能客户端已经创建新的连接去了。所以需要三次握手去确认这个过程。。。。三次握手主要是为了规避网络传输当中延时导致的服务器开销的问题。
+Weshark 网络抓包工具
+分析HTTP请求的内容
+深入各个层级的网络数据包，比如五层模型中的传输层，就是TCP层 还有网络层都可以抓到。
+简单分析HTTP三次握手的过程
+。。。。。。分析过程
+SYN等于1，其实是说SYN占据了第一个标志位，图片只是为了更形象的展示三次握手的过程。
+完整三次握手的数据包的情况。
+
+
+
 ## URI-URL和URN
+HTTP当中使用的基本都是URL
+
+
+
+
+
 ## HTTP报文格式
 ## 创建一个最简单的web服务
 
@@ -160,7 +233,8 @@ Ajax请求也是HTTP请求，Ajax POST方式去传输一些数据，传输过程
     
     <summary type="html">
     
-      &lt;h1 id=&quot;一、导学&quot;&gt;&lt;a href=&quot;#一、导学&quot; class=&quot;headerlink&quot; title=&quot;一、导学&quot;&gt;&lt;/a&gt;一、导学&lt;/h1&gt;&lt;h2 id=&quot;1-1-导学&quot;&gt;&lt;a href=&quot;#1-1-导学&quot; class=&quot;headerlink&quot; title=&quot;1.1 导
+      &lt;h1 id=&quot;一、导学&quot;&gt;&lt;a href=&quot;#一、导学&quot; class=&quot;headerlink&quot; title=&quot;一、导学&quot;&gt;&lt;/a&gt;一、导学&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Cache-Control设置&lt;/strong&gt;:&lt;br&gt;&lt;em&gt;基本：max-age=100
+&lt;/em&gt;设
     
     </summary>
     
@@ -176,17 +250,17 @@ Ajax请求也是HTTP请求，Ajax POST方式去传输一些数据，传输过程
     <link href="http://yoursite.com/2018/11/06/%E5%9F%8B%E5%9D%91%E9%97%B4%E9%9A%99%E7%A2%8E%E7%AC%94/"/>
     <id>http://yoursite.com/2018/11/06/埋坑间隙碎笔/</id>
     <published>2018-11-06T13:20:56.000Z</published>
-    <updated>2018-11-06T13:22:55.767Z</updated>
+    <updated>2018-11-07T08:29:05.695Z</updated>
     
-    <content type="html"><![CDATA[<p>埋坑的点滴， 陆续整理中……</p>
+    <content type="html"><![CDATA[<p>其实这个标题是参考《病隙碎笔》这本书的书名来的，哈哈。<br>埋坑的点滴， 陆续整理中……</p>
 <h2 id="hexo阅读次数设置"><a href="#hexo阅读次数设置" class="headerlink" title="hexo阅读次数设置"></a>hexo阅读次数设置</h2><p>主要两种方式：LeanCloud和不蒜子<br>参考：<br><a href="https://blog.csdn.net/time888/article/details/74203939" target="_blank" rel="external">不蒜子统计方法</a><br><a href="https://www.jianshu.com/p/f2ec7eea543d?utm_source=oschina-app" target="_blank" rel="external">LeanCloud统计方法</a></p>
 <!-- https://www.52pojie.cn/thread-811804-1-1.html premiere破解的问题 -->
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;埋坑的点滴， 陆续整理中……&lt;/p&gt;
-&lt;h2 id=&quot;hexo阅读次数设置&quot;&gt;&lt;a href=&quot;#hexo阅读次数设置&quot; class=&quot;headerlink&quot; title=&quot;hexo阅读次数设置&quot;&gt;&lt;/a&gt;hexo阅读次数设置&lt;/h2&gt;&lt;p&gt;主要两种方式：LeanCloud
+      &lt;p&gt;其实这个标题是参考《病隙碎笔》这本书的书名来的，哈哈。&lt;br&gt;埋坑的点滴， 陆续整理中……&lt;/p&gt;
+&lt;h2 id=&quot;hexo阅读次数设置&quot;&gt;&lt;a href=&quot;#hexo阅读次数设置&quot; class=&quot;headerlink&quot; title=&quot;hexo阅读次数设置&quot;&gt;&lt;/a&gt;hex
     
     </summary>
     
