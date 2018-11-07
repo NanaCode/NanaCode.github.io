@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-06T13:20:49.475Z</updated>
+  <updated>2018-11-07T04:22:35.302Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,14 +16,67 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>HTTP协议原理加实战笔记</title>
+    <link href="http://yoursite.com/2018/11/07/HTTP%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%8A%A0%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/11/07/HTTP协议原理加实战笔记/</id>
+    <published>2018-11-07T02:24:56.000Z</published>
+    <updated>2018-11-07T04:22:35.302Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="课程导学"><a href="#课程导学" class="headerlink" title="课程导学"></a>课程导学</h1><h2 id="导学"><a href="#导学" class="headerlink" title="导学"></a>导学</h2><h3 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h3><h4 id="很多WEB开发真的不理解HTTP"><a href="#很多WEB开发真的不理解HTTP" class="headerlink" title="很多WEB开发真的不理解HTTP"></a>很多WEB开发真的不理解HTTP</h4><p>HTTP method的种类<br>HTTP status code<br>前端的缓存：客户端缓存 代理服务器缓存 如何验证缓存的可用性</p>
+<p>前端同学可能一开始是从HTML CSS JS开始的，而后端同学可能一开始是从框架开始的<br>这些框架帮我们做好了上线后的优化问题，没有机会去发现问题<br>忽视HTTP重要性</p>
+<h4 id="HTTP真的很重要"><a href="#HTTP真的很重要" class="headerlink" title="HTTP真的很重要"></a>HTTP真的很重要</h4><p>前端所有静态资源加载和数据加载都是要通过HTTP协议进行发送的</p>
+<h4 id="提升自身价值"><a href="#提升自身价值" class="headerlink" title="提升自身价值"></a>提升自身价值</h4><p>最简单的例子：<br>输入URL打开网页<br>AJAX获取数据<br>img标签加载图片（src)</p>
+<p>Cache-Control:<br>max-age=100<br>设置public、private控制只能在客户端进行缓存，还是可以通过代理服务器进行缓存<br>设置must-revalidate,在缓存过期之后，必须到服务端验证过之后，才能继续使用缓存<br>设置no-cache、no-store控制我们是否使用缓存</p>
+<p>缓存验证<br>last-modified配合if-modified-since<br>etag配合if-none-match</p>
+<p>其实缓存是web服务中对性能提升最大的一块，深入理解HTTP缓存对web开发非常重要</p>
+<p>每个HTTP的头都有使用价值<br>Content-Type、Content-Encoding等用来约束数据类型<br>Cookie保持会话信息（常见的session方案就是通过cookie来实现的）<br>CORS实现跨域并保持安全性限制（如何保证跨域服务安全）</p>
+<p>深入到TCP<br>什么是三次握手<br>HTTPS链接的创建过程，以及为什么HTTPS就是安全的<br>什么是长链接，为什么需要长链接<br>HTTP2的信道复用又为什么能提高性能</p>
+<p>浏览器输入URL后HTTP请求返回的完整过程（图）</p>
+<p>配置Nginx服务器来作为HTTP的代理，并且能够开启Nginx的缓存功能<br>如何更好的使用代理缓存，提高HTTP服务的性能</p>
+<p>后端-打造性能更好的HTTP服务<br>前端-更好使用HTTP的特性帮助开发<br>前后端更好的协作</p>
+<p>摆正心态，认为HTTP真的重要，并且真的想要把它学好</p>
+<h2 id="内容介绍"><a href="#内容介绍" class="headerlink" title="内容介绍"></a>内容介绍</h2><p>浏览器输入URL后HTTP请求返回的完整过程（图）<br>浏览器API里面有个performance会记录所有每个时间点<br>哪个时间点耗时特别长，可以优化它</p>
+<h3 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h3><p>为什么一开始就要做一个redirect? 首先判断需不需要redirect，以及redirect到哪里</p>
+<h3 id="App-cache"><a href="#App-cache" class="headerlink" title="App cache"></a>App cache</h3><p>第二部，看缓存，因为请求的资源可能已经缓存过了。</p>
+<h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3><p>输入的是域名，域名要对应成IP之后，我们才能真正的访问到服务器。 先去查找域名对应的IP地址，就叫DNS解析。</p>
+<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>有了IP之后，就要去创建TCP连接。经过TCP的三次握手之后，才能真正的把连接创建起来。如果请求是HTTPS的，要创建一个HTTPS的连接，跟TCP的三次握手不一样，中间要有一个保证安全的数据传输过程。</p>
+<h3 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h3><p>连接创建好后，才真正开始发送HTTP请求的数据包。</p>
+<h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3><p>发送完成后，服务器接受到数据，进行数据操作后，返回我们请求想要的内容，开始返回数据。返回数据后，这个HTTP请求才真正的完成。<br>这也是我们打开浏览器之后，输入URL之后，整个有关于数据加载的过程所会经历的每个时间点。</p>
+<h1 id="HTTP协议基础及发展历史"><a href="#HTTP协议基础及发展历史" class="headerlink" title="HTTP协议基础及发展历史"></a>HTTP协议基础及发展历史</h1><h2 id="5层网络模型介绍"><a href="#5层网络模型介绍" class="headerlink" title="5层网络模型介绍"></a>5层网络模型介绍</h2><p>经典五层模型（图）<br>HTTP协议是在应用层上实现的<br>但是HTTP协议要基于传输层里的一个非常重要的协议，TCP/IP协议，网络模型当中最重要的协议，应用过程当中，如创建HTTP服务FTP服务Email服务，这些服务都是基于TCP/IP协议实现的，涉及HTTP请求的性能，或者过程的消耗。<br>下面网络层、数据链路层、物理层，因为主要做的是web服务，基本不涉及。</p>
+<h3 id="低三层"><a href="#低三层" class="headerlink" title="低三层"></a>低三层</h3><h4 id="物理层："><a href="#物理层：" class="headerlink" title="物理层："></a>物理层：</h4><p>主要作用是定义物理设备如何传输数据。<br>简单说，物理层就是电脑的硬件，网卡端口，网线，网线连出去后的光缆。</p>
+<h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><p>在通信的实体间建立数据链路连接</p>
+<h4 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h4><p>为数据在结点之间传输创建逻辑链路。<br>逻辑链路包含从我的电脑访问百度的服务器，我们如何去寻找百度这台服务器所在的地址，它就是一个逻辑关系，这个关系是在网络层为我们创建的。<br>这些相对底层，不理解也没关系。</p>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>主要两个协议 TCP/IP协议，另一个UDP协议。更多情况下，使用的是TCP/IP协议，更可靠的协议，帮我们传输数据。</p>
+<h4 id="为用户提供可靠的端到端（End-to-End）服务。"><a href="#为用户提供可靠的端到端（End-to-End）服务。" class="headerlink" title="为用户提供可靠的端到端（End-to-End）服务。"></a>为用户提供可靠的端到端（End-to-End）服务。</h4><p>建立起从自己电脑到百度服务器之间的连接之后，两端如何传输数据，传输数据的方式，都是在这一层进行定义的，传输的数据可能很小可能很大，如果传输数据大需要分包分片，传输到另一端后需要组装。协议的定义，如何组装，如何传输，都是在传输层进行定义的。</p>
+<h4 id="传输层向高层屏蔽了下层数据通信的细节"><a href="#传输层向高层屏蔽了下层数据通信的细节" class="headerlink" title="传输层向高层屏蔽了下层数据通信的细节"></a>传输层向高层屏蔽了下层数据通信的细节</h4><p>HTTP协议是实现在TCP/IP协议之上的，HTTP协议要传输一个数据。输入URL的过程，涉及一系列的拼装以及传输，这个过程，开发者和浏览器不需要知道细节。传输层把这些过程封装掉了。<br>Ajax请求也是HTTP请求，Ajax POST方式去传输一些数据，传输过程中的细节，传输层帮我们实现掉了。</p>
+<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>为应用软件提供了很多服务<br>构建于TCP协议之上<br>屏蔽网络传输相关细节</p>
+<h2 id="HTTP协议的发展历史"><a href="#HTTP协议的发展历史" class="headerlink" title="HTTP协议的发展历史"></a>HTTP协议的发展历史</h2><h2 id="HTTP的三次握手"><a href="#HTTP的三次握手" class="headerlink" title="HTTP的三次握手"></a>HTTP的三次握手</h2><h2 id="URI-URL和URN"><a href="#URI-URL和URN" class="headerlink" title="URI-URL和URN"></a>URI-URL和URN</h2><h2 id="HTTP报文格式"><a href="#HTTP报文格式" class="headerlink" title="HTTP报文格式"></a>HTTP报文格式</h2><h2 id="创建一个最简单的web服务"><a href="#创建一个最简单的web服务" class="headerlink" title="创建一个最简单的web服务"></a>创建一个最简单的web服务</h2><h1 id="HTTP各种特性总览"><a href="#HTTP各种特性总览" class="headerlink" title="HTTP各种特性总览"></a>HTTP各种特性总览</h1><h2 id="认识HTTP客户端"><a href="#认识HTTP客户端" class="headerlink" title="认识HTTP客户端"></a>认识HTTP客户端</h2><h2 id="CORS跨域请求的限制与解决"><a href="#CORS跨域请求的限制与解决" class="headerlink" title="CORS跨域请求的限制与解决"></a>CORS跨域请求的限制与解决</h2><h2 id="CORS跨域限制以及预请求验证"><a href="#CORS跨域限制以及预请求验证" class="headerlink" title="CORS跨域限制以及预请求验证"></a>CORS跨域限制以及预请求验证</h2><h2 id="缓存头Cache-Control的含义和使用"><a href="#缓存头Cache-Control的含义和使用" class="headerlink" title="缓存头Cache-Control的含义和使用"></a>缓存头Cache-Control的含义和使用</h2><h2 id="缓存验证Last-Modified和Etag的使用"><a href="#缓存验证Last-Modified和Etag的使用" class="headerlink" title="缓存验证Last-Modified和Etag的使用"></a>缓存验证Last-Modified和Etag的使用</h2><h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><h2 id="HTTP长连接"><a href="#HTTP长连接" class="headerlink" title="HTTP长连接"></a>HTTP长连接</h2><h2 id="数据协商"><a href="#数据协商" class="headerlink" title="数据协商"></a>数据协商</h2><h2 id="Redirect-1"><a href="#Redirect-1" class="headerlink" title="Redirect"></a>Redirect</h2><h2 id="CSP"><a href="#CSP" class="headerlink" title="CSP"></a>CSP</h2><h1 id="Nginx代理以及面向未来的HTTP"><a href="#Nginx代理以及面向未来的HTTP" class="headerlink" title="Nginx代理以及面向未来的HTTP"></a>Nginx代理以及面向未来的HTTP</h1><h2 id="Nginx安装和基础代理配置"><a href="#Nginx安装和基础代理配置" class="headerlink" title="Nginx安装和基础代理配置"></a>Nginx安装和基础代理配置</h2><h2 id="Nginx代理配置和代理缓存的用处"><a href="#Nginx代理配置和代理缓存的用处" class="headerlink" title="Nginx代理配置和代理缓存的用处"></a>Nginx代理配置和代理缓存的用处</h2><h2 id="HTTPS解析"><a href="#HTTPS解析" class="headerlink" title="HTTPS解析"></a>HTTPS解析</h2><h2 id="使用Nginx部署HTTPS服务"><a href="#使用Nginx部署HTTPS服务" class="headerlink" title="使用Nginx部署HTTPS服务"></a>使用Nginx部署HTTPS服务</h2><h2 id="HTTP2的优势和Nginx配置HTTP2的简单使用"><a href="#HTTP2的优势和Nginx配置HTTP2的简单使用" class="headerlink" title="HTTP2的优势和Nginx配置HTTP2的简单使用"></a>HTTP2的优势和Nginx配置HTTP2的简单使用</h2><h1 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h1><p>参考：<br><a href="https://coding.imooc.com/class/chapter/225.html#Anchor" target="_blank" rel="external">HTTP协议原理+实践 Web开发工程师必学   
+</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;课程导学&quot;&gt;&lt;a href=&quot;#课程导学&quot; class=&quot;headerlink&quot; title=&quot;课程导学&quot;&gt;&lt;/a&gt;课程导学&lt;/h1&gt;&lt;h2 id=&quot;导学&quot;&gt;&lt;a href=&quot;#导学&quot; class=&quot;headerlink&quot; title=&quot;导学&quot;&gt;&lt;/a&gt;导学&lt;/h
+    
+    </summary>
+    
+      <category term="WEB" scheme="http://yoursite.com/categories/WEB/"/>
+    
+    
+      <category term="WEB" scheme="http://yoursite.com/tags/WEB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>埋坑间隙碎笔</title>
     <link href="http://yoursite.com/2018/11/06/%E5%9F%8B%E5%9D%91%E9%97%B4%E9%9A%99%E7%A2%8E%E7%AC%94/"/>
     <id>http://yoursite.com/2018/11/06/埋坑间隙碎笔/</id>
     <published>2018-11-06T13:20:56.000Z</published>
-    <updated>2018-11-06T13:20:49.475Z</updated>
+    <updated>2018-11-06T13:22:55.767Z</updated>
     
     <content type="html"><![CDATA[<p>埋坑的点滴， 陆续整理中……</p>
 <h2 id="hexo阅读次数设置"><a href="#hexo阅读次数设置" class="headerlink" title="hexo阅读次数设置"></a>hexo阅读次数设置</h2><p>主要两种方式：LeanCloud和不蒜子<br>参考：<br><a href="https://blog.csdn.net/time888/article/details/74203939" target="_blank" rel="external">不蒜子统计方法</a><br><a href="https://www.jianshu.com/p/f2ec7eea543d?utm_source=oschina-app" target="_blank" rel="external">LeanCloud统计方法</a></p>
+<!-- https://www.52pojie.cn/thread-811804-1-1.html premiere破解的问题 -->
 ]]></content>
     
     <summary type="html">

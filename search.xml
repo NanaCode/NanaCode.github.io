@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HTTP协议原理加实战笔记]]></title>
+    <url>%2F2018%2F11%2F07%2FHTTP%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%8A%A0%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[课程导学导学WHY很多WEB开发真的不理解HTTPHTTP method的种类HTTP status code前端的缓存：客户端缓存 代理服务器缓存 如何验证缓存的可用性 前端同学可能一开始是从HTML CSS JS开始的，而后端同学可能一开始是从框架开始的这些框架帮我们做好了上线后的优化问题，没有机会去发现问题忽视HTTP重要性 HTTP真的很重要前端所有静态资源加载和数据加载都是要通过HTTP协议进行发送的 提升自身价值最简单的例子：输入URL打开网页AJAX获取数据img标签加载图片（src) Cache-Control:max-age=100设置public、private控制只能在客户端进行缓存，还是可以通过代理服务器进行缓存设置must-revalidate,在缓存过期之后，必须到服务端验证过之后，才能继续使用缓存设置no-cache、no-store控制我们是否使用缓存 缓存验证last-modified配合if-modified-sinceetag配合if-none-match 其实缓存是web服务中对性能提升最大的一块，深入理解HTTP缓存对web开发非常重要 每个HTTP的头都有使用价值Content-Type、Content-Encoding等用来约束数据类型Cookie保持会话信息（常见的session方案就是通过cookie来实现的）CORS实现跨域并保持安全性限制（如何保证跨域服务安全） 深入到TCP什么是三次握手HTTPS链接的创建过程，以及为什么HTTPS就是安全的什么是长链接，为什么需要长链接HTTP2的信道复用又为什么能提高性能 浏览器输入URL后HTTP请求返回的完整过程（图） 配置Nginx服务器来作为HTTP的代理，并且能够开启Nginx的缓存功能如何更好的使用代理缓存，提高HTTP服务的性能 后端-打造性能更好的HTTP服务前端-更好使用HTTP的特性帮助开发前后端更好的协作 摆正心态，认为HTTP真的重要，并且真的想要把它学好 内容介绍浏览器输入URL后HTTP请求返回的完整过程（图）浏览器API里面有个performance会记录所有每个时间点哪个时间点耗时特别长，可以优化它 Redirect为什么一开始就要做一个redirect? 首先判断需不需要redirect，以及redirect到哪里 App cache第二部，看缓存，因为请求的资源可能已经缓存过了。 DNS输入的是域名，域名要对应成IP之后，我们才能真正的访问到服务器。 先去查找域名对应的IP地址，就叫DNS解析。 TCP有了IP之后，就要去创建TCP连接。经过TCP的三次握手之后，才能真正的把连接创建起来。如果请求是HTTPS的，要创建一个HTTPS的连接，跟TCP的三次握手不一样，中间要有一个保证安全的数据传输过程。 Request连接创建好后，才真正开始发送HTTP请求的数据包。 Response发送完成后，服务器接受到数据，进行数据操作后，返回我们请求想要的内容，开始返回数据。返回数据后，这个HTTP请求才真正的完成。这也是我们打开浏览器之后，输入URL之后，整个有关于数据加载的过程所会经历的每个时间点。 HTTP协议基础及发展历史5层网络模型介绍经典五层模型（图）HTTP协议是在应用层上实现的但是HTTP协议要基于传输层里的一个非常重要的协议，TCP/IP协议，网络模型当中最重要的协议，应用过程当中，如创建HTTP服务FTP服务Email服务，这些服务都是基于TCP/IP协议实现的，涉及HTTP请求的性能，或者过程的消耗。下面网络层、数据链路层、物理层，因为主要做的是web服务，基本不涉及。 低三层物理层：主要作用是定义物理设备如何传输数据。简单说，物理层就是电脑的硬件，网卡端口，网线，网线连出去后的光缆。 数据链路层在通信的实体间建立数据链路连接 网络层为数据在结点之间传输创建逻辑链路。逻辑链路包含从我的电脑访问百度的服务器，我们如何去寻找百度这台服务器所在的地址，它就是一个逻辑关系，这个关系是在网络层为我们创建的。这些相对底层，不理解也没关系。 传输层主要两个协议 TCP/IP协议，另一个UDP协议。更多情况下，使用的是TCP/IP协议，更可靠的协议，帮我们传输数据。 为用户提供可靠的端到端（End-to-End）服务。建立起从自己电脑到百度服务器之间的连接之后，两端如何传输数据，传输数据的方式，都是在这一层进行定义的，传输的数据可能很小可能很大，如果传输数据大需要分包分片，传输到另一端后需要组装。协议的定义，如何组装，如何传输，都是在传输层进行定义的。 传输层向高层屏蔽了下层数据通信的细节HTTP协议是实现在TCP/IP协议之上的，HTTP协议要传输一个数据。输入URL的过程，涉及一系列的拼装以及传输，这个过程，开发者和浏览器不需要知道细节。传输层把这些过程封装掉了。Ajax请求也是HTTP请求，Ajax POST方式去传输一些数据，传输过程中的细节，传输层帮我们实现掉了。 应用层为应用软件提供了很多服务构建于TCP协议之上屏蔽网络传输相关细节 HTTP协议的发展历史HTTP的三次握手URI-URL和URNHTTP报文格式创建一个最简单的web服务HTTP各种特性总览认识HTTP客户端CORS跨域请求的限制与解决CORS跨域限制以及预请求验证缓存头Cache-Control的含义和使用缓存验证Last-Modified和Etag的使用cookie和sessionHTTP长连接数据协商RedirectCSPNginx代理以及面向未来的HTTPNginx安装和基础代理配置Nginx代理配置和代理缓存的用处HTTPS解析使用Nginx部署HTTPS服务HTTP2的优势和Nginx配置HTTP2的简单使用课程总结参考：HTTP协议原理+实践 Web开发工程师必学]]></content>
+      <categories>
+        <category>WEB</category>
+      </categories>
+      <tags>
+        <tag>WEB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[埋坑间隙碎笔]]></title>
     <url>%2F2018%2F11%2F06%2F%E5%9F%8B%E5%9D%91%E9%97%B4%E9%9A%99%E7%A2%8E%E7%AC%94%2F</url>
     <content type="text"><![CDATA[埋坑的点滴， 陆续整理中…… hexo阅读次数设置主要两种方式：LeanCloud和不蒜子参考：不蒜子统计方法LeanCloud统计方法]]></content>
