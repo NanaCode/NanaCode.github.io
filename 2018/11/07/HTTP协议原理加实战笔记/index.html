@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2dd0982197.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2e01675426.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2e0334fe31.png">
-<meta property="og:updated_time" content="2018-11-07T12:53:38.106Z">
+<meta property="og:updated_time" content="2018-11-08T03:16:47.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP协议原理加实战笔记">
 <meta name="twitter:description" content="一、导学Cache-Control设置:基本：max-age=100;设置public、private控制只能在客户端进行缓存，还是可以通过代理服务器进行缓存;设置must-revalidate,在缓存过期之后，必须到服务端验证过之后，才能继续使用缓存;设置no-cache、no-store控制我们是否使用缓存。 缓存验证:last-modified配合if-modified-since;etag">
@@ -182,7 +182,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Today is the first day of the rest of your life.</p>
+        <p class="site-subtitle">Like farmers, we do not know what the future will bring,but doing nothing is not an option. ---The Kunshan WayLike farmers, we do not know what the future will bring,but doing nothing is not an option. ---The Kunshan Way</p>
       
   </div>
 
@@ -602,6 +602,31 @@ SYN等于1，其实是说SYN占据了第一个标志位，图片只是为了更�
 
 ## URI-URL和URN
 HTTP当中使用的基本都是URL
+URI
+是一个包含URL URN它们统一的定义
+Uniform Resource Identifier/统一资源标志符
+
+URL 定位一个web网站它的具体的某一个页面
+这些名词的定义主要是为了去识别我们在互联网上一个固定位置它的资源所在的地方，用这种方式来标志了某一个资源之后，我们就可以通过一个链接的方式去找到这个资源，因为互联网当中这些HTTP协议或者FTP协议就是为了去找到某些资源，并且通过某种方式去获得某种资源
+www.baidu.com 打错一个字 没办法打开百度的页面
+
+URI是为了去定位某一个特定的资源，而去设置的
+
+URI
+Uniform Resource Identifier/统一资源标志符
+用来唯一标识互联网上的信息资源
+包含URL和URN
+
+最主要将的就是URL
+URL
+Uniform Resource Locator/统一资源定位器： 用来找到资源所在的位置，并且去访问它得到它
+http://user:pass@host.com:80/path?query=string#hash
+http://  schema 定义我们以怎么样的方式怎么样的协议去访问这个资源 shema有很多各种不同的协议，比如我们通过FTP也可以去访问互联网上的某些资源
+还有mailto,如何给一个邮件地址去发送邮件
+这些协议服务的实现方式不同，我们通过不同的协议去访问这个服务，解析的方式就会不一样。
+待
+ftp的实现
+
 
 
 

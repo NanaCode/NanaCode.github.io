@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Nana&#39;s Blog</title>
-  <subtitle>Today is the first day of the rest of your life.</subtitle>
+  <subtitle>Like farmers, we do not know what the future will bring,but doing nothing is not an option. ---The Kunshan WayLike farmers, we do not know what the future will bring,but doing nothing is not an option. ---The Kunshan Way</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-07T12:53:38.106Z</updated>
+  <updated>2018-11-08T03:16:47.235Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/11/07/HTTP%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%8A%A0%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/11/07/HTTP协议原理加实战笔记/</id>
     <published>2018-11-07T02:24:56.000Z</published>
-    <updated>2018-11-07T12:53:38.106Z</updated>
+    <updated>2018-11-08T03:16:47.235Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、导学"><a href="#一、导学" class="headerlink" title="一、导学"></a>一、导学</h1><p><strong>Cache-Control设置</strong>:<br>基本：max-age=100;<br>设置public、private控制只能在客户端进行缓存，还是可以通过代理服务器进行缓存;<br>设置must-revalidate,在缓存过期之后，必须到服务端验证过之后，才能继续使用缓存;<br>设置no-cache、no-store控制我们是否使用缓存。</p>
 <p><strong>缓存验证</strong>:<br>last-modified配合if-modified-since;<br>etag配合if-none-match。</p>
@@ -217,6 +217,31 @@ SYN等于1，其实是说SYN占据了第一个标志位，图片只是为了更�
 
 ## URI-URL和URN
 HTTP当中使用的基本都是URL
+URI
+是一个包含URL URN它们统一的定义
+Uniform Resource Identifier/统一资源标志符
+
+URL 定位一个web网站它的具体的某一个页面
+这些名词的定义主要是为了去识别我们在互联网上一个固定位置它的资源所在的地方，用这种方式来标志了某一个资源之后，我们就可以通过一个链接的方式去找到这个资源，因为互联网当中这些HTTP协议或者FTP协议就是为了去找到某些资源，并且通过某种方式去获得某种资源
+www.baidu.com 打错一个字 没办法打开百度的页面
+
+URI是为了去定位某一个特定的资源，而去设置的
+
+URI
+Uniform Resource Identifier/统一资源标志符
+用来唯一标识互联网上的信息资源
+包含URL和URN
+
+最主要将的就是URL
+URL
+Uniform Resource Locator/统一资源定位器： 用来找到资源所在的位置，并且去访问它得到它
+http://user:pass@host.com:80/path?query=string#hash
+http://  schema 定义我们以怎么样的方式怎么样的协议去访问这个资源 shema有很多各种不同的协议，比如我们通过FTP也可以去访问互联网上的某些资源
+还有mailto,如何给一个邮件地址去发送邮件
+这些协议服务的实现方式不同，我们通过不同的协议去访问这个服务，解析的方式就会不一样。
+待
+ftp的实现
+
 
 
 
@@ -269,10 +294,16 @@ HTTP当中使用的基本都是URL
     <link href="http://yoursite.com/2018/11/06/%E5%9F%8B%E5%9D%91%E9%97%B4%E9%9A%99%E7%A2%8E%E7%AC%94/"/>
     <id>http://yoursite.com/2018/11/06/埋坑间隙碎笔/</id>
     <published>2018-11-06T13:20:56.000Z</published>
-    <updated>2018-11-07T08:29:05.695Z</updated>
+    <updated>2018-11-07T13:07:34.678Z</updated>
     
     <content type="html"><![CDATA[<p>其实这个标题是参考《病隙碎笔》这本书的书名来的，哈哈。<br>埋坑的点滴， 陆续整理中……</p>
 <h2 id="hexo阅读次数设置"><a href="#hexo阅读次数设置" class="headerlink" title="hexo阅读次数设置"></a>hexo阅读次数设置</h2><p>主要两种方式：LeanCloud和不蒜子<br>参考：<br><a href="https://blog.csdn.net/time888/article/details/74203939" target="_blank" rel="external">不蒜子统计方法</a><br><a href="https://www.jianshu.com/p/f2ec7eea543d?utm_source=oschina-app" target="_blank" rel="external">LeanCloud统计方法</a></p>
+<h2 id="markdown加粗"><a href="#markdown加粗" class="headerlink" title="markdown加粗"></a>markdown加粗</h2><p>主要两种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. **娜娜**</div><div class="line">2. _娜娜_</div></pre></td></tr></table></figure></p>
+<p>显示效果，如下所示：</p>
+<ol>
+<li><strong>娜娜</strong></li>
+<li><em>娜娜</em></li>
+</ol>
 <!-- https://www.52pojie.cn/thread-811804-1-1.html premiere破解的问题 -->
 ]]></content>
     
@@ -295,14 +326,14 @@ HTTP当中使用的基本都是URL
     <link href="http://yoursite.com/2018/11/01/%E5%A8%9C%E5%A8%9C%E7%9A%84%E9%98%85%E8%AF%BB%E6%B8%85%E5%8D%95/"/>
     <id>http://yoursite.com/2018/11/01/娜娜的阅读清单/</id>
     <published>2018-11-01T05:48:56.000Z</published>
-    <updated>2018-11-06T13:12:27.708Z</updated>
+    <updated>2018-11-08T02:44:50.271Z</updated>
     
     <content type="html"><![CDATA[<p>娜娜近段时间的阅读清单， 陆续整理中……</p>
-<h2 id="已阅读"><a href="#已阅读" class="headerlink" title="已阅读"></a>已阅读</h2><p>《番茄工作法图解》<br>《小狗钱钱》<br>《从极简到极致》<br>《即兴的智慧》<br>《把时间当作朋友》<br>《远见》<br>《拆掉思维里的墙》<br>《人生只有一次去做自己喜欢的事》<br><!-- 《》 --></p>
+<h2 id="已阅读"><a href="#已阅读" class="headerlink" title="已阅读"></a>已阅读</h2><p>《番茄工作法图解》<br>《小狗钱钱》<br>《从极简到极致》<br>《即兴的智慧》<br>《把时间当作朋友》<br>《远见》<br>《拆掉思维里的墙》<br>《人生只有一次去做自己喜欢的事》<br>《少有人走的路》<br><!-- 《》 --></p>
 <h2 id="阅读ing"><a href="#阅读ing" class="headerlink" title="阅读ing"></a>阅读ing</h2><p>《好好学习》<br>《编写高质量代码：改善Python程序的91个建议 张颖//赖勇浩》<br>《高效能人士的七个习惯》<br>《人性的弱点》<br>《走在人生边上》<br>《干法》<br>《穷查理宝典》<br><!-- 《干法》[日 稻和盛夫]
 《穷查理宝典》[美 彼得·考夫曼] --><br><!-- 《MySQL必知必会》 --><br><!-- 《鸟哥的Linux私房菜》
 《Python基础教程 第3版》 --></p>
-<h2 id="尚未阅读"><a href="#尚未阅读" class="headerlink" title="尚未阅读"></a>尚未阅读</h2><p>《美好人生运营指南》<br>《怎样观察一朵花》<br>《正念的奇迹》<br>《跳着踢踏舞去上班》<br>《非暴力沟通》<br>《我不想活得这么累》<br>《天真的幽默家》<br>《人间便利店》<br>《术与道》<br>《黑天鹅》<br>《细节》</p>
+<h2 id="尚未阅读"><a href="#尚未阅读" class="headerlink" title="尚未阅读"></a>尚未阅读</h2><p>《美好人生运营指南》<br>《怎样观察一朵花》<br>《正念的奇迹》<br>《跳着踢踏舞去上班》<br>《非暴力沟通》<br>《我不想活得这么累》<br>《天真的幽默家》<br>《人间便利店》<br>《术与道》<br>《黑天鹅》<br>《细节》<br>《滚雪球》</p>
 <!-- 高性能MySQL -->
 <!-- 《》[]
 《》[]
