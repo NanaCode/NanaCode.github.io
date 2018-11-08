@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-08T12:38:39.791Z</updated>
+  <updated>2018-11-08T12:51:31.795Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/11/07/HTTP%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%8A%A0%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/11/07/HTTP协议原理加实战笔记/</id>
     <published>2018-11-07T02:24:56.000Z</published>
-    <updated>2018-11-08T12:38:39.791Z</updated>
+    <updated>2018-11-08T12:51:31.795Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、导学"><a href="#一、导学" class="headerlink" title="一、导学"></a>一、导学</h1><p><strong>Cache-Control设置</strong>:<br>基本：max-age=100;<br>设置public、private控制只能在客户端进行缓存，还是可以通过代理服务器进行缓存;<br>设置must-revalidate,在缓存过期之后，必须到服务端验证过之后，才能继续使用缓存;<br>设置no-cache、no-store控制我们是否使用缓存。</p>
 <p><strong>缓存验证</strong>:<br>last-modified配合if-modified-since;<br>etag配合if-none-match。</p>
@@ -58,7 +58,37 @@
 <!-- ## 2.6 创建一个最简单的web服务 -->
 <h1 id="三、HTTP各种特性总览"><a href="#三、HTTP各种特性总览" class="headerlink" title="三、HTTP各种特性总览"></a>三、HTTP各种特性总览</h1><h2 id="3-1-认识HTTP客户端"><a href="#3-1-认识HTTP客户端" class="headerlink" title="3.1 认识HTTP客户端"></a>3.1 认识HTTP客户端</h2><p>常用的HTTP客户端是浏览器。<br>只要是实现了发送一个标准的HTTP请求报文的工具，就是一个HTTP的客户端。</p>
 <h2 id="3-2-CORS跨域请求的限制与解决"><a href="#3-2-CORS跨域请求的限制与解决" class="headerlink" title="3.2 CORS跨域请求的限制与解决"></a>3.2 CORS跨域请求的限制与解决</h2><p>后端：Access-Control-Allow-Origin；<br>前端：jsonp等方式；<br>其他：proxy等方式。</p>
-<h2 id="3-3-CORS跨域限制以及预请求验证"><a href="#3-3-CORS跨域限制以及预请求验证" class="headerlink" title="3.3 CORS跨域限制以及预请求验证"></a>3.3 CORS跨域限制以及预请求验证</h2><h2 id="3-4-缓存头Cache-Control的含义和使用"><a href="#3-4-缓存头Cache-Control的含义和使用" class="headerlink" title="3.4 缓存头Cache-Control的含义和使用"></a>3.4 缓存头Cache-Control的含义和使用</h2><h2 id="3-5-缓存验证Last-Modified和Etag的使用"><a href="#3-5-缓存验证Last-Modified和Etag的使用" class="headerlink" title="3.5 缓存验证Last-Modified和Etag的使用"></a>3.5 缓存验证Last-Modified和Etag的使用</h2><h2 id="3-6-cookie和session"><a href="#3-6-cookie和session" class="headerlink" title="3.6 cookie和session"></a>3.6 cookie和session</h2><h2 id="3-7-HTTP长连接"><a href="#3-7-HTTP长连接" class="headerlink" title="3.7 HTTP长连接"></a>3.7 HTTP长连接</h2><h2 id="3-8-数据协商"><a href="#3-8-数据协商" class="headerlink" title="3.8 数据协商"></a>3.8 数据协商</h2><h2 id="3-9-Redirect"><a href="#3-9-Redirect" class="headerlink" title="3.9 Redirect"></a>3.9 Redirect</h2><h2 id="3-10-CSP"><a href="#3-10-CSP" class="headerlink" title="3.10 CSP"></a>3.10 CSP</h2><h1 id="四、Nginx代理以及面向未来的HTTP"><a href="#四、Nginx代理以及面向未来的HTTP" class="headerlink" title="四、Nginx代理以及面向未来的HTTP"></a>四、Nginx代理以及面向未来的HTTP</h1><h2 id="4-1-Nginx安装和基础代理配置"><a href="#4-1-Nginx安装和基础代理配置" class="headerlink" title="4.1 Nginx安装和基础代理配置"></a>4.1 Nginx安装和基础代理配置</h2><h2 id="4-2-Nginx代理配置和代理缓存的用处"><a href="#4-2-Nginx代理配置和代理缓存的用处" class="headerlink" title="4.2 Nginx代理配置和代理缓存的用处"></a>4.2 Nginx代理配置和代理缓存的用处</h2><h2 id="4-3-HTTPS解析"><a href="#4-3-HTTPS解析" class="headerlink" title="4.3 HTTPS解析"></a>4.3 HTTPS解析</h2><h2 id="4-4-使用Nginx部署HTTPS服务"><a href="#4-4-使用Nginx部署HTTPS服务" class="headerlink" title="4.4 使用Nginx部署HTTPS服务"></a>4.4 使用Nginx部署HTTPS服务</h2><h2 id="4-5-HTTP2的优势和Nginx配置HTTP2的简单使用"><a href="#4-5-HTTP2的优势和Nginx配置HTTP2的简单使用" class="headerlink" title="4.5 HTTP2的优势和Nginx配置HTTP2的简单使用"></a>4.5 HTTP2的优势和Nginx配置HTTP2的简单使用</h2><h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><!-- # 一、课程导学
+<!-- ## 3.3 CORS跨域限制以及预请求验证
+
+## 3.4 缓存头Cache-Control的含义和使用
+
+## 3.5 缓存验证Last-Modified和Etag的使用
+
+## 3.6 cookie和session
+
+## 3.7 HTTP长连接
+
+## 3.8 数据协商
+
+## 3.9 Redirect
+
+## 3.10 CSP
+
+
+# 四、Nginx代理以及面向未来的HTTP
+## 4.1 Nginx安装和基础代理配置
+
+## 4.2 Nginx代理配置和代理缓存的用处
+
+## 4.3 HTTPS解析
+
+## 4.4 使用Nginx部署HTTPS服务
+
+## 4.5 HTTP2的优势和Nginx配置HTTP2的简单使用
+
+
+# 五、总结 -->
+<!-- # 一、课程导学
 ## 1.1导学
 ### 1.1.1WHY
 #### 1.1.1.1很多WEB开发真的不理解HTTP
@@ -295,38 +325,6 @@ ftp的实现
     
     
       <category term="WEB" scheme="http://yoursite.com/tags/WEB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>埋坑间隙碎笔</title>
-    <link href="http://yoursite.com/2018/11/06/%E5%9F%8B%E5%9D%91%E9%97%B4%E9%9A%99%E7%A2%8E%E7%AC%94/"/>
-    <id>http://yoursite.com/2018/11/06/埋坑间隙碎笔/</id>
-    <published>2018-11-06T13:20:56.000Z</published>
-    <updated>2018-11-07T13:07:34.678Z</updated>
-    
-    <content type="html"><![CDATA[<p>其实这个标题是参考《病隙碎笔》这本书的书名来的，哈哈。<br>埋坑的点滴， 陆续整理中……</p>
-<h2 id="hexo阅读次数设置"><a href="#hexo阅读次数设置" class="headerlink" title="hexo阅读次数设置"></a>hexo阅读次数设置</h2><p>主要两种方式：LeanCloud和不蒜子<br>参考：<br><a href="https://blog.csdn.net/time888/article/details/74203939" target="_blank" rel="external">不蒜子统计方法</a><br><a href="https://www.jianshu.com/p/f2ec7eea543d?utm_source=oschina-app" target="_blank" rel="external">LeanCloud统计方法</a></p>
-<h2 id="markdown加粗"><a href="#markdown加粗" class="headerlink" title="markdown加粗"></a>markdown加粗</h2><p>主要两种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. **娜娜**</div><div class="line">2. _娜娜_</div></pre></td></tr></table></figure></p>
-<p>显示效果，如下所示：</p>
-<ol>
-<li><strong>娜娜</strong></li>
-<li><em>娜娜</em></li>
-</ol>
-<!-- https://www.52pojie.cn/thread-811804-1-1.html premiere破解的问题 -->
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;其实这个标题是参考《病隙碎笔》这本书的书名来的，哈哈。&lt;br&gt;埋坑的点滴， 陆续整理中……&lt;/p&gt;
-&lt;h2 id=&quot;hexo阅读次数设置&quot;&gt;&lt;a href=&quot;#hexo阅读次数设置&quot; class=&quot;headerlink&quot; title=&quot;hexo阅读次数设置&quot;&gt;&lt;/a&gt;hex
-    
-    </summary>
-    
-      <category term="埋坑" scheme="http://yoursite.com/categories/%E5%9F%8B%E5%9D%91/"/>
-    
-    
-      <category term="埋坑" scheme="http://yoursite.com/tags/%E5%9F%8B%E5%9D%91/"/>
     
   </entry>
   
