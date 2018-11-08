@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2e01675426.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2e0334fe31.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/08/5be42b43290ed.png">
-<meta property="og:updated_time" content="2018-11-08T12:34:44.603Z">
+<meta property="og:updated_time" content="2018-11-08T12:38:39.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP协议原理加实战笔记">
 <meta name="twitter:description" content="一、导学Cache-Control设置:基本：max-age=100;设置public、private控制只能在客户端进行缓存，还是可以通过代理服务器进行缓存;设置must-revalidate,在缓存过期之后，必须到服务端验证过之后，才能继续使用缓存;设置no-cache、no-store控制我们是否使用缓存。 缓存验证:last-modified配合if-modified-since;etag">
@@ -443,7 +443,7 @@
 <p><strong>HTTP CODE</strong>:<br>定义服务器对请求的处理结果；<br>各个区间的CODE有各自的语义；<br>好的HTTP服务可以通过CODE判断结果。</p>
 <!-- ## 2.6 创建一个最简单的web服务 -->
 <h1 id="三、HTTP各种特性总览"><a href="#三、HTTP各种特性总览" class="headerlink" title="三、HTTP各种特性总览"></a>三、HTTP各种特性总览</h1><h2 id="3-1-认识HTTP客户端"><a href="#3-1-认识HTTP客户端" class="headerlink" title="3.1 认识HTTP客户端"></a>3.1 认识HTTP客户端</h2><p>常用的HTTP客户端是浏览器。<br>只要是实现了发送一个标准的HTTP请求报文的工具，就是一个HTTP的客户端。</p>
-<h2 id="3-2-CORS跨域请求的限制与解决"><a href="#3-2-CORS跨域请求的限制与解决" class="headerlink" title="3.2 CORS跨域请求的限制与解决"></a>3.2 CORS跨域请求的限制与解决</h2><p>后端：Access-Control-Allow-Origin；<br>前端：json等方式；<br>其他：proxy等方式。</p>
+<h2 id="3-2-CORS跨域请求的限制与解决"><a href="#3-2-CORS跨域请求的限制与解决" class="headerlink" title="3.2 CORS跨域请求的限制与解决"></a>3.2 CORS跨域请求的限制与解决</h2><p>后端：Access-Control-Allow-Origin；<br>前端：jsonp等方式；<br>其他：proxy等方式。</p>
 <h2 id="3-3-CORS跨域限制以及预请求验证"><a href="#3-3-CORS跨域限制以及预请求验证" class="headerlink" title="3.3 CORS跨域限制以及预请求验证"></a>3.3 CORS跨域限制以及预请求验证</h2><h2 id="3-4-缓存头Cache-Control的含义和使用"><a href="#3-4-缓存头Cache-Control的含义和使用" class="headerlink" title="3.4 缓存头Cache-Control的含义和使用"></a>3.4 缓存头Cache-Control的含义和使用</h2><h2 id="3-5-缓存验证Last-Modified和Etag的使用"><a href="#3-5-缓存验证Last-Modified和Etag的使用" class="headerlink" title="3.5 缓存验证Last-Modified和Etag的使用"></a>3.5 缓存验证Last-Modified和Etag的使用</h2><h2 id="3-6-cookie和session"><a href="#3-6-cookie和session" class="headerlink" title="3.6 cookie和session"></a>3.6 cookie和session</h2><h2 id="3-7-HTTP长连接"><a href="#3-7-HTTP长连接" class="headerlink" title="3.7 HTTP长连接"></a>3.7 HTTP长连接</h2><h2 id="3-8-数据协商"><a href="#3-8-数据协商" class="headerlink" title="3.8 数据协商"></a>3.8 数据协商</h2><h2 id="3-9-Redirect"><a href="#3-9-Redirect" class="headerlink" title="3.9 Redirect"></a>3.9 Redirect</h2><h2 id="3-10-CSP"><a href="#3-10-CSP" class="headerlink" title="3.10 CSP"></a>3.10 CSP</h2><h1 id="四、Nginx代理以及面向未来的HTTP"><a href="#四、Nginx代理以及面向未来的HTTP" class="headerlink" title="四、Nginx代理以及面向未来的HTTP"></a>四、Nginx代理以及面向未来的HTTP</h1><h2 id="4-1-Nginx安装和基础代理配置"><a href="#4-1-Nginx安装和基础代理配置" class="headerlink" title="4.1 Nginx安装和基础代理配置"></a>4.1 Nginx安装和基础代理配置</h2><h2 id="4-2-Nginx代理配置和代理缓存的用处"><a href="#4-2-Nginx代理配置和代理缓存的用处" class="headerlink" title="4.2 Nginx代理配置和代理缓存的用处"></a>4.2 Nginx代理配置和代理缓存的用处</h2><h2 id="4-3-HTTPS解析"><a href="#4-3-HTTPS解析" class="headerlink" title="4.3 HTTPS解析"></a>4.3 HTTPS解析</h2><h2 id="4-4-使用Nginx部署HTTPS服务"><a href="#4-4-使用Nginx部署HTTPS服务" class="headerlink" title="4.4 使用Nginx部署HTTPS服务"></a>4.4 使用Nginx部署HTTPS服务</h2><h2 id="4-5-HTTP2的优势和Nginx配置HTTP2的简单使用"><a href="#4-5-HTTP2的优势和Nginx配置HTTP2的简单使用" class="headerlink" title="4.5 HTTP2的优势和Nginx配置HTTP2的简单使用"></a>4.5 HTTP2的优势和Nginx配置HTTP2的简单使用</h2><h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><!-- # 一、课程导学
 ## 1.1导学
 ### 1.1.1WHY
