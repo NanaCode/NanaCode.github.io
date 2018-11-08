@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Nana&#39;s Blog</title>
-  <subtitle>Like farmers, we do not know what the future will bring,but doing nothing is not an option. ---The Kunshan WayLike farmers, we do not know what the future will bring,but doing nothing is not an option. ---The Kunshan Way</subtitle>
+  <subtitle>Like farmers, we do not know what the future will bring, but doing nothing is not an option. ---The Kunshan Way</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
