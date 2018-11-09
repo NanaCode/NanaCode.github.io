@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-09T02:54:50.762Z</updated>
+  <updated>2018-11-09T04:26:45.959Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/11/09/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/11/09/算法与数据结构笔记/</id>
     <published>2018-11-09T00:24:56.000Z</published>
-    <updated>2018-11-09T02:54:50.762Z</updated>
+    <updated>2018-11-09T04:26:45.959Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、当我们谈论算法的时候，我们在谈论什么？"><a href="#一、当我们谈论算法的时候，我们在谈论什么？" class="headerlink" title="一、当我们谈论算法的时候，我们在谈论什么？"></a>一、当我们谈论算法的时候，我们在谈论什么？</h1><!-- ## 1.1 我们究竟为什么要学习算法 -->
 <p>为什么要学习算法？ 因为算法无处不在。<br>编译器；<br>搜索引擎；<br>智能语音；<br>推荐算法；<br>动画；<br>影视特效后期制作；<br>游戏；<br>围棋程序；<br>无人车；<br>通过摄像头看绘制效果；<br>压缩工具；<br>数据库；<br>性能优化等等。<br>我们每天都在接触算法，学好算法，才能创造出更有意义的东西。<br><!-- ## 1.2 课程介绍 --><br>学习路径：线性（路径）–&gt; 树形结构 –&gt; 图形结构</p>
@@ -28,7 +28,91 @@
 <h1 id="二、排序基础"><a href="#二、排序基础" class="headerlink" title="二、排序基础"></a>二、排序基础</h1><h2 id="2-1-选择排序法-Selection-Sort"><a href="#2-1-选择排序法-Selection-Sort" class="headerlink" title="2.1 选择排序法 - Selection Sort"></a>2.1 选择排序法 - Selection Sort</h2><p>为什么要学习O(n^2)的排序算法？<br>基础；<br>编码简单，易于实现，是一些简单情景的首选；<br>在一些特殊情况下，简单的排序算法更有效；<br>简单的排序算法思想衍生出复杂的排序算法；<br>作为子过程，改进更复杂的排序算法。</p>
 <p>选择排序 Selection Sort<br>基本思路：<br>假设从小到大排序，首先从整个数组范围里找出第一名的数字。将这个数跟目前在第一个位置的数进行交换，找到第二名的数字，跟第二位的数字交换，以此类推。</p>
 <p>实现简单的选择排序，将一个int型的数组，从小到大，进行了排序。<br>代码实现：<br><img src="https://i.loli.net/2018/11/09/5be4f4de9dc3b.png" alt="代码实现" title="代码实现"><br>测试：<br><img src="https://i.loli.net/2018/11/09/5be4f4de55086.png" alt="测试" title="测试"><br>程序运行结果:<br><img src="https://i.loli.net/2018/11/09/5be4f4de00efc.png" alt="程序运行结果" title="程序运行结果"></p>
-<h2 id="2-2-使用模板（泛型）编写算法"><a href="#2-2-使用模板（泛型）编写算法" class="headerlink" title="2.2 使用模板（泛型）编写算法"></a>2.2 使用模板（泛型）编写算法</h2><h2 id="2-3-随机生成算法测试用例"><a href="#2-3-随机生成算法测试用例" class="headerlink" title="2.3 随机生成算法测试用例"></a>2.3 随机生成算法测试用例</h2><h2 id="2-4-测试算法的性能"><a href="#2-4-测试算法的性能" class="headerlink" title="2.4 测试算法的性能"></a>2.4 测试算法的性能</h2><h2 id="2-5-插入排序法-Insertion-Sort"><a href="#2-5-插入排序法-Insertion-Sort" class="headerlink" title="2.5 插入排序法 - Insertion Sort"></a>2.5 插入排序法 - Insertion Sort</h2><h2 id="2-6-插入排序法的改进"><a href="#2-6-插入排序法的改进" class="headerlink" title="2.6 插入排序法的改进"></a>2.6 插入排序法的改进</h2><h2 id="2-7-更多关于O-n-2-排序算法的思考"><a href="#2-7-更多关于O-n-2-排序算法的思考" class="headerlink" title="2.7 更多关于O(n^2)排序算法的思考"></a>2.7 更多关于O(n^2)排序算法的思考</h2><h1 id="三、高级排序算法"><a href="#三、高级排序算法" class="headerlink" title="三、高级排序算法"></a>三、高级排序算法</h1><h2 id="3-1-归并排序法-Merge-Sort"><a href="#3-1-归并排序法-Merge-Sort" class="headerlink" title="3.1 归并排序法 - Merge Sort"></a>3.1 归并排序法 - Merge Sort</h2><h2 id="3-2-归并排序法的实现"><a href="#3-2-归并排序法的实现" class="headerlink" title="3.2 归并排序法的实现"></a>3.2 归并排序法的实现</h2><h2 id="3-3-归并排序法的优化"><a href="#3-3-归并排序法的优化" class="headerlink" title="3.3 归并排序法的优化"></a>3.3 归并排序法的优化</h2><h2 id="3-4-自底向上的归并排序算法"><a href="#3-4-自底向上的归并排序算法" class="headerlink" title="3.4 自底向上的归并排序算法"></a>3.4 自底向上的归并排序算法</h2><h2 id="3-5-快速排序法-Quick-Sort"><a href="#3-5-快速排序法-Quick-Sort" class="headerlink" title="3.5 快速排序法 - Quick Sort"></a>3.5 快速排序法 - Quick Sort</h2><h2 id="3-6-随机化快速排序法"><a href="#3-6-随机化快速排序法" class="headerlink" title="3.6 随机化快速排序法"></a>3.6 随机化快速排序法</h2><h2 id="3-7-双路快速排序法"><a href="#3-7-双路快速排序法" class="headerlink" title="3.7 双路快速排序法"></a>3.7 双路快速排序法</h2><h2 id="3-8-三路快速排序法"><a href="#3-8-三路快速排序法" class="headerlink" title="3.8 三路快速排序法"></a>3.8 三路快速排序法</h2><h2 id="3-9-归并排序和快速排序的衍生问题"><a href="#3-9-归并排序和快速排序的衍生问题" class="headerlink" title="3.9 归并排序和快速排序的衍生问题"></a>3.9 归并排序和快速排序的衍生问题</h2><h1 id="四、堆和堆排序"><a href="#四、堆和堆排序" class="headerlink" title="四、堆和堆排序"></a>四、堆和堆排序</h1><h2 id="4-1-为什么使用堆？"><a href="#4-1-为什么使用堆？" class="headerlink" title="4.1 为什么使用堆？"></a>4.1 为什么使用堆？</h2><h2 id="4-2-堆的基本存储"><a href="#4-2-堆的基本存储" class="headerlink" title="4.2 堆的基本存储"></a>4.2 堆的基本存储</h2><h2 id="4-3-Shift-Up"><a href="#4-3-Shift-Up" class="headerlink" title="4.3 Shift Up"></a>4.3 Shift Up</h2><h2 id="4-4-Shift-Down"><a href="#4-4-Shift-Down" class="headerlink" title="4.4 Shift Down"></a>4.4 Shift Down</h2><h2 id="4-5-基础堆排序和Heapify"><a href="#4-5-基础堆排序和Heapify" class="headerlink" title="4.5 基础堆排序和Heapify"></a>4.5 基础堆排序和Heapify</h2><h2 id="4-6-优化的堆排序（Heap-Sort）"><a href="#4-6-优化的堆排序（Heap-Sort）" class="headerlink" title="4.6 优化的堆排序（Heap Sort）"></a>4.6 优化的堆排序（Heap Sort）</h2><h2 id="4-7-排序算法总结"><a href="#4-7-排序算法总结" class="headerlink" title="4.7 排序算法总结"></a>4.7 排序算法总结</h2><h2 id="4-8-索引堆-Index-Heap"><a href="#4-8-索引堆-Index-Heap" class="headerlink" title="4.8 索引堆(Index Heap)"></a>4.8 索引堆(Index Heap)</h2><h2 id="4-9-索引堆的优化"><a href="#4-9-索引堆的优化" class="headerlink" title="4.9 索引堆的优化"></a>4.9 索引堆的优化</h2><h2 id="4-10-和堆相关的其他问题"><a href="#4-10-和堆相关的其他问题" class="headerlink" title="4.10 和堆相关的其他问题"></a>4.10 和堆相关的其他问题</h2><h1 id="五、二分搜索树"><a href="#五、二分搜索树" class="headerlink" title="五、二分搜索树"></a>五、二分搜索树</h1><h2 id="5-1-二分查找法（Binary-Search）"><a href="#5-1-二分查找法（Binary-Search）" class="headerlink" title="5.1 二分查找法（Binary Search）"></a>5.1 二分查找法（Binary Search）</h2><h2 id="5-2-二分搜索树基础-（Binary-Search-Tree）"><a href="#5-2-二分搜索树基础-（Binary-Search-Tree）" class="headerlink" title="5.2 二分搜索树基础 （Binary Search Tree）"></a>5.2 二分搜索树基础 （Binary Search Tree）</h2><h2 id="5-3-二分搜索树的节点插入"><a href="#5-3-二分搜索树的节点插入" class="headerlink" title="5.3 二分搜索树的节点插入"></a>5.3 二分搜索树的节点插入</h2><h2 id="5-4-二分搜索树的查找"><a href="#5-4-二分搜索树的查找" class="headerlink" title="5.4 二分搜索树的查找"></a>5.4 二分搜索树的查找</h2><h2 id="5-5-二分搜索树的遍历（深度优先遍历）"><a href="#5-5-二分搜索树的遍历（深度优先遍历）" class="headerlink" title="5.5 二分搜索树的遍历（深度优先遍历）"></a>5.5 二分搜索树的遍历（深度优先遍历）</h2><h2 id="5-6-层序遍历（广度优先遍历）"><a href="#5-6-层序遍历（广度优先遍历）" class="headerlink" title="5.6 层序遍历（广度优先遍历）"></a>5.6 层序遍历（广度优先遍历）</h2><h2 id="5-7-删除最大值，最小值"><a href="#5-7-删除最大值，最小值" class="headerlink" title="5.7 删除最大值，最小值"></a>5.7 删除最大值，最小值</h2><h2 id="5-8-二分搜索树节点的删除（Hubbard-Deletion）"><a href="#5-8-二分搜索树节点的删除（Hubbard-Deletion）" class="headerlink" title="5.8 二分搜索树节点的删除（Hubbard Deletion）"></a>5.8 二分搜索树节点的删除（Hubbard Deletion）</h2><h2 id="5-9-二分搜索树的顺序性"><a href="#5-9-二分搜索树的顺序性" class="headerlink" title="5.9 二分搜索树的顺序性"></a>5.9 二分搜索树的顺序性</h2><h2 id="5-10-二分搜索树的局限性"><a href="#5-10-二分搜索树的局限性" class="headerlink" title="5.10 二分搜索树的局限性"></a>5.10 二分搜索树的局限性</h2><h2 id="5-11-树形问题和更多树"><a href="#5-11-树形问题和更多树" class="headerlink" title="5.11 树形问题和更多树"></a>5.11 树形问题和更多树</h2><h1 id="六、并查集"><a href="#六、并查集" class="headerlink" title="六、并查集"></a>六、并查集</h1><h2 id="6-1-并查集基础（Union-Find）"><a href="#6-1-并查集基础（Union-Find）" class="headerlink" title="6.1 并查集基础（Union Find）"></a>6.1 并查集基础（Union Find）</h2><h2 id="6-2-Quick-Find"><a href="#6-2-Quick-Find" class="headerlink" title="6.2 Quick Find"></a>6.2 Quick Find</h2><h2 id="6-3-Quick-Union"><a href="#6-3-Quick-Union" class="headerlink" title="6.3 Quick Union"></a>6.3 Quick Union</h2><h2 id="6-4-基于size的优化"><a href="#6-4-基于size的优化" class="headerlink" title="6.4 基于size的优化"></a>6.4 基于size的优化</h2><h2 id="6-5-基于rank的优化"><a href="#6-5-基于rank的优化" class="headerlink" title="6.5 基于rank的优化"></a>6.5 基于rank的优化</h2><h2 id="6-6-路径压缩-Path-Compression"><a href="#6-6-路径压缩-Path-Compression" class="headerlink" title="6.6 路径压缩 (Path Compression)"></a>6.6 路径压缩 (Path Compression)</h2><h1 id="七、图的基础"><a href="#七、图的基础" class="headerlink" title="七、图的基础"></a>七、图的基础</h1><h2 id="7-1-图论基础"><a href="#7-1-图论基础" class="headerlink" title="7.1 图论基础"></a>7.1 图论基础</h2><h2 id="7-2-图的表示"><a href="#7-2-图的表示" class="headerlink" title="7.2 图的表示"></a>7.2 图的表示</h2><h2 id="7-3-相邻结点迭代器"><a href="#7-3-相邻结点迭代器" class="headerlink" title="7.3 相邻结点迭代器"></a>7.3 相邻结点迭代器</h2><h2 id="7-4-图的算法框架"><a href="#7-4-图的算法框架" class="headerlink" title="7.4 图的算法框架"></a>7.4 图的算法框架</h2><h2 id="7-5-深度优先遍历和联通分量"><a href="#7-5-深度优先遍历和联通分量" class="headerlink" title="7.5 深度优先遍历和联通分量"></a>7.5 深度优先遍历和联通分量</h2><h2 id="7-6-寻路"><a href="#7-6-寻路" class="headerlink" title="7.6 寻路"></a>7.6 寻路</h2><h2 id="7-7-广度优先遍历和最短路径"><a href="#7-7-广度优先遍历和最短路径" class="headerlink" title="7.7 广度优先遍历和最短路径"></a>7.7 广度优先遍历和最短路径</h2><h2 id="7-8-迷宫生成，PS抠图——更多无权图的应用"><a href="#7-8-迷宫生成，PS抠图——更多无权图的应用" class="headerlink" title="7.8 迷宫生成，PS抠图——更多无权图的应用"></a>7.8 迷宫生成，PS抠图——更多无权图的应用</h2><h1 id="八、最小生成树"><a href="#八、最小生成树" class="headerlink" title="八、最小生成树"></a>八、最小生成树</h1><h2 id="8-1-有权图"><a href="#8-1-有权图" class="headerlink" title="8.1 有权图"></a>8.1 有权图</h2><h2 id="8-2-最小生成树问题和切分定理"><a href="#8-2-最小生成树问题和切分定理" class="headerlink" title="8.2 最小生成树问题和切分定理"></a>8.2 最小生成树问题和切分定理</h2><h2 id="8-3-Prim算法的第一个实现-（Lazy-Prim）"><a href="#8-3-Prim算法的第一个实现-（Lazy-Prim）" class="headerlink" title="8.3 Prim算法的第一个实现 （Lazy Prim）"></a>8.3 Prim算法的第一个实现 （Lazy Prim）</h2><h2 id="8-4-Prim算法的优化"><a href="#8-4-Prim算法的优化" class="headerlink" title="8.4 Prim算法的优化"></a>8.4 Prim算法的优化</h2><h2 id="8-5-优化后的Prim算法的实现"><a href="#8-5-优化后的Prim算法的实现" class="headerlink" title="8.5 优化后的Prim算法的实现"></a>8.5 优化后的Prim算法的实现</h2><h2 id="8-6-Krusk算法"><a href="#8-6-Krusk算法" class="headerlink" title="8.6 Krusk算法"></a>8.6 Krusk算法</h2><h2 id="8-7-最小生成树算法的思考"><a href="#8-7-最小生成树算法的思考" class="headerlink" title="8.7 最小生成树算法的思考"></a>8.7 最小生成树算法的思考</h2><h1 id="九、最短路径"><a href="#九、最短路径" class="headerlink" title="九、最短路径"></a>九、最短路径</h1><h2 id="9-1-最短路径问题和松弛操作（Relaxation）"><a href="#9-1-最短路径问题和松弛操作（Relaxation）" class="headerlink" title="9.1 最短路径问题和松弛操作（Relaxation）"></a>9.1 最短路径问题和松弛操作（Relaxation）</h2><h2 id="9-2-Dijkstra算法的思想"><a href="#9-2-Dijkstra算法的思想" class="headerlink" title="9.2 Dijkstra算法的思想"></a>9.2 Dijkstra算法的思想</h2><h2 id="9-3-实现Dijkstra算法"><a href="#9-3-实现Dijkstra算法" class="headerlink" title="9.3 实现Dijkstra算法"></a>9.3 实现Dijkstra算法</h2><h2 id="9-4-负权边和Bellman-Ford算法"><a href="#9-4-负权边和Bellman-Ford算法" class="headerlink" title="9.4 负权边和Bellman-Ford算法"></a>9.4 负权边和Bellman-Ford算法</h2><h2 id="9-5-实现Bellman-Ford算法"><a href="#9-5-实现Bellman-Ford算法" class="headerlink" title="9.5 实现Bellman-Ford算法"></a>9.5 实现Bellman-Ford算法</h2><h2 id="9-6-更多和最短路径相关的思考"><a href="#9-6-更多和最短路径相关的思考" class="headerlink" title="9.6 更多和最短路径相关的思考"></a>9.6 更多和最短路径相关的思考</h2><h1 id="十、结束语"><a href="#十、结束语" class="headerlink" title="十、结束语"></a>十、结束语</h1><h2 id="10-1-总结"><a href="#10-1-总结" class="headerlink" title="10.1 总结"></a>10.1 总结</h2><p>参考：<br><a href="http://coding.imooc.com/class/chapter/71.html#Anchor" target="_blank" rel="external">算法和数据结构笔记</a></p>
+<h2 id="2-2-使用模板（泛型）编写算法"><a href="#2-2-使用模板（泛型）编写算法" class="headerlink" title="2.2 使用模板（泛型）编写算法"></a>2.2 使用模板（泛型）编写算法</h2><p>上节排序算法问题：只能接受整数类型的数组。但是排序内容千差万别，可能是浮点数、字符串，甚者自己定义的结构体或者类进行排序。<br>解决方案： 使用模版函数，有些语言中叫泛型。<br>代码实现：<br><img src="https://i.loli.net/2018/11/09/5be50973888c9.png" alt="代码实现" title="代码实现"><br>运行结果：<br><img src="https://i.loli.net/2018/11/09/5be4f4de00efc.png" alt="程序运行结果" title="程序运行结果"></p>
+<p>浮点型测试：<br><img src="https://i.loli.net/2018/11/09/5be509c93a2e7.png" alt="浮点型测试用例" title="浮点型测试用例"><br>浮点数组进行了正确的排序：<br><img src="https://i.loli.net/2018/11/09/5be50a10dde12.png" alt="程序运行结果" title="程序运行结果"></p>
+<p>字符串数组（string类型）进行排序：<br><img src="https://i.loli.net/2018/11/09/5be50a6c985e6.png" alt="代码实现" title="代码实现"><br><img src="https://i.loli.net/2018/11/09/5be50aea3868e.png" alt="程序运行结果" title="程序运行结果"></p>
+<p>自定义类型<br><img src="https://i.loli.net/2018/11/09/5be50bc26131b.png" alt="代码实现" title="代码实现"><br><img src="https://i.loli.net/2018/11/09/5be50c193ca79.png" alt="代码实现" title="代码实现"><br><img src="https://i.loli.net/2018/11/09/5be50c28ea55b.png" alt="代码实现" title="代码实现"><br><!-- 改成从大到小的顺序
+自定义比较的威力所在 --></p>
+<!-- ## 2.3 随机生成算法测试用例
+## 2.4 测试算法的性能
+## 2.5 插入排序法 - Insertion Sort
+## 2.6 插入排序法的改进
+## 2.7 更多关于O(n^2)排序算法的思考 -->
+<!-- # 三、高级排序算法
+## 3.1 归并排序法 - Merge Sort
+## 3.2 归并排序法的实现
+## 3.3 归并排序法的优化
+## 3.4 自底向上的归并排序算法
+## 3.5 快速排序法 - Quick Sort
+## 3.6 随机化快速排序法
+## 3.7 双路快速排序法
+## 3.8 三路快速排序法
+## 3.9 归并排序和快速排序的衍生问题
+
+
+# 四、堆和堆排序
+## 4.1 为什么使用堆？
+## 4.2 堆的基本存储
+## 4.3 Shift Up
+## 4.4 Shift Down
+## 4.5 基础堆排序和Heapify
+## 4.6 优化的堆排序（Heap Sort）
+## 4.7 排序算法总结
+## 4.8 索引堆(Index Heap)
+## 4.9 索引堆的优化
+## 4.10 和堆相关的其他问题
+
+# 五、二分搜索树
+## 5.1 二分查找法（Binary Search）
+## 5.2 二分搜索树基础 （Binary Search Tree）
+## 5.3 二分搜索树的节点插入
+## 5.4 二分搜索树的查找
+## 5.5 二分搜索树的遍历（深度优先遍历）
+## 5.6 层序遍历（广度优先遍历）
+## 5.7 删除最大值，最小值
+## 5.8 二分搜索树节点的删除（Hubbard Deletion）
+## 5.9 二分搜索树的顺序性
+## 5.10 二分搜索树的局限性
+## 5.11 树形问题和更多树
+
+# 六、并查集
+## 6.1 并查集基础（Union Find）
+## 6.2 Quick Find
+## 6.3 Quick Union
+## 6.4 基于size的优化
+## 6.5 基于rank的优化
+## 6.6 路径压缩 (Path Compression)
+
+# 七、图的基础
+## 7.1 图论基础
+## 7.2 图的表示
+## 7.3 相邻结点迭代器
+## 7.4 图的算法框架
+## 7.5 深度优先遍历和联通分量
+## 7.6 寻路
+## 7.7 广度优先遍历和最短路径
+## 7.8 迷宫生成，PS抠图——更多无权图的应用
+
+# 八、最小生成树
+## 8.1 有权图
+## 8.2 最小生成树问题和切分定理
+## 8.3 Prim算法的第一个实现 （Lazy Prim）
+## 8.4 Prim算法的优化
+## 8.5 优化后的Prim算法的实现
+## 8.6 Krusk算法
+## 8.7 最小生成树算法的思考
+
+# 九、最短路径
+## 9.1 最短路径问题和松弛操作（Relaxation）
+## 9.2 Dijkstra算法的思想
+## 9.3 实现Dijkstra算法
+## 9.4 负权边和Bellman-Ford算法
+## 9.5 实现Bellman-Ford算法
+## 9.6 更多和最短路径相关的思考
+
+# 十、结束语
+## 10.1 总结 -->
+<p>参考：<br><a href="http://coding.imooc.com/class/chapter/71.html#Anchor" target="_blank" rel="external">算法和数据结构笔记</a></p>
 ]]></content>
     
     <summary type="html">
