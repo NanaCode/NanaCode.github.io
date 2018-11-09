@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-09T02:52:12.694Z</updated>
+  <updated>2018-11-09T02:54:50.762Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/11/09/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/11/09/算法与数据结构笔记/</id>
     <published>2018-11-09T00:24:56.000Z</published>
-    <updated>2018-11-09T02:52:12.694Z</updated>
+    <updated>2018-11-09T02:54:50.762Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、当我们谈论算法的时候，我们在谈论什么？"><a href="#一、当我们谈论算法的时候，我们在谈论什么？" class="headerlink" title="一、当我们谈论算法的时候，我们在谈论什么？"></a>一、当我们谈论算法的时候，我们在谈论什么？</h1><!-- ## 1.1 我们究竟为什么要学习算法 -->
 <p>为什么要学习算法？ 因为算法无处不在。<br>编译器；<br>搜索引擎；<br>智能语音；<br>推荐算法；<br>动画；<br>影视特效后期制作；<br>游戏；<br>围棋程序；<br>无人车；<br>通过摄像头看绘制效果；<br>压缩工具；<br>数据库；<br>性能优化等等。<br>我们每天都在接触算法，学好算法，才能创造出更有意义的东西。<br><!-- ## 1.2 课程介绍 --><br>学习路径：线性（路径）–&gt; 树形结构 –&gt; 图形结构</p>
@@ -37,7 +37,7 @@
     
     </summary>
     
-      <category term="WEB" scheme="http://yoursite.com/categories/WEB/"/>
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
     
     
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
