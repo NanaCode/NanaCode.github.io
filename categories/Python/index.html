@@ -98,7 +98,7 @@
 <meta name="description" content="Stay Hungry Stay Foolish">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nana&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/Python/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/python/index.html">
 <meta property="og:site_name" content="Nana&#39;s Blog">
 <meta property="og:description" content="Stay Hungry Stay Foolish">
 <meta property="og:locale" content="zh-Hans">
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Python/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/python/"/>
 
 
 
 
 
-  <title>分类: Python | Nana's Blog</title>
+  <title>分类: python | Nana's Blog</title>
   
 
 
@@ -304,7 +304,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Python<small>分类</small>
+        <h1>python<small>分类</small>
         </h1>
       </div>
 
@@ -316,37 +316,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/10/30/Python编程技巧（持续更新）/" itemprop="url">
+            <a class="post-title-link" href="/2017/10/12/python2-7项目升级python3-6/" itemprop="url">
               
-                <span itemprop="name">Python编程技巧（持续更新）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-30T10:40:59+08:00"
-              content="2018-10-30" >
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/12/电脑安装多版本python的方法/" itemprop="url">
-              
-                <span itemprop="name">电脑多版本Python共存的方法</span>
+                <span itemprop="name">python2.7项目升级python3.6</span>
               
             </a>
         
@@ -354,65 +326,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-12T15:47:10+08:00"
-              content="2018-02-12" >
-          02-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/14/404和500页面配置/" itemprop="url">
-              
-                <span itemprop="name">404和500页面配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-14T15:13:41+08:00"
-              content="2017-10-14" >
-          10-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/24/Python常见报错及解决办法/" itemprop="url">
-              
-                <span itemprop="name">Python常见报错及解决办法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-24T13:06:16+08:00"
-              content="2017-08-24" >
-          08-24
+              datetime="2017-10-12T21:40:30+08:00"
+              content="2017-10-12" >
+          10-12
         </time>
       </div>
 
@@ -957,6 +873,86 @@
             } else if (resultItems.length === 0) {
               resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
             } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+ {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
                   return resultRight.searchTextCount - resultLeft.searchTextCount;
