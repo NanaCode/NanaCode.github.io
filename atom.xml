@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-10T09:24:19.390Z</updated>
+  <updated>2018-11-10T12:59:17.150Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/11/10/%E5%A8%9C%E5%A8%9C%E7%9A%84%E6%AF%8F%E6%97%A5%E8%BF%90%E5%8A%A8%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2018/11/10/娜娜的每日运动记录/</id>
     <published>2018-11-10T07:43:56.000Z</published>
-    <updated>2018-11-10T09:24:19.390Z</updated>
+    <updated>2018-11-10T12:59:17.150Z</updated>
     
     <content type="html"><![CDATA[<p>想看看每天都坚持会怎么样？每周整理一次。</p>
 <h1 id="2018年"><a href="#2018年" class="headerlink" title="2018年"></a>2018年</h1><h2 id="2018-11"><a href="#2018-11" class="headerlink" title="2018-11"></a>2018-11</h2><h3 id="2018-11-9"><a href="#2018-11-9" class="headerlink" title="2018-11-9"></a>2018-11-9</h3><p>微信运动/10427步<br><img src="https://i.loli.net/2018/11/10/5be6a21dd7e4b.png" alt="2018-11-9" title="2018-10-9"></p>
@@ -32,7 +32,7 @@
 <h3 id="2018-11-3"><a href="#2018-11-3" class="headerlink" title="2018-11-3"></a>2018-11-3</h3><p>微信运动/10771步<br><img src="https://i.loli.net/2018/11/10/5be6a193660e4.png" alt="2018-11-3" title="2018-10-3"></p>
 <h3 id="2018-11-2"><a href="#2018-11-2" class="headerlink" title="2018-11-2"></a>2018-11-2</h3><p>微信运动/11764步<br><img src="https://i.loli.net/2018/11/10/5be6a1902ac8a.png" alt="2018-11-2" title="2018-10-2"></p>
 <h3 id="2018-11-1"><a href="#2018-11-1" class="headerlink" title="2018-11-1"></a>2018-11-1</h3><p>微信运动/10375步<br><img src="https://i.loli.net/2018/11/10/5be6a18ca054d.png" alt="2018-11-1" title="2018-10-1"></p>
-<h2 id="10月"><a href="#10月" class="headerlink" title="10月"></a>10月</h2><h3 id="2018-10-31"><a href="#2018-10-31" class="headerlink" title="2018-10-31"></a>2018-10-31</h3><p>微信运动/12950步<br><img src="https://i.loli.net/2018/11/10/5be6a189b8ad8.png" alt="2018-10-31" title="2018-10-31"></p>
+<h2 id="2018-10"><a href="#2018-10" class="headerlink" title="2018-10"></a>2018-10</h2><h3 id="2018-10-31"><a href="#2018-10-31" class="headerlink" title="2018-10-31"></a>2018-10-31</h3><p>微信运动/12950步<br><img src="https://i.loli.net/2018/11/10/5be6a189b8ad8.png" alt="2018-10-31" title="2018-10-31"></p>
 <h3 id="2018-10-30"><a href="#2018-10-30" class="headerlink" title="2018-10-30"></a>2018-10-30</h3><p>微信运动/11369步<br><img src="https://i.loli.net/2018/11/10/5be6a1868f0e4.png" alt="2018-10-30" title="2018-10-30"></p>
 <h3 id="2018-10-29"><a href="#2018-10-29" class="headerlink" title="2018-10-29"></a>2018-10-29</h3><p>微信运动/10232步<br><img src="https://i.loli.net/2018/11/10/5be69cce15f6f.png" alt="2018-10-29" title="2018-10-29"></p>
 <h3 id="2018-10-28"><a href="#2018-10-28" class="headerlink" title="2018-10-28"></a>2018-10-28</h3><p>微信运动/14406步<br><img src="https://i.loli.net/2018/11/10/5be69ccb128b5.png" alt="2018-10-28" title="2018-10-28"></p>
@@ -103,7 +103,7 @@
     <link href="http://yoursite.com/2018/11/09/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/11/09/算法与数据结构笔记/</id>
     <published>2018-11-09T00:24:56.000Z</published>
-    <updated>2018-11-09T04:32:45.060Z</updated>
+    <updated>2018-11-11T01:42:54.817Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、当我们谈论算法的时候，我们在谈论什么？"><a href="#一、当我们谈论算法的时候，我们在谈论什么？" class="headerlink" title="一、当我们谈论算法的时候，我们在谈论什么？"></a>一、当我们谈论算法的时候，我们在谈论什么？</h1><!-- ## 1.1 我们究竟为什么要学习算法 -->
 <p>为什么要学习算法？ 因为算法无处不在。<br>编译器；<br>搜索引擎；<br>智能语音；<br>推荐算法；<br>动画；<br>影视特效后期制作；<br>游戏；<br>围棋程序；<br>无人车；<br>通过摄像头看绘制效果；<br>压缩工具；<br>数据库；<br>性能优化等等。<br>我们每天都在接触算法，学好算法，才能创造出更有意义的东西。<br><!-- ## 1.2 课程介绍 --><br>学习路径：线性（路径）–&gt; 树形结构 –&gt; 图形结构</p>
@@ -116,7 +116,42 @@
 <p>字符串数组（string类型）进行排序：<br><img src="https://i.loli.net/2018/11/09/5be50a6c985e6.png" alt="代码实现" title="代码实现"><br><img src="https://i.loli.net/2018/11/09/5be50aea3868e.png" alt="程序运行结果" title="程序运行结果"></p>
 <p>自定义类型<br><img src="https://i.loli.net/2018/11/09/5be50bc26131b.png" alt="代码实现" title="代码实现"><br><img src="https://i.loli.net/2018/11/09/5be50c193ca79.png" alt="代码实现" title="代码实现"><br><img src="https://i.loli.net/2018/11/09/5be50c28ea55b.png" alt="程序运行结果" title="程序运行结果"><br><!-- 改成从大到小的顺序
 自定义比较的威力所在 --></p>
-<!-- ## 2.3 随机生成算法测试用例
+<h2 id="2-3-随机生成算法测试用例"><a href="#2-3-随机生成算法测试用例" class="headerlink" title="2.3 随机生成算法测试用例"></a>2.3 随机生成算法测试用例</h2><p>编写生成随机数组的函数：<br><img src="https://i.loli.net/2018/11/11/5be7872fbae6b.png" alt="生成随机数组函数" title="生成随机数组函数"></p>
+<p>测试：<br><img src="https://i.loli.net/2018/11/11/5be78731ad745.png" alt="测试代码" title="测试代码"></p>
+<p>运行程序：<br><img src="https://i.loli.net/2018/11/11/5be7873680196.png" alt="程序运行结果" title="程序运行结果"><br><img src="https://i.loli.net/2018/11/11/5be7873c95974.png" alt="程序运行结果" title="程序运行结果"></p>
+<p>程序打印过程总结成函数：<br><img src="https://i.loli.net/2018/11/11/5be787469cf5f.png" alt="程序打印过程代码" title="程序打印过程代码"><br><img src="https://i.loli.net/2018/11/11/5be7874c38071.png" alt="程序打印过程函数" title="程序打印过程函数"></p>
+<p>修改后的测试代码：<br><img src="https://i.loli.net/2018/11/11/5be787511ae33.png" alt="测试代码" title="测试代码"></p>
+<!-- 上节排序算法的测试用例非常不智能
+修改测试用例的生成方式
+测试数组是采用硬编码的方式生成的
+比较不同排序算法的效率的时候，可能用到一万百万十万这样数量级的数组
+这样的数组应该用程序来生成
+SortTestHelper中申明一切辅助函数
+generateRandomArray返回一个随机生成的数组
+
+arr[i] = rand() % (rangeR - rangeL + 1) + rangeL
+这种控制随机数的生成范围的方法，是非常标准的一种方法，暂停好好理解代码
+
+生成随机数组的函数（图）
+
+测试
+测试代码（图）
+
+delete[] arr; 释放空间   不写程序是不会报错的，但是潜在的就存在内存泄露的问题
+
+
+运行程序（图）
+一共有一万个数，按照顺序打印了出来
+
+打印过程，也可以总结成一个函数
+图
+
+把这个函数申明成模版函数
+
+修改后的测试代码
+
+学习了使用代码来生成属于自己的测试用例 -->
+<!-- 
 ## 2.4 测试算法的性能
 ## 2.5 插入排序法 - Insertion Sort
 ## 2.6 插入排序法的改进
@@ -531,10 +566,12 @@ ftp的实现
     <link href="http://yoursite.com/2018/11/01/%E5%A8%9C%E5%A8%9C%E7%9A%84%E9%98%85%E8%AF%BB%E6%B8%85%E5%8D%95/"/>
     <id>http://yoursite.com/2018/11/01/娜娜的阅读清单/</id>
     <published>2018-11-01T05:48:56.000Z</published>
-    <updated>2018-11-08T12:58:21.264Z</updated>
+    <updated>2018-11-10T09:28:33.061Z</updated>
     
     <content type="html"><![CDATA[<p>娜娜近段时间的阅读清单， 陆续整理中……</p>
-<h2 id="已阅读"><a href="#已阅读" class="headerlink" title="已阅读"></a>已阅读</h2><p>《番茄工作法图解》<br>《小狗钱钱》<br>《从极简到极致》<br>《即兴的智慧》<br>《把时间当作朋友》<br>《远见》<br>《拆掉思维里的墙》<br>《人生只有一次去做自己喜欢的事》<br>《少有人走的路》<br><!-- 《》 --></p>
+<h2 id="已阅读"><a href="#已阅读" class="headerlink" title="已阅读"></a>已阅读</h2><p>《被讨厌的勇气》<br>《番茄工作法图解》<br>《小狗钱钱》<br>《从极简到极致》<br>《即兴的智慧》<br>《把时间当作朋友》<br>《远见》<br>《拆掉思维里的墙》<br>《人生只有一次去做自己喜欢的事》<br>《少有人走的路》<br>《你只是看起来很努力》</p>
+<!-- 《》 -->
+<!-- 书名排序的时候突然想到算法里的选择排序，哈哈 20181110 17:28-->
 <h2 id="阅读ing"><a href="#阅读ing" class="headerlink" title="阅读ing"></a>阅读ing</h2><p>《好好学习》<br>《编写高质量代码：改善Python程序的91个建议 张颖//赖勇浩》<br>《高效能人士的七个习惯》<br>《人性的弱点》<br>《走在人生边上》<br>《干法》<br>《穷查理宝典》<br>《好好学习》<br><!-- 《干法》[日 稻和盛夫]
 《穷查理宝典》[美 彼得·考夫曼] --><br><!-- 《MySQL必知必会》 --><br><!-- 《鸟哥的Linux私房菜》
 《Python基础教程 第3版》 --></p>
@@ -550,7 +587,7 @@ ftp的实现
     <summary type="html">
     
       &lt;p&gt;娜娜近段时间的阅读清单， 陆续整理中……&lt;/p&gt;
-&lt;h2 id=&quot;已阅读&quot;&gt;&lt;a href=&quot;#已阅读&quot; class=&quot;headerlink&quot; title=&quot;已阅读&quot;&gt;&lt;/a&gt;已阅读&lt;/h2&gt;&lt;p&gt;《番茄工作法图解》&lt;br&gt;《小狗钱钱》&lt;br&gt;《从极简到极致》&lt;br&gt;《即兴
+&lt;h2 id=&quot;已阅读&quot;&gt;&lt;a href=&quot;#已阅读&quot; class=&quot;headerlink&quot; title=&quot;已阅读&quot;&gt;&lt;/a&gt;已阅读&lt;/h2&gt;&lt;p&gt;《被讨厌的勇气》&lt;br&gt;《番茄工作法图解》&lt;br&gt;《小狗钱钱》&lt;br&gt;《从极
     
     </summary>
     
