@@ -103,7 +103,7 @@
     <link href="http://yoursite.com/2018/11/09/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/11/09/算法与数据结构笔记/</id>
     <published>2018-11-09T00:24:56.000Z</published>
-    <updated>2018-11-14T09:04:47.455Z</updated>
+    <updated>2018-11-14T09:23:41.918Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、当我们谈论算法的时候，我们在谈论什么？"><a href="#一、当我们谈论算法的时候，我们在谈论什么？" class="headerlink" title="一、当我们谈论算法的时候，我们在谈论什么？"></a>一、当我们谈论算法的时候，我们在谈论什么？</h1><!-- ## 1.1 我们究竟为什么要学习算法 -->
 <p>为什么要学习算法？ 因为算法无处不在。<br>编译器；<br>搜索引擎；<br>智能语音；<br>推荐算法；<br>动画；<br>影视特效后期制作；<br>游戏；<br>围棋程序；<br>无人车；<br>通过摄像头看绘制效果；<br>压缩工具；<br>数据库；<br>性能优化等等。<br>我们每天都在接触算法，学好算法，才能创造出更有意义的东西。<br><!-- ## 1.2 课程介绍 --><br>学习路径：线性（路径）–&gt; 树形结构 –&gt; 图形结构</p>
@@ -140,10 +140,10 @@
 <p>为了进一步说明效果，创建新的生成随机数组的方法用来生成一个近乎于有序的随机数组。<br>生成一个近乎于有序的随机数组的函数如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe30003092.png" alt="生成近乎于有序随机数组函数" title="生成近乎于有序随机数组函数"><br>测试代码如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe31a0993c.png" alt="测试代码" title="测试代码"><br>测试结果如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe320ab83f.png" alt="测试结果" title="测试结果"><br>测试结果表明：<br>对于一个近乎有序的数组来说，插入排序的性能要远远优于选择排序。</p>
 <p>为了让数组的有序性更强一些，将测试的交换元素对数减少一些。<br>测试代码如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe332b0d41.png" alt="测试代码" title="测试代码"><br>测试结果如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe34d0cb0b.png" alt="测试结果" title="测试结果"><br>测试结果表明：<br>数组越趋向于有序，插入排序的性能将更好。<br>事实上，插入排序对于近乎于有序的数组，这么快的排序速度这个性能甚至比O(nlogn)级别的排序算法还要快。</p>
 <p>插入排序的实际意义：<br>很多时候，我们处理的真实数据就是近乎有序的。比如一套系统的日志，从道理上生成就是按照时间序生成的。但有可能在中间产生了一些错误或者某些任务时间过长，所以存在几个无序的元素。对于这样的系统日志，其实使用插入排序进行排序，性能会更好。<br>在最优的情况下，也就是说当我们要排序的内容是一个完全有序的数组的时候，插入排序将变成一个O(n)级别的算法，也就是在内层循环，每一次都执行一下。发现当前位置就是合适的位置，直接结束内层循环进入了下一次循环，这是插入排序非常重要的一个性质。也正是这个原因，插入排序也会在更加复杂的排序算法中作为一个子过程来进行优化。</p>
-<h2 id="2-7-更多关于O-n-2-排序算法的思考"><a href="#2-7-更多关于O-n-2-排序算法的思考" class="headerlink" title="2.7 更多关于O(n^2)排序算法的思考"></a>2.7 更多关于O(n^2)排序算法的思考</h2><p>选择排序(Selection Sort):<br>选择排序的思想非常简单，但是缺点也很明显。<br>对于任何数组，选择排序两层循环，每一层循环都必须完全的执行完成。因此，选择排序的效率在任何情况下都是非常慢的。</p>
-<p>插入排序(Insertion Sort):<br>插入排序，虽然它的最差时间复杂度也是O(n^2)级别的，但是在数组近乎有序的情况下，插入排序的性能非常高，甚至比O(nlogn)级别的排序算法性能还要高。这使得插入排序有着非常重要的实际意义。<br>对插入排序的深入理解，也告诉我们O(n^2)级别的排序算法并非一无是处。<br>对于近乎有序的数组，插入排序的效率相对比较高。</p>
-<p>冒泡排序(Bubble Sort):<br>冒泡排序的性能，整体没有插入排序好，不会过多的用这种排序算法。</p>
-<p>希尔排序(BShell Sort):<br>插入排序中，每一次都和之前的一个元素进行比较。而希尔排序尝试每次和之前第h个元素进行比较。这样下来，通过将h从一个很大的值逐渐缩小到1，一步一步的将一个完全无序的数组，变成近乎有序的数组，变成有序性更强的数组。到最后，当h等于1的时候，最终变成了一个排好序的数组。这个过程使得整个算法的时间复杂度发生了质变。但是希尔排序的时间复杂度分析相对是比较难的，我们选择不同的让h逐渐递减的序列，它的排序的复杂度也是不同的。</p>
+<h2 id="2-7-更多关于O-n-2-排序算法的思考"><a href="#2-7-更多关于O-n-2-排序算法的思考" class="headerlink" title="2.7 更多关于O(n^2)排序算法的思考"></a>2.7 更多关于O(n^2)排序算法的思考</h2><p><strong>选择排序(Selection Sort)</strong>:<br>选择排序的思想非常简单，但是缺点也很明显。<br>对于任何数组，选择排序两层循环，每一层循环都必须完全的执行完成。因此，选择排序的效率在任何情况下都是非常慢的。</p>
+<p><strong>插入排序(Insertion Sort)</strong>:<br>插入排序，虽然它的最差时间复杂度也是O(n^2)级别的，但是在数组近乎有序的情况下，插入排序的性能非常高，甚至比O(nlogn)级别的排序算法性能还要高。这使得插入排序有着非常重要的实际意义。<br>对插入排序的深入理解，也告诉我们O(n^2)级别的排序算法并非一无是处。<br>对于近乎有序的数组，插入排序的效率相对比较高。</p>
+<p><strong>冒泡排序(Bubble Sort)</strong>:<br>冒泡排序的性能，整体没有插入排序好，不会过多的用这种排序算法。</p>
+<p><strong>希尔排序(Shell Sort)</strong>:<br>插入排序中，每一次都和之前的一个元素进行比较。而希尔排序尝试每次和之前第h个元素进行比较。这样下来，通过将h从一个很大的值逐渐缩小到1，一步一步的将一个完全无序的数组，变成近乎有序的数组，变成有序性更强的数组。到最后，当h等于1的时候，最终变成了一个排好序的数组。这个过程使得整个算法的时间复杂度发生了质变。但是希尔排序的时间复杂度分析相对是比较难的，我们选择不同的让h逐渐递减的序列，它的排序的复杂度也是不同的。</p>
 <!-- # 三、高级排序算法
 ## 3.1 归并排序法 - Merge Sort
 ## 3.2 归并排序法的实现
@@ -432,7 +432,7 @@ Insertion Sort 插入排序
     <link href="http://yoursite.com/2018/11/07/HTTP%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%8A%A0%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2018/11/07/HTTP协议原理加实战笔记/</id>
     <published>2018-11-07T02:24:56.000Z</published>
-    <updated>2018-11-14T08:04:05.351Z</updated>
+    <updated>2018-11-14T09:29:03.978Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、导学"><a href="#一、导学" class="headerlink" title="一、导学"></a>一、导学</h1><p><strong>Cache-Control设置</strong>:<br>基本：max-age=100;<br>设置public、private控制只能在客户端进行缓存，还是可以通过代理服务器进行缓存;<br>设置must-revalidate,在缓存过期之后，必须到服务端验证过之后，才能继续使用缓存;<br>设置no-cache、no-store控制我们是否使用缓存。</p>
 <p><strong>缓存验证</strong>:<br>last-modified配合if-modified-since;<br>etag配合if-none-match。</p>
@@ -475,72 +475,24 @@ Insertion Sort 插入排序
 <p>其他限制<br>请求头限制（Fetch Standard-<a href="https://fetch.spec.whatwg.org/）" target="_blank" rel="external">https://fetch.spec.whatwg.org/）</a><br>XMLHttpRequestUpload对象均没有注册任何事件监听器<br>请求中没有使用ReadableStream对象<br>（后面这两个比较少见）</p>
 <p>突破跨域限制的几种方法：<br>‘Access-Control-Allow-Origin’: ‘*’<br>‘Access-Control-Allow-Headers’: ‘X-Test-Cors’<br>‘Access-Control-Allow-Origin’: ‘POST, PUT, Delete’<br>保证服务端安全</p>
 <p>其他：<br>‘Access-Control-Max-Age’: ‘1000’<br>请求允许指定方式进行跨域的一个请求的最长时间。</p>
-<h2 id="3-4-缓存头Cache-Control的含义和使用"><a href="#3-4-缓存头Cache-Control的含义和使用" class="headerlink" title="3.4 缓存头Cache-Control的含义和使用"></a>3.4 缓存头Cache-Control的含义和使用</h2><p>cache-control的特性</p>
-<p>可缓存性：<br>public<br>private<br>no-cache</p>
-<p>public HTTP经过的任何地方都可以进行缓存<br>private 只有发起请求的这个浏览器它才可以进行一个缓存<br>no-cache 任何一个节点都不可以进行一个缓存</p>
-<p>到期：  就是这个缓存什么时候到期<br>max-age=<seconds>  最常用的<br>s-maxage=<seconds><br>s-maxage会代替max-age<br>但是只有在代理服务器里面才会生效<br>也就是浏览器端浏览器还是会读取max-age作为一个缓存的到期时间<br>代理服务器，如果设置了max-age和s-maxage，会读取s-maxage，因为这个配置项是专门为代理服务器去设置的<br>max-stale=<seconds> 在max-age过期之后，如果我们返回的这部分资源里面有max-stale这个设置<br>max-stale是我们发起请求这一方，主动去带的一个头，即便缓存已经过期了，但是只要在max-stale这个时间内，它还可以使用过期的缓存，而不需要去原服务器那边请求一个新的内容。max-stale在浏览器是用不到的，浏览器在发起请求以及静态资源请求的过程当中，它并不会主动去给我们设置这个头，这个头只有在发起端去设置是有用的。在服务端返回内容中设置它是没有用的</seconds></seconds></seconds></p>
-<p>到期：<br>max-age=<seconds><br>s-maxage=<seconds><br>max-stale=<seconds> </seconds></seconds></seconds></p>
-<p>重新验证：<br>must-revalidate<br>在设置max-age的缓存当中，如果它已经过期了，那么我们必须去原服务端去发送这个请求，然后重新获取这个数据。再来验证这个内容是否真的已经过期了。而不能直接使用本地的缓存<br>proxy-revalidate 用在缓存服务器当中 指定缓存服务器必须在过期的时候，必须去原服务器上重新请求一遍。而不能直接使用本地的缓存<br>这两个头基本上不会用到，在浏览器访问页面的过程中，</p>
-<p>重新验证：<br>must-revalidate<br>proxy-revalidate</p>
-<p>其他：<br>no-store<br>与no-cache进行区分<br>no-cache可以在本地进行缓存，可以在proxy服务器进行缓存<br>每次发起请求都要去服务器那边验证一下<br>如果服务器返回这个请求，告诉你可以使用本地的缓存，然后你才可以真正的使用你本地的缓存<br>要经过服务器端的验证的<br>如何验证，下一节课<br>no-cache：本地可以存缓存，但是缓存要等服务器验证过之后，才可以去使用<br>no-store：彻底地，本地和代理服务器都是不可以去存储这个缓存，永远都要去服务端拿新的body的内容，才能使用它。而不能即便服务器返回告诉你可以使用缓存，但是本地根本就没有这个缓存，你不能进行一个缓存<br>no-transform：主要用在proxy服务器，不允许proxy服务器帮忙压缩转换<br>这些头只是限制性 申明性作用，没有任何强制的约束力  nginx为例 做cache  nginx如何做代理服务器</p>
-<p>cache-control设置后的效果<br>浏览器基本会用到的配置 public private no-cache max-age s-maxage和max-stale基本用不到<br>must-revalidate 可能会用到，但基本不常见</p>
-<p>浏览器如何从本地读取缓存的操作：<br>代码演示<br>size:from memory cache<br>服务端已经改了内容，但是客户端没有加载新的内容，因为url没有变，还是从memory cache里面去读</p>
-<p>cache-control是个客户端缓存，如果设置了cache-control,直接在客户端缓存，根本不经过服务端的验证</p>
-<p>服务端更新了文件之后<br>客户端并不知道服务端已经更新了</p>
-<p>前端开发常见的问题：<br>希望浏览器去缓存我们的静态资源文件，这样下次打开页面速度会非常快<br>但是又不希望服务端内容更新之后，客户端还是请求的缓存的老的资源</p>
-<p>常见的前端解决方案：<br>内容不变，哈希码不变，反映到页面上就是url没有变，那么就可以使用静态资源缓存<br>内容有变化，哈希码有变化，html里的url路径就有变化，发起的请求就是一个新的静态资源请求，而不是之前缓存在浏览器中的静态资源请求。 达到更新缓存的目的。</p>
-<p>文件为什么打包完成之后，一定要后面加上一串奇怪的码，而且这个码经常会变，这就是我们希望刷新浏览器缓存的方案，也是目前业界通用的方案。</p>
-<p>‘cache-control’: ‘max-age=200’<br>达到浏览器长缓存的作用</p>
-<p>设置非常多的值，逗号分割：<br>‘cache-control’: ‘max-age=200， public’<br>同样的值，后面会覆盖前面<br>不同的值，会产生效果</p>
-<p>浏览器缓存相关<br>nginx服务器代理的时候，会深入的讲解这方面的知识</p>
-<h2 id="3-5-缓存验证Last-Modified和Etag的使用"><a href="#3-5-缓存验证Last-Modified和Etag的使用" class="headerlink" title="3.5 缓存验证Last-Modified和Etag的使用"></a>3.5 缓存验证Last-Modified和Etag的使用</h2><p>时长15:44分</p>
-<p>10:30分看了一次视频</p>
-<p>如果给cache-control设置了no-cache, 每次浏览器发起对一个已经设置了cache-control的资源的请求的时候，都会要到服务端去进行一个资源的验证，验证完后，如果确定资源可以使用缓存，才会读取本地缓存。<br>资源验证之前先看一张图<br>图81<br>更好理解，缓存是如何进行一个操作的<br>建立在有cache-control这个头的前提下<br>浏览器看到的from memory cache的效果</p>
-<p>数据如何进行验证</p>
-<p>验证头：<br>HTTP协议里面主要有两个验证的头<br>Last-Modified<br>Etag</p>
-<p>验证头：<br>Last-Modified<br>Etag</p>
-<p>Last-Modified:<br>上次修改时间：给资源设置上次是什么时候被修改的<br>配合If-Modified-Since或者If-Unmodified-Since使用：如果我们请求资源，请求资源上面返回的头里面有Last-Modified这个头，然后指定了一个时间，这个时间在下次浏览器发起请求的时候，就会带上Last-Modified里面传过来的值。通过If-Modified-Since或者If-Unmodified-Since，通常浏览器都是使用If-Modified-Since。If-Unmodified-Since有这个头，但是很少会被用到。这个请求里面，就会把它带到服务器上面，服务器就可以通过读取header里面的if-Modified-Since的值对比资源存在的地方，然后去对比上次修改的时间。<br>如果两个时间一样，资源没修改过。服务器告诉浏览器可以直接使用缓存。<br>验证资源能否使用缓存的过程。</p>
-<p>Last-Modified:<br>上次修改时间<br>配合If-Modified-Since或者If-Unmodified-Since使用<br>对比上次修改时间以验证资源是否需要更新</p>
-<p>Etag:<br>更严格的验证<br>Etag的验证主要通过数据签名，<br>数据签名：我们的资源对它的内容会产生唯一的签名，也就是说如果这个资源的数据进行了一个修改，那么它的签名就会变成一个新的。只要有任何修改，两个签名就会不一样。<br>典型：资源内容进行哈希计算。上节静态资源文件名后面加上哈希值。用这个签名来标记这个资源。<br>下次浏览器发起请求的时候，就会带上If-Match或者If-Non-Match这个头，这个头里面的值就是服务端返回过来的Etag的值，然后对比这两个服务器拿到的浏览器传过来的头之后，就可以对比现在服务器存在的资源的签名，以及浏览器传过来的签名，如果这两个是相同的，就不需要返回一个新的内容。<br>Etag:<br>数据签名<br>配合If-Match或者If-Non-Match使用<br>对比资源的签名判断是否使用缓存</p>
-<p>正式环境使用这两个头 演示</p>
-<p>希望下次请求还是到服务端，使用no-cache,虽然设置了cache-control里的max-age,浏览器可以缓存。使用no-cache,下次发送请求还是要经过服务器验证，不能直接使用缓存。</p>
-<p>Request-Headers带了一个头： If-Modified-Since/If-None-Match</p>
-<p>304的语义就是not-modified,资源没有修改，可以直接读缓存，直接忽略服务端返回的body里的内容，直接读缓存里面保存的数据，</p>
-<p>chrome disabled-cache的作用</p>
-<p>把no-cache去掉，试下</p>
-<p>更多-清除浏览器数据<br>直接from memory cache </p>
-<p>如果设置no-store, 根本没有任何缓存<br>直接请求最新的数据</p>
-<p>no-cache和no-store的区别</p>
-<p>服务端如何真正的做缓存的验证<br>服务器开发设计的细节</p>
-<p>服务端读取完数据：<br>文件上次修改时间设置<br>数据库资源 updated-at  和 收到的 if-modified-since的头对比</p>
-<p>Etag每次在服务端读取数据之后，都做一个签名，跟接受的请求的签名做一个对比。</p>
-<p>服务端开发，利用HTTP协议的特性，去开发一个更好的性能更高的可以缓存数据的HTTP服务</p>
+<h2 id="3-4-缓存头Cache-Control的含义和使用"><a href="#3-4-缓存头Cache-Control的含义和使用" class="headerlink" title="3.4 缓存头Cache-Control的含义和使用"></a>3.4 缓存头Cache-Control的含义和使用</h2><p><strong>Cache-Control</strong>：</p>
+<ol>
+<li><p>可缓存性：<br>public (HTTP经过的任何地方都可以进行缓存)<br>private (只有发起请求的这个浏览器它才可以进行一个缓存)<br>no-cache (任何一个节点都不可以进行一个缓存)</p>
+</li>
+<li><p>到期：<br>max-age=<seconds> (最常用的)<br>s-maxage=<seconds> (s-maxage会代替max-age, 但是只有在代理服务器里面才会生效)<br>max-stale=<seconds> (发起请求这一方，主动去带的一个头，即便缓存已经过期了，但是只要在max-stale这个时间内，它还可以使用过期的缓存，而不需要去原服务器那边请求一个新的内容)</seconds></seconds></seconds></p>
+</li>
+<li><p>重新验证：<br>must-revalidate (在设置max-age的缓存当中，如果它已经过期了，那么我们必须去原服务端去发送这个请求，然后重新获取这个数据,再来验证这个内容是否真的已经过期了, 而不能直接使用本地的缓存)<br>proxy-revalidate (指定缓存服务器必须在过期的时候，必须去原服务器上重新请求一遍,而不能直接使用本地的缓存)</p>
+</li>
+<li><p>其他：<br>no-store (本地和代理服务器都是不可以去存储这个缓存，永远都要去服务端拿新的body的内容，才能使用它)<br>no-transform (主要用在proxy服务器，不允许proxy服务器帮忙压缩转换)</p>
+</li>
+</ol>
+<p>前端开发常见的问题：<br>希望浏览器去缓存我们的静态资源文件，这样下次打开页面速度会非常快。但是又不希望服务端内容更新之后，客户端还是请求的缓存的老的资源。<br>常见的前端解决方案：<br>前端文件打包后，后面加上哈希码。内容不变，哈希码不变，反映到页面上就是url没有变，那么就可以使用静态资源缓存。<br>内容有变化，哈希码有变化，html里的url路径就有变化，发起的请求就是一个新的静态资源请求，而不是之前缓存在浏览器中的静态资源请求，从而达到更新缓存的目的。<br>这也是为什么前端文件打包完成之后，一定要后面加上一串奇怪的码，而且这个码经常会变，这就是我们希望刷新浏览器缓存的方案，也是目前业界通用的方案。</p>
+<h2 id="3-5-缓存验证Last-Modified和Etag的使用"><a href="#3-5-缓存验证Last-Modified和Etag的使用" class="headerlink" title="3.5 缓存验证Last-Modified和Etag的使用"></a>3.5 缓存验证Last-Modified和Etag的使用</h2><p><strong>验证头</strong>：<br>Last-Modified<br>Etag</p>
+<p><strong>Last-Modified</strong>:<br>上次修改时间<br>配合If-Modified-Since或者If-Unmodified-Since使用<br>对比上次修改时间以验证资源是否需要更新</p>
+<p><strong>Etag</strong>:<br>数据签名<br>配合If-Match或者If-Non-Match使用<br>对比资源的签名判断是否使用缓存</p>
 <h2 id="3-6-cookie和session"><a href="#3-6-cookie和session" class="headerlink" title="3.6 cookie和session"></a>3.6 cookie和session</h2><p>Cookie:<br>通过Set-Cookie设置<br>下次请求会自动带上<br>键值对，可以设置多个</p>
-<p>这里听了有点不太明白？？？</p>
-<p>javascript的document.cookie属性去通过js里面去访问cookie的内容<br>安全性 csrf攻击</p>
 <p>Cookie属性：<br>max-age和expires设置过期时间<br>Secure只在https的时候发送<br>HttpOnly无法通过document.cookie访问</p>
-<p>2分 演示cookie的使用方式<br>演示如何通过js去访问cookie的内容<br>console.log(document.cookie)<br>cookie返回的方式</p>
-<p>cookie是可以返回多个的<br>不同的语言写法不一样</p>
-<p>Response Headers里面有两个Set-Cookie 是可以重复的</p>
-<p>Cookie是存在时效的，如果没有设置过期时间，浏览器关闭之后就没有了<br>Request Headers里面就没有Cookie这个东西了</p>
-<p>Cookie是可以设置过期时间的</p>
-<p>过期时间的作用</p>
-<p>max-age和expires是两个不同的写法<br>但是它们的效果都是一样的<br>max-age cookie有效时间是多长<br>expires 到什么时间点过期<br>设置max-age相对比较简单点<br>一般使用max-age</p>
-<p>设置httponly属性</p>
-<p>cookie domain的设置</p>
-<p>cookie有访问域的权限设定的</p>
-<p>通过domain这种方式来设置a.test.com可以访问a.com</p>
-<p>系统映射  Chrome 好的工具 HostAdminApp<br>Host Admin Editor<br>127.0.0.1 a.test.com<br>127.0.0.1 b.test.com<br>127.0.0.1 test.com</p>
-<p>a.test.com:8888 记得端口号 </p>
-<p>更好演示，端口去掉，启动nginx 配置后期会讲</p>
-<p>不同域名之间的cookie是不能共享的</p>
-<p>一级域名下面所有的二级域名都想读到我的cookie怎么办呢？</p>
-<p>Cookie设置domain=xxx.com</p>
-<p>说明一点，不能跨域的设置cookie</p>
-<p>Application-Domain:  .test.com<br>代表test.com下面的所有二级域名，都是可以访问到这个cookie的</p>
-<p>同一个主域名下面，它的二级域名是可以共享一些cookie的<br>注意：如果你要实现二级域名下面所有不同的服务都能够访问到用户的信息，可以使用这种方式。</p>
-<p>cookie和session是不同的，session也有很多种实现方法，不一定要使用cookie来做。只不过在网站的开发当中，最多的最经常用到的就是使用cookie来保存session<br>经常做的方式：把用户登录之后的用户id和session的key，设置到cookie里面</p>
-<p>session的概念 ？？？<br>最后两分钟 17.05分开始</p>
+<p>cookie和session是不同的，session也有很多种实现方法，不一定要使用cookie来做。只不过在网站的开发当中，最多的最经常用到的就是使用cookie来保存session。<br>经常做的方式：把用户登录之后的用户id和session的key，设置到cookie里面。</p>
 <!-- ## 3.3 CORS跨域限制以及预请求验证
 
 ## 3.4 缓存头Cache-Control的含义和使用
@@ -856,7 +808,248 @@ Max-Age 最长时间 单位秒
 
 
 
-## 缓存头Cache-Control的含义和使用
+## 3.4 缓存头Cache-Control的含义和使用
+cache-control的特性
+
+可缓存性：
+public
+private
+no-cache
+
+public HTTP经过的任何地方都可以进行缓存
+private 只有发起请求的这个浏览器它才可以进行一个缓存
+no-cache 任何一个节点都不可以进行一个缓存
+
+到期：  就是这个缓存什么时候到期
+max-age=<seconds>  最常用的
+s-maxage=<seconds>
+s-maxage会代替max-age
+但是只有在代理服务器里面才会生效
+也就是浏览器端浏览器还是会读取max-age作为一个缓存的到期时间
+代理服务器，如果设置了max-age和s-maxage，会读取s-maxage，因为这个配置项是专门为代理服务器去设置的
+max-stale=<seconds> 在max-age过期之后，如果我们返回的这部分资源里面有max-stale这个设置
+max-stale是我们发起请求这一方，主动去带的一个头，即便缓存已经过期了，但是只要在max-stale这个时间内，它还可以使用过期的缓存，而不需要去原服务器那边请求一个新的内容。max-stale在浏览器是用不到的，浏览器在发起请求以及静态资源请求的过程当中，它并不会主动去给我们设置这个头，这个头只有在发起端去设置是有用的。在服务端返回内容中设置它是没有用的
+
+到期：
+max-age=<seconds>
+s-maxage=<seconds>
+max-stale=<seconds> 
+
+重新验证：
+must-revalidate
+在设置max-age的缓存当中，如果它已经过期了，那么我们必须去原服务端去发送这个请求，然后重新获取这个数据。再来验证这个内容是否真的已经过期了。而不能直接使用本地的缓存
+proxy-revalidate 用在缓存服务器当中 指定缓存服务器必须在过期的时候，必须去原服务器上重新请求一遍。而不能直接使用本地的缓存
+这两个头基本上不会用到，在浏览器访问页面的过程中，
+
+重新验证：
+must-revalidate
+proxy-revalidate
+
+其他：
+no-store
+与no-cache进行区分
+no-cache可以在本地进行缓存，可以在proxy服务器进行缓存
+每次发起请求都要去服务器那边验证一下
+如果服务器返回这个请求，告诉你可以使用本地的缓存，然后你才可以真正的使用你本地的缓存
+要经过服务器端的验证的
+如何验证，下一节课
+no-cache：本地可以存缓存，但是缓存要等服务器验证过之后，才可以去使用
+no-store：彻底地，本地和代理服务器都是不可以去存储这个缓存，永远都要去服务端拿新的body的内容，才能使用它。而不能即便服务器返回告诉你可以使用缓存，但是本地根本就没有这个缓存，你不能进行一个缓存
+no-transform：主要用在proxy服务器，不允许proxy服务器帮忙压缩转换
+这些头只是限制性 申明性作用，没有任何强制的约束力  nginx为例 做cache  nginx如何做代理服务器
+
+cache-control设置后的效果
+浏览器基本会用到的配置 public private no-cache max-age s-maxage和max-stale基本用不到
+must-revalidate 可能会用到，但基本不常见
+
+浏览器如何从本地读取缓存的操作：
+代码演示
+size:from memory cache
+服务端已经改了内容，但是客户端没有加载新的内容，因为url没有变，还是从memory cache里面去读
+
+cache-control是个客户端缓存，如果设置了cache-control,直接在客户端缓存，根本不经过服务端的验证
+
+服务端更新了文件之后
+客户端并不知道服务端已经更新了
+
+前端开发常见的问题：
+希望浏览器去缓存我们的静态资源文件，这样下次打开页面速度会非常快
+但是又不希望服务端内容更新之后，客户端还是请求的缓存的老的资源
+
+常见的前端解决方案：
+内容不变，哈希码不变，反映到页面上就是url没有变，那么就可以使用静态资源缓存
+内容有变化，哈希码有变化，html里的url路径就有变化，发起的请求就是一个新的静态资源请求，而不是之前缓存在浏览器中的静态资源请求。 达到更新缓存的目的。
+
+文件为什么打包完成之后，一定要后面加上一串奇怪的码，而且这个码经常会变，这就是我们希望刷新浏览器缓存的方案，也是目前业界通用的方案。
+
+'cache-control': 'max-age=200'
+达到浏览器长缓存的作用
+
+设置非常多的值，逗号分割：
+'cache-control': 'max-age=200， public'
+同样的值，后面会覆盖前面
+不同的值，会产生效果
+
+浏览器缓存相关
+nginx服务器代理的时候，会深入的讲解这方面的知识
+
+
+## 3.5 缓存验证Last-Modified和Etag的使用
+时长15:44分
+
+10:30分看了一次视频
+
+如果给cache-control设置了no-cache, 每次浏览器发起对一个已经设置了cache-control的资源的请求的时候，都会要到服务端去进行一个资源的验证，验证完后，如果确定资源可以使用缓存，才会读取本地缓存。
+资源验证之前先看一张图
+图81
+更好理解，缓存是如何进行一个操作的
+建立在有cache-control这个头的前提下
+浏览器看到的from memory cache的效果
+
+数据如何进行验证
+
+验证头：
+HTTP协议里面主要有两个验证的头
+Last-Modified 
+Etag
+
+验证头：
+Last-Modified 
+Etag
+
+Last-Modified:
+上次修改时间：给资源设置上次是什么时候被修改的
+配合If-Modified-Since或者If-Unmodified-Since使用：如果我们请求资源，请求资源上面返回的头里面有Last-Modified这个头，然后指定了一个时间，这个时间在下次浏览器发起请求的时候，就会带上Last-Modified里面传过来的值。通过If-Modified-Since或者If-Unmodified-Since，通常浏览器都是使用If-Modified-Since。If-Unmodified-Since有这个头，但是很少会被用到。这个请求里面，就会把它带到服务器上面，服务器就可以通过读取header里面的if-Modified-Since的值对比资源存在的地方，然后去对比上次修改的时间。
+如果两个时间一样，资源没修改过。服务器告诉浏览器可以直接使用缓存。
+验证资源能否使用缓存的过程。
+
+Last-Modified:
+上次修改时间
+配合If-Modified-Since或者If-Unmodified-Since使用
+对比上次修改时间以验证资源是否需要更新
+
+Etag:
+更严格的验证
+Etag的验证主要通过数据签名，
+数据签名：我们的资源对它的内容会产生唯一的签名，也就是说如果这个资源的数据进行了一个修改，那么它的签名就会变成一个新的。只要有任何修改，两个签名就会不一样。
+典型：资源内容进行哈希计算。上节静态资源文件名后面加上哈希值。用这个签名来标记这个资源。
+下次浏览器发起请求的时候，就会带上If-Match或者If-Non-Match这个头，这个头里面的值就是服务端返回过来的Etag的值，然后对比这两个服务器拿到的浏览器传过来的头之后，就可以对比现在服务器存在的资源的签名，以及浏览器传过来的签名，如果这两个是相同的，就不需要返回一个新的内容。
+Etag:
+数据签名
+配合If-Match或者If-Non-Match使用
+对比资源的签名判断是否使用缓存
+
+正式环境使用这两个头 演示
+
+希望下次请求还是到服务端，使用no-cache,虽然设置了cache-control里的max-age,浏览器可以缓存。使用no-cache,下次发送请求还是要经过服务器验证，不能直接使用缓存。
+
+Request-Headers带了一个头： If-Modified-Since/If-None-Match
+
+304的语义就是not-modified,资源没有修改，可以直接读缓存，直接忽略服务端返回的body里的内容，直接读缓存里面保存的数据，
+
+chrome disabled-cache的作用
+
+把no-cache去掉，试下
+
+更多-清除浏览器数据
+直接from memory cache 
+
+如果设置no-store, 根本没有任何缓存
+直接请求最新的数据
+
+no-cache和no-store的区别
+
+服务端如何真正的做缓存的验证
+服务器开发设计的细节
+
+服务端读取完数据：
+文件上次修改时间设置
+数据库资源 updated-at  和 收到的 if-modified-since的头对比
+
+Etag每次在服务端读取数据之后，都做一个签名，跟接受的请求的签名做一个对比。
+
+服务端开发，利用HTTP协议的特性，去开发一个更好的性能更高的可以缓存数据的HTTP服务
+
+
+## 3.6 cookie和session
+Cookie:
+通过Set-Cookie设置
+下次请求会自动带上
+键值对，可以设置多个
+
+这里听了有点不太明白？？？
+
+javascript的document.cookie属性去通过js里面去访问cookie的内容
+安全性 csrf攻击
+
+Cookie属性：
+max-age和expires设置过期时间
+Secure只在https的时候发送
+HttpOnly无法通过document.cookie访问
+
+2分 演示cookie的使用方式
+演示如何通过js去访问cookie的内容
+console.log(document.cookie)
+cookie返回的方式
+
+cookie是可以返回多个的
+不同的语言写法不一样
+
+Response Headers里面有两个Set-Cookie 是可以重复的
+
+Cookie是存在时效的，如果没有设置过期时间，浏览器关闭之后就没有了
+Request Headers里面就没有Cookie这个东西了
+
+Cookie是可以设置过期时间的
+
+过期时间的作用
+
+max-age和expires是两个不同的写法
+但是它们的效果都是一样的
+max-age cookie有效时间是多长
+expires 到什么时间点过期
+设置max-age相对比较简单点
+一般使用max-age
+
+设置httponly属性
+
+cookie domain的设置
+
+cookie有访问域的权限设定的
+
+通过domain这种方式来设置a.test.com可以访问a.com
+
+系统映射  Chrome 好的工具 HostAdminApp
+Host Admin Editor
+127.0.0.1 a.test.com
+127.0.0.1 b.test.com
+127.0.0.1 test.com
+
+a.test.com:8888 记得端口号 
+
+
+更好演示，端口去掉，启动nginx 配置后期会讲
+
+不同域名之间的cookie是不能共享的
+
+一级域名下面所有的二级域名都想读到我的cookie怎么办呢？
+
+Cookie设置domain=xxx.com
+
+说明一点，不能跨域的设置cookie
+
+Application-Domain:  .test.com
+代表test.com下面的所有二级域名，都是可以访问到这个cookie的
+
+同一个主域名下面，它的二级域名是可以共享一些cookie的
+注意：如果你要实现二级域名下面所有不同的服务都能够访问到用户的信息，可以使用这种方式。
+
+
+cookie和session是不同的，session也有很多种实现方法，不一定要使用cookie来做。只不过在网站的开发当中，最多的最经常用到的就是使用cookie来保存session
+经常做的方式：把用户登录之后的用户id和session的key，设置到cookie里面
+
+session的概念 ？？？
+最后两分钟 17.05分开始
 
 
 
