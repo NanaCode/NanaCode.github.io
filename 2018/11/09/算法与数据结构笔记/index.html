@@ -143,7 +143,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/14/5bebe320ab83f.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/14/5bebe332b0d41.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/14/5bebe34d0cb0b.png">
-<meta property="og:updated_time" content="2018-11-14T08:57:40.632Z">
+<meta property="og:updated_time" content="2018-11-14T09:04:47.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法和数据结构笔记">
 <meta name="twitter:description" content="一、当我们谈论算法的时候，我们在谈论什么？ 为什么要学习算法？ 因为算法无处不在。编译器；搜索引擎；智能语音；推荐算法；动画；影视特效后期制作；游戏；围棋程序；无人车；通过摄像头看绘制效果；压缩工具；数据库；性能优化等等。我们每天都在接触算法，学好算法，才能创造出更有意义的东西。学习路径：线性（路径）–&amp;gt; 树形结构 –&amp;gt; 图形结构 每个细分领域都是算法：图形学   操作系统图像学">
@@ -478,7 +478,10 @@
 <p>为了进一步说明效果，创建新的生成随机数组的方法用来生成一个近乎于有序的随机数组。<br>生成一个近乎于有序的随机数组的函数如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe30003092.png" alt="生成近乎于有序随机数组函数" title="生成近乎于有序随机数组函数"><br>测试代码如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe31a0993c.png" alt="测试代码" title="测试代码"><br>测试结果如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe320ab83f.png" alt="测试结果" title="测试结果"><br>测试结果表明：<br>对于一个近乎有序的数组来说，插入排序的性能要远远优于选择排序。</p>
 <p>为了让数组的有序性更强一些，将测试的交换元素对数减少一些。<br>测试代码如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe332b0d41.png" alt="测试代码" title="测试代码"><br>测试结果如下所示：<br><img src="https://i.loli.net/2018/11/14/5bebe34d0cb0b.png" alt="测试结果" title="测试结果"><br>测试结果表明：<br>数组越趋向于有序，插入排序的性能将更好。<br>事实上，插入排序对于近乎于有序的数组，这么快的排序速度这个性能甚至比O(nlogn)级别的排序算法还要快。</p>
 <p>插入排序的实际意义：<br>很多时候，我们处理的真实数据就是近乎有序的。比如一套系统的日志，从道理上生成就是按照时间序生成的。但有可能在中间产生了一些错误或者某些任务时间过长，所以存在几个无序的元素。对于这样的系统日志，其实使用插入排序进行排序，性能会更好。<br>在最优的情况下，也就是说当我们要排序的内容是一个完全有序的数组的时候，插入排序将变成一个O(n)级别的算法，也就是在内层循环，每一次都执行一下。发现当前位置就是合适的位置，直接结束内层循环进入了下一次循环，这是插入排序非常重要的一个性质。也正是这个原因，插入排序也会在更加复杂的排序算法中作为一个子过程来进行优化。</p>
-<!-- ## 2.7 更多关于O(n^2)排序算法的思考 -->
+<h2 id="2-7-更多关于O-n-2-排序算法的思考"><a href="#2-7-更多关于O-n-2-排序算法的思考" class="headerlink" title="2.7 更多关于O(n^2)排序算法的思考"></a>2.7 更多关于O(n^2)排序算法的思考</h2><p>选择排序(Selection Sort):<br>选择排序的思想非常简单，但是缺点也很明显。<br>对于任何数组，选择排序两层循环，每一层循环都必须完全的执行完成。因此，选择排序的效率在任何情况下都是非常慢的。</p>
+<p>插入排序(Insertion Sort):<br>插入排序，虽然它的最差时间复杂度也是O(n^2)级别的，但是在数组近乎有序的情况下，插入排序的性能非常高，甚至比O(nlogn)级别的排序算法性能还要高。这使得插入排序有着非常重要的实际意义。<br>对插入排序的深入理解，也告诉我们O(n^2)级别的排序算法并非一无是处。<br>对于近乎有序的数组，插入排序的效率相对比较高。</p>
+<p>冒泡排序(Bubble Sort):<br>冒泡排序的性能，整体没有插入排序好，不会过多的用这种排序算法。</p>
+<p>希尔排序(BShell Sort):<br>插入排序中，每一次都和之前的一个元素进行比较。而希尔排序尝试每次和之前第h个元素进行比较。这样下来，通过将h从一个很大的值逐渐缩小到1，一步一步的将一个完全无序的数组，变成近乎有序的数组，变成有序性更强的数组。到最后，当h等于1的时候，最终变成了一个排好序的数组。这个过程使得整个算法的时间复杂度发生了质变。但是希尔排序的时间复杂度分析相对是比较难的，我们选择不同的让h逐渐递减的序列，它的排序的复杂度也是不同的。</p>
 <!-- # 三、高级排序算法
 ## 3.1 归并排序法 - Merge Sort
 ## 3.2 归并排序法的实现
@@ -939,7 +942,7 @@ Insertion Sort 插入排序
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、当我们谈论算法的时候，我们在谈论什么？"><span class="nav-text">一、当我们谈论算法的时候，我们在谈论什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、排序基础"><span class="nav-text">二、排序基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-选择排序法-Selection-Sort"><span class="nav-text">2.1 选择排序法 - Selection Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-使用模板（泛型）编写算法"><span class="nav-text">2.2 使用模板（泛型）编写算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-随机生成算法测试用例"><span class="nav-text">2.3 随机生成算法测试用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-测试算法的性能"><span class="nav-text">2.4 测试算法的性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-插入排序法-Insertion-Sort"><span class="nav-text">2.5 插入排序法 - Insertion Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-插入排序法的改进"><span class="nav-text">2.6 插入排序法的改进</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、当我们谈论算法的时候，我们在谈论什么？"><span class="nav-text">一、当我们谈论算法的时候，我们在谈论什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、排序基础"><span class="nav-text">二、排序基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-选择排序法-Selection-Sort"><span class="nav-text">2.1 选择排序法 - Selection Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-使用模板（泛型）编写算法"><span class="nav-text">2.2 使用模板（泛型）编写算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-随机生成算法测试用例"><span class="nav-text">2.3 随机生成算法测试用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-测试算法的性能"><span class="nav-text">2.4 测试算法的性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-插入排序法-Insertion-Sort"><span class="nav-text">2.5 插入排序法 - Insertion Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-插入排序法的改进"><span class="nav-text">2.6 插入排序法的改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-更多关于O-n-2-排序算法的思考"><span class="nav-text">2.7 更多关于O(n^2)排序算法的思考</span></a></li></ol></li></ol></div>
             
 
           </div>
