@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2e01675426.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2e0334fe31.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/08/5be42b43290ed.png">
-<meta property="og:updated_time" content="2018-11-14T09:29:03.978Z">
+<meta property="og:updated_time" content="2018-11-14T09:35:58.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP协议原理加实战笔记">
 <meta name="twitter:description" content="一、导学Cache-Control设置:基本：max-age=100;设置public、private控制只能在客户端进行缓存，还是可以通过代理服务器进行缓存;设置must-revalidate,在缓存过期之后，必须到服务端验证过之后，才能继续使用缓存;设置no-cache、no-store控制我们是否使用缓存。 缓存验证:last-modified配合if-modified-since;etag">
@@ -464,8 +464,8 @@
 <h2 id="3-5-缓存验证Last-Modified和Etag的使用"><a href="#3-5-缓存验证Last-Modified和Etag的使用" class="headerlink" title="3.5 缓存验证Last-Modified和Etag的使用"></a>3.5 缓存验证Last-Modified和Etag的使用</h2><p><strong>验证头</strong>：<br>Last-Modified<br>Etag</p>
 <p><strong>Last-Modified</strong>:<br>上次修改时间<br>配合If-Modified-Since或者If-Unmodified-Since使用<br>对比上次修改时间以验证资源是否需要更新</p>
 <p><strong>Etag</strong>:<br>数据签名<br>配合If-Match或者If-Non-Match使用<br>对比资源的签名判断是否使用缓存</p>
-<h2 id="3-6-cookie和session"><a href="#3-6-cookie和session" class="headerlink" title="3.6 cookie和session"></a>3.6 cookie和session</h2><p>Cookie:<br>通过Set-Cookie设置<br>下次请求会自动带上<br>键值对，可以设置多个</p>
-<p>Cookie属性：<br>max-age和expires设置过期时间<br>Secure只在https的时候发送<br>HttpOnly无法通过document.cookie访问</p>
+<h2 id="3-6-cookie和session"><a href="#3-6-cookie和session" class="headerlink" title="3.6 cookie和session"></a>3.6 cookie和session</h2><p><strong>Cookie</strong>:<br>通过Set-Cookie设置<br>下次请求会自动带上<br>键值对，可以设置多个</p>
+<p><strong>Cookie属性</strong>：<br>max-age和expires设置过期时间<br>Secure只在https的时候发送<br>HttpOnly无法通过document.cookie访问</p>
 <p>cookie和session是不同的，session也有很多种实现方法，不一定要使用cookie来做。只不过在网站的开发当中，最多的最经常用到的就是使用cookie来保存session。<br>经常做的方式：把用户登录之后的用户id和session的key，设置到cookie里面。</p>
 <!-- ## 3.3 CORS跨域限制以及预请求验证
 

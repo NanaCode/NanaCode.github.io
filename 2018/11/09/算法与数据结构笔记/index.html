@@ -143,7 +143,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/14/5bebe320ab83f.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/14/5bebe332b0d41.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/14/5bebe34d0cb0b.png">
-<meta property="og:updated_time" content="2018-11-14T09:23:41.918Z">
+<meta property="og:updated_time" content="2018-11-18T02:16:43.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法和数据结构笔记">
 <meta name="twitter:description" content="一、当我们谈论算法的时候，我们在谈论什么？ 为什么要学习算法？ 因为算法无处不在。编译器；搜索引擎；智能语音；推荐算法；动画；影视特效后期制作；游戏；围棋程序；无人车；通过摄像头看绘制效果；压缩工具；数据库；性能优化等等。我们每天都在接触算法，学好算法，才能创造出更有意义的东西。学习路径：线性（路径）–&amp;gt; 树形结构 –&amp;gt; 图形结构 每个细分领域都是算法：图形学   操作系统图像学">
@@ -749,6 +749,18 @@ Insertion Sort 插入排序
 希尔排序的排序过程，并且亲自的去实现它，如果大家真正的理解了希尔排序的过程，会发现它的思想和插入排序法是一脉相承的。
 老师的实现中使用了一个非常常用的让h递减的这样一个序列，这种情况下希尔排序的时间复杂度能达到n的2分之3次方这样的一个级别，相较而言，它比on方级别的排序算法改进了非常的多。希尔排序本身也是一个非常实用的方法，这是因为它的时间复杂度比on方要低，虽然比nlogn要高一些，不过它的实现相对比较简单，所以在某些环境下，使用希尔排序会是一种首选。对于排序，它的最优的时间复杂度都是onlogn这个级别的。
 必须更加深入的理解onlogn这个级别的排序算法。 -->
+<h2 id="3-1-归并排序法-Merge-Sort"><a href="#3-1-归并排序法-Merge-Sort" class="headerlink" title="3.1 归并排序法 - Merge Sort"></a>3.1 归并排序法 - Merge Sort</h2><p>时长12.36分<br>O(n*log n)的排序算法 为什么会有个空格？</p>
+<p>测试用例数据量太小，造成的问题<br>nlogn比n^2快多少？图11<br>6000倍是什么概念？如果我们处理一个数据集，nlogn算法要处理一天的话，n^2就要处理6020天，基本上是十五年。<br>注意：实际设置算法的时候，可能nlogn和n^2前面可能会有个常数，可能nlogn前面的常数大一些，可能n^2前面的常数小一些。但是随着n逐渐增大，这个常数可能会越来越小。<br>因此整体上，我们会说nlogn比n^2的算法要快，并且随着n的逐渐变大，它的速度优势将越来越明显。<br>学习算法课程的意义，一个优化改进过的算法，可能一个笨的算法一辈子的时间都算不完。</p>
+<p>归并排序法 Merge sort</p>
+<p>动画演示<br>先分半再归并 图22<br>分到一定细度，每个部分就只有一个元素了<br>不用排序，简单的归并就好了，归并到上一层级之后，进一步归并，归并到更高的层级，直至归并到最后一层的时候，整个数组全部有序了。<br>这就是归并排序的基本思想。</p>
+<p>一层一层的下来，一共分成了三级。 图33<br>8个元素，每次2分，这样下来经过三次除以2的计算，每一部分就只剩下一个元素了。<br>log以2为底，8等于3<br>如果是n个元素，一共有log(N)这样的一个层级。<br>如果结果浮点数，只要上取整就好了。</p>
+<p>每层处理的元素的个数是一样的。如果整个归并过程可以O(n)的时间复杂度来解决的话，那么我们就设计出了N log(N)级别的算法。</p>
+<p>这也是N log(N)这个时间复杂度算法的一个主要的来源。<br>通常是通过2分法，达到了log(N)这样的层级。<br>之后每一层级，用O(n)级别的算法来做事情。</p>
+<p>问题变成：能不能将整个数组划分成两部分，之后这两部分都分别排好序以后，使用O(n)的算法，将他们归并到一起，形成一个新的有序的数组呢。如果可以，就可以使用递归的过程，来完成整个排序。<br>答案：可以</p>
+<p>看起来简单，真正操作起来并没有那么简单的一个问题。</p>
+<p>需要开辟一个同样大小的临时空间，来辅助我们完成这个归并算法。<br>归并排序的缺点。比选择排序 插入排序，多使用了存储的空间。<br>现在计算机，时间的效率比空间的效率重要。内存硬盘变得越来越廉价。<br>这种情况下，设计算法优先考虑时间复杂度。</p>
+<p>怎么利用这个辅助空间把两个已经排好序的数组合并成一个排序的数组呢。<br>使用三个索引在数组内进行追踪。学习到7点45分这里。</p>
+
       
     </div>
     
@@ -942,7 +954,7 @@ Insertion Sort 插入排序
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、当我们谈论算法的时候，我们在谈论什么？"><span class="nav-text">一、当我们谈论算法的时候，我们在谈论什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、排序基础"><span class="nav-text">二、排序基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-选择排序法-Selection-Sort"><span class="nav-text">2.1 选择排序法 - Selection Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-使用模板（泛型）编写算法"><span class="nav-text">2.2 使用模板（泛型）编写算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-随机生成算法测试用例"><span class="nav-text">2.3 随机生成算法测试用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-测试算法的性能"><span class="nav-text">2.4 测试算法的性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-插入排序法-Insertion-Sort"><span class="nav-text">2.5 插入排序法 - Insertion Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-插入排序法的改进"><span class="nav-text">2.6 插入排序法的改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-更多关于O-n-2-排序算法的思考"><span class="nav-text">2.7 更多关于O(n^2)排序算法的思考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、当我们谈论算法的时候，我们在谈论什么？"><span class="nav-text">一、当我们谈论算法的时候，我们在谈论什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、排序基础"><span class="nav-text">二、排序基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-选择排序法-Selection-Sort"><span class="nav-text">2.1 选择排序法 - Selection Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-使用模板（泛型）编写算法"><span class="nav-text">2.2 使用模板（泛型）编写算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-随机生成算法测试用例"><span class="nav-text">2.3 随机生成算法测试用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-测试算法的性能"><span class="nav-text">2.4 测试算法的性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-插入排序法-Insertion-Sort"><span class="nav-text">2.5 插入排序法 - Insertion Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-插入排序法的改进"><span class="nav-text">2.6 插入排序法的改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-更多关于O-n-2-排序算法的思考"><span class="nav-text">2.7 更多关于O(n^2)排序算法的思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-归并排序法-Merge-Sort"><span class="nav-text">3.1 归并排序法 - Merge Sort</span></a></li></ol></li></ol></div>
             
 
           </div>
